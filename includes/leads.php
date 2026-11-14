@@ -101,7 +101,19 @@ function pss_handle_lead() {
 		. "Interested in: $label\nOrganisation: {$d['org']}\nName: {$d['name']}\nPhone: {$d['phone']}\nEmail: {$d['email']}\nTown: {$d['town']}\nPreferred time: {$d['when']}\n\nMessage:\n{$d['message']}\n\n"
 		. 'All requests: ' . admin_url( 'edit.php?post_type=pss_lead' );
 	$headers = $d['email'] ? array( 'Reply-To: ' . $d['name'] . ' <' . $d['email'] . '>' ) : array();
-	wp_mail( $to, 'Demo request: ' . $label . ' — ' . $d['name'], $body, $headers );
+	// The visitor always gets the thank-you page, even if the server cannot send email.
+	$fail = function ( $e ) {
+		update_option( 'pss_mail_error', gmdate( 'Y-m-d H:i' ) . ' UTC: ' . ( is_wp_error( $e ) ? $e->get_error_message() : $e ), false );
+	};
+	add_action( 'wp_mail_failed', $fail );
+	try {
+		if ( wp_mail( $to, 'Demo request: ' . $label . ' — ' . $d['name'], $body, $headers ) ) {
+			delete_option( 'pss_mail_error' );
+		}
+	} catch ( \Throwable $e ) {
+		$fail( $e->getMessage() );
+	}
+	remove_action( 'wp_mail_failed', $fail );
 	wp_safe_redirect( add_query_arg( 'sent', '1', $back ) . '#pss-form' );
 	exit;
 }
@@ -214,3 +226,16 @@ function pss_render_nested_forms( $html ) {
 	);
 }
 add_filter( 'the_content', 'pss_render_nested_forms', 20 );
+
+/* Tell the team when request emails are not going out, so requests are read here instead. */
+add_action(
+	'admin_notices',
+	function () {
+		$err = get_option( 'pss_mail_error' );
+		if ( ! $err || ! current_user_can( 'edit_posts' ) ) {
+			return;
+		}
+		echo '<div class="notice notice-warning"><p><strong>Demo request emails are not being sent.</strong> Every request is still saved under <a href="' . esc_url( admin_url( 'edit.php?post_type=pss_lead' ) ) . '">Demo requests</a>. Connect an SMTP mailbox to fix email. Last error: ' . esc_html( $err ) . '</p></div>';
+	}
+);
+
