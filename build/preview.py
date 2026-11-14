@@ -63,7 +63,7 @@ def placeholder(name):
 
 
 FORM = '''<form class="tf" id="pss-form"><label>What would you like to see?<select name="product"><option>Pentarch MediCore (health facilities)</option><option>Pentarch POS (point of sale)</option><option>Something else</option></select></label>
-<label>Organisation or business name<input name="org" placeholder="e.g. Upendo Pharmacy"></label>
+<label>Organisation or business name<input name="org" placeholder="e.g. Your organisation"></label>
 <div class="r2"><label>Your name<input name="name"></label><label>Phone or WhatsApp<input name="phone" inputmode="tel"></label></div>
 <label>When suits you?<select name="when"><option>This week</option><option>Next week</option></select></label>
 <label>Anything we should know?<textarea name="message"></textarea></label><div class="hp"><input name="website"></div><div class="err"></div>

@@ -253,5 +253,5 @@ def live_edit():
         ("What happens to forms and dynamic parts?", "They are placed as shortcodes inside the design and keep working while you edit the text around them."),
     ])
     faq_s = section(f'<div class="split">{head("Questions about Live Edit")}{faqs}</div>')
-    cta = lead_section("website", "Talk about my website", "Want a site you can edit yourself?", "Tell us about your organisation. We design and build it, then hand you the keys with Live Edit inside.", ["A design of its own, not a template", "Training for the people who will edit it", "Support after handover"])
+    cta = lead_section("liveedit", "Talk about my website", "Want a site you can edit yourself?", "Tell us about your organisation. We design and build it, then hand you the keys with Live Edit inside.", ["A design of its own, not a template", "Training for the people who will edit it", "Support after handover"])
     return page("live-edit", hero + caps_s + tryit + how + sites_s + faq_s + cta)

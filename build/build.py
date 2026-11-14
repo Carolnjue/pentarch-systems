@@ -19,8 +19,8 @@ PAGES = [
 ]
 PRODUCTS = [("medicore", "Pentarch MediCore (pharmacy, clinic or hospital)"), ("pos", "Pentarch POS (shops and businesses)"),
             ("portal", "Pentarch Portal (school or college)"), ("beautysuite", "Pentarch BeautySuite (salon or spa)"),
-            ("learning", "Courses and learning system"), ("simlab", "Pentarch SimLab for my students"), ("ngo", "Pentarch EduSponsor (education sponsorship)"),
-            ("qr", "Pentarch QR Analytics for a campaign"), ("website", "A new website or a website revamp"), ("data", "Dashboards and StoryMaps"),
+            ("learning", "Courses and learning system"), ("simlab", "Pentarch SimLab (virtual labs for courses)"), ("ngo", "Pentarch EduSponsor (education sponsorship)"),
+            ("qr", "Pentarch QR Analytics (campaigns and print)"), ("liveedit", "Pentarch Live Edit (edit my site on the page)"), ("website", "A new website or a website revamp"), ("interactive", "Interactive or 3D experience"), ("data", "Dashboards and StoryMaps"),
             ("custom", "A custom system"), ("agent", "I want to become a sales agent"), ("other", "Something else")]
 
 

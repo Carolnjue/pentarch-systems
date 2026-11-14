@@ -13,10 +13,12 @@ function pss_products() {
 		'portal' => 'Pentarch Portal (school or college)',
 		'beautysuite' => 'Pentarch BeautySuite (salon or spa)',
 		'learning' => 'Courses and learning system',
-		'simlab' => 'Pentarch SimLab for my students',
+		'simlab' => 'Pentarch SimLab (virtual labs for courses)',
 		'ngo' => 'Pentarch EduSponsor (education sponsorship)',
-		'qr' => 'Pentarch QR Analytics for a campaign',
+		'qr' => 'Pentarch QR Analytics (campaigns and print)',
+		'liveedit' => 'Pentarch Live Edit (edit my site on the page)',
 		'website' => 'A new website or a website revamp',
+		'interactive' => 'Interactive or 3D experience',
 		'data' => 'Dashboards and StoryMaps',
 		'custom' => 'A custom system',
 		'agent' => 'I want to become a sales agent',
@@ -128,7 +130,8 @@ add_shortcode(
 			$o .= '<option value="' . esc_attr( $k ) . '"' . selected( $sel, $k, false ) . '>' . esc_html( $v ) . '</option>';
 		}
 		$o .= '</select></label>';
-		$o .= '<label>Organisation or business<input name="org" placeholder="e.g. Afya Bora Chemist" autocomplete="organization"></label>';
+		$eg = array( 'medicore' => 'Afya Bora Chemist', 'pos' => 'Mama Njeri Supermarket', 'portal' => 'Machakos Training College', 'beautysuite' => 'Glow Salon and Spa', 'learning' => 'Kilimani Training Centre', 'simlab' => 'Rift Valley Technical College', 'ngo' => 'Hope for Children Trust', 'qr' => 'Green Valley Campaign' );
+		$o .= '<label>Organisation or business<input name="org" placeholder="e.g. ' . esc_attr( $eg[ $sel ] ?? 'Your organisation' ) . '" autocomplete="organization"></label>';
 		$o .= '<div class="r2"><label>Your name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" required inputmode="tel" placeholder="07…" autocomplete="tel"></label></div>';
 		$o .= '<div class="r2"><label>Email (optional)<input name="email" type="email" autocomplete="email"></label><label>Town<input name="town" placeholder="e.g. Nairobi"></label></div>';
 		$o .= '<label>Best time for a demo<select name="when"><option>Any weekday</option><option>Weekday morning</option><option>Weekday afternoon</option><option>Saturday</option></select></label>';

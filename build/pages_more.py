@@ -129,7 +129,7 @@ def labs():
             ("Course planner", "Glamourvine College", "Matches a visitor to a course and shows what it involves.", "https://glamourvinecollege.com/", "school")]
     p = "".join(f'<article class="tool tool-l">{ic(i)}<p class="mono">{c}</p><h3>{n}</h3><p>{d}</p><a href="{u}" target="_blank" rel="noopener">Open it{ic("ne")}</a></article>' for n, c, d, u, i in plan)
     plan_s = section(head("Planners and checklists on client sites", "Small tools that turn a visitor into an enquiry.") + f'<div class="tools">{p}</div>', sid="planners", tone="white")
-    cta = lead_section("custom", "Talk about my idea", "Want something interactive?", "Simulations, 3D, calculators or games: tell us what you want people to understand or do.", ["Runs in an ordinary browser", "Light enough for phones", "Built and hosted by us"])
+    cta = lead_section("interactive", "Talk about my idea", "Want something interactive?", "Simulations, 3D, calculators or games: tell us what you want people to understand or do.", ["Runs in an ordinary browser", "Light enough for phones", "Built and hosted by us"])
     return page("labs", hero + showroom + engine + play + parts + tools_s + plan_s + cta)
 
 
