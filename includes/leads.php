@@ -135,7 +135,7 @@ add_shortcode(
 		$o .= '<div class="r2"><label>Your name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" required inputmode="tel" placeholder="07…" autocomplete="tel"></label></div>';
 		$o .= '<div class="r2"><label>Email (optional)<input name="email" type="email" autocomplete="email"></label><label>Town<input name="town" placeholder="e.g. Nairobi"></label></div>';
 		$o .= '<label>Best time for a demo<select name="when"><option>Any weekday</option><option>Weekday morning</option><option>Weekday afternoon</option><option>Saturday</option></select></label>';
-		$o .= '<label>Tell us a little about what you need (optional)<textarea name="message" rows="4" placeholder="Number of branches, staff or students, what you use today…"></textarea></label>';
+		$o .= '<label>What do you need? (optional)<textarea name="message" rows="4" placeholder="Number of branches, staff or students, what you use today…"></textarea></label>';
 		$o .= '<div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>';
 		$o .= '<button class="go" type="submit">' . esc_html( $a['button'] ) . ' ' . pss_icon( 'arrow' ) . '</button>';
 		$o .= '<p style="font-size:13px;color:var(--mute);text-align:center">We reply within one working day. Your details are only used to arrange your demo.</p>';
