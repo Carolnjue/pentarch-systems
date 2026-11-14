@@ -13,6 +13,7 @@ function pss_pages() {
 		'products' => 'Products',
 		'medicore' => 'Pentarch MediCore',
 		'pos' => 'Pentarch POS',
+		'complyscope' => 'ComplyScope Kenya',
 		'portal' => 'Pentarch Portal',
 		'beautysuite' => 'Pentarch BeautySuite',
 		'learning' => 'Courses and Learning',

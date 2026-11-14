@@ -300,3 +300,54 @@ def qr():
 {terminal("qr analytics · sample data", [("cmd", "campaign: market poster"), ("row", '<b>scans</b><span>2,418</span>'), ("row", '<b>unique devices</b><span>1,932</span>'), ("row", '<b>countries</b><span>6</span>'), ("ok", "report ready: CSV, Excel, PDF")])}</div>''', tone="ink2")
     cta = lead_section("qr", "Book a demo", "Track your next campaign", "Tell us about the campaign and how many codes you need.", ["Codes for each placement", "Reports for your clients", "No obligation"])
     return page("qr-analytics", hero + feats + how + built + cta)
+
+
+# ============================================================== COMPLYSCOPE
+CS = "https://complyscope.pentarchsystemssolutions.co.ke"
+
+
+def complyscope():
+    hero = f'''<section class="hero hero-cs t-paper"><div class="wrap hero-2">
+<div>{crumb(("Products", "/products/"), "ComplyScope Kenya")}<p class="hs-k">{ic("shield")}ComplyScope Kenya · business compliance</p>
+<h1>Never miss a filing, permit or renewal in Kenya.</h1>
+<p class="hero-p">ComplyScope maps the registrations, permits, payroll remittances and tax filings that apply to a Kenyan business, national and county, works out every due date and keeps a dossier ready for inspectors, lenders and auditors.</p>
+<div class="btns">{btn(CS + "/#dashboard", "Try the live dashboard", "p", "ne", True)}{btn(CS + "/signup", "Add your business, free", "g", "ne", True)}</div>
+<ul class="hero-facts"><li>{ic("map")}All 47 counties</li><li>{ic("shield")}KRA, SHA, NSSF, NITA, BRS, ODPC and DOSH</li><li>{ic("star")}Free during the pilot</li></ul></div>
+{duo("cs-overview", "ComplyScope workspace overview with compliance score", "cs-obligation", "ComplyScope obligation detail for the VAT return")}</div></section>'''
+    mods = [("users", "Business profiler", "A ten-minute intake maps legal form, branches and counties, staff, turnover, sector and data use to the obligations that apply."),
+            ("layers", "Obligation mapping", "National, county and sector obligations, each showing why it applies, the authority and the official source."),
+            ("chart", "Gap analysis and score", "Every obligation marked in place, due soon, overdue or not recorded, with the next step and a score out of 100."),
+            ("cal", "Deadline tracking", "Due dates worked out from the rules and moved off weekends and public holidays, with calendar links and CSV."),
+            ("check", "Filing log", "Each filing, payment and renewal recorded with its iTax acknowledgement or M-Pesa reference and evidence."),
+            ("print", "Dossier on demand", "A dated report of the profile, obligations, filings and documents, printed or saved as PDF.")]
+    m = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d in mods)
+    mods_s = section(head("Six modules, one compliance view", "From KRA iTax to the county permit office, every layer for every branch in one place.") + f'<ul class="caps caps-3">{m}</ul>', sid="features", tone="white")
+    tour_s = section(head("Inside ComplyScope", "Shown as it runs for Zingira Pesa Ltd, a Nairobi company. Every screen below is the real system.", "real screens") + tour("cs", [
+        ("cs-intake", "Add your business", "Answer what you can; \"not sure\" is always allowed and everything can change later.", ""),
+        ("cs-overview", "Score and what to do next", "The share of obligations in order, what is overdue or due in 14 days, and the next 30 days.", ""),
+        ("cs-obligation", "Why each item applies", "Authority, frequency, what to do, the penalty if late, the official source, and a form to mark it filed.", ""),
+        ("cs-obligations", "Every obligation, filtered", "All obligations by status, for the whole business or one location.", ""),
+        ("cs-deadlines", "The next 120 days", "Every date in order, with Mark filed, Google Calendar links and CSV.", ""),
+        ("cs-filing-log", "Filing log", "Each filing and payment with its date, period and reference.", ""),
+        ("cs-dossier", "Compliance dossier", "A dated report ready to print or save as PDF for an inspection or a loan application.", "")], "tour-d"), sid="screens", tone="ink2")
+    guard = [("lock", "Never files for you", "Nothing is submitted to KRA, BRS, SHA, NSSF or a county portal. You file, then record the reference."),
+             ("search", "Every item cites its source", "Each obligation shows why it applies, the authority and a link to the law or official portal."),
+             ("shield", "Nothing assumed compliant", "Anything without a record or a date is flagged and lowers the score until you confirm it."),
+             ("users", "Roles for the team", "Owners manage the business and team, editors record filings and documents, viewers can only look.")]
+    gd = "".join(f'<li>{ic(i)}<div><h3>{t}</h3><p>{d}</p></div></li>' for i, t, d in guard)
+    guard_s = section(f'''<div class="split">{head("It tracks and reminds. You decide and file.", "ComplyScope is advisory tracking, not legal or tax advice. Rules and dates come from official sources and are being reviewed by a professional during the pilot.")}
+<ul class="roles">{gd}</ul></div>''', tone="ink")
+    counties = section(f'''<div class="split">{head("Permits in all 47 counties", "Add each branch with its county and ComplyScope tracks its permit and renewal. The county guide shows the permit name, where to apply and pay, and how long it lasts.")}
+<div>{shot("cs-counties", "ComplyScope county permit guide", "shot-n", "complyscope.pentarchsystemssolutions.co.ke/counties")}<div class="btns">{btn(CS + "/counties", "Open the county guide", "d", "ne", True)}</div></div></div>''', tone="white")
+    how = section(head("From sign-up to audit-ready") + steps([("Profile the business", "Legal form, branches and counties, staff, turnover, sector and data use."),
+                                                              ("Get the gap report", "Every obligation scored, with its status, due date and next step."),
+                                                              ("Stay ahead of dates", "Mark filings with references, add dates to your calendar and invite your accountant."),
+                                                              ("Be audit-ready", "Export the dossier whenever KRA, BRS or a county inspector asks.")]))
+    faqs = section(f'''<div class="split">{head("Questions about ComplyScope")}{faq([
+        ("Does ComplyScope file returns for us?", "No. It tells you what is due and when, and keeps the record. You or your accountant file on iTax or the county portal, then record the reference."),
+        ("Which obligations does it cover?", "Business registration and annual returns, KRA taxes including VAT, PAYE and instalment tax, SHA, NSSF, NITA and the Housing Levy, ODPC registration, DOSH workplace rules, county permits and sector licences."),
+        ("We have branches in several counties. Does that work?", "Yes. Add each location with its county; each one gets its own permit and renewal dates."),
+        ("Can our accountant use it with us?", "Yes. Invite them as an editor to record filings, or as a viewer to see everything without changing it."),
+        ("Is our data private?", "Each business is visible only to the people its owner invites. Documents stay private to the team and are listed in the dossier.")])}</div>''', tone="paper")
+    cta = lead_section("complyscope", "Book a demo", "See your own compliance score", "Tell us about your business and its branches. We will walk you through ComplyScope with your obligations.", ["National and county obligations", "Free during the pilot", "No obligation"])
+    return page("complyscope", hero + mods_s + tour_s + guard_s + counties + how + faqs + cta)

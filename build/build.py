@@ -10,14 +10,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.environ.get("PSS_OUT") or (os.path.dirname(HERE) if os.path.exists(os.path.join(HERE, "..", "pentarch-systems.php")) else os.path.join(HERE, "..", "pentarch-systems"))
 PAGES = [
     ("home", "Home", A.home), ("products", "Products", A.products), ("medicore", "Pentarch MediCore", B.medicore),
-    ("pos", "Pentarch POS", B.pos), ("portal", "Pentarch Portal", C.portal), ("beautysuite", "Pentarch BeautySuite", C.beautysuite),
+    ("pos", "Pentarch POS", B.pos), ("complyscope", "ComplyScope Kenya", C.complyscope), ("portal", "Pentarch Portal", C.portal), ("beautysuite", "Pentarch BeautySuite", C.beautysuite),
     ("learning", "Courses and Learning", C.learning), ("ngo-portal", "Pentarch EduSponsor", C.ngo), ("qr-analytics", "Pentarch QR Analytics", C.qr),
     ("live-edit", "Pentarch Live Edit", A.live_edit), ("services", "Services", D.services), ("solutions", "Solutions", D.solutions), ("labs", "Interactive and 3D", D.labs),
     ("simlab", "Pentarch SimLab", D.simlab), ("data-maps", "Dashboards and StoryMaps", D.data_maps), ("websites", "Websites", D.websites),
     ("work", "Our Work", D.work), ("about", "About Us", D.about), ("contact", "Contact Us", D.contact),
     ("dashboards", "Dashboards and StoryMaps", D.dashboards),  # old address, sends visitors to /data-maps/
 ]
-PRODUCTS = [("medicore", "Pentarch MediCore (pharmacy, clinic or hospital)"), ("pos", "Pentarch POS (shops and businesses)"),
+PRODUCTS = [("medicore", "Pentarch MediCore (pharmacy, clinic or hospital)"), ("pos", "Pentarch POS (shops and businesses)"), ("complyscope", "ComplyScope Kenya (business compliance)"),
             ("portal", "Pentarch Portal (school or college)"), ("beautysuite", "Pentarch BeautySuite (salon or spa)"),
             ("learning", "Courses and learning system"), ("simlab", "Pentarch SimLab (virtual labs for courses)"), ("ngo", "Pentarch EduSponsor (education sponsorship)"),
             ("qr", "Pentarch QR Analytics (campaigns and print)"), ("liveedit", "Pentarch Live Edit (edit my site on the page)"), ("website", "A new website or a website revamp"), ("interactive", "Interactive or 3D experience"), ("data", "Dashboards and StoryMaps"),

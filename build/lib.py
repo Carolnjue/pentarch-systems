@@ -344,6 +344,7 @@ def signal(cls=""):
 PRODUCTS = [
     ("medicore", "Pentarch MediCore", "health", "Hospital and pharmacy system that works offline", "/medicore/"),
     ("pos", "Pentarch POS", "cart", "Point of sale for shops, restaurants and bars", "/pos/"),
+    ("complyscope", "ComplyScope Kenya", "shield", "Every filing, permit and renewal for a Kenyan business", "/complyscope/"),
     ("portal", "Pentarch Portal", "school", "College management from admission to alumni", "/portal/"),
     ("beautysuite", "Pentarch BeautySuite", "scissor", "Bookings, desk and commissions for salons", "/beautysuite/"),
     ("ngo", "Pentarch EduSponsor", "handshake", "Education sponsorship: students, sponsors, fees and impact", "/ngo-portal/"),

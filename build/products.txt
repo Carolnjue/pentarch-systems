@@ -4,6 +4,7 @@ function pss_products() {
 	return array(
 		'medicore' => 'Pentarch MediCore (pharmacy, clinic or hospital)',
 		'pos' => 'Pentarch POS (shops and businesses)',
+		'complyscope' => 'ComplyScope Kenya (business compliance)',
 		'portal' => 'Pentarch Portal (school or college)',
 		'beautysuite' => 'Pentarch BeautySuite (salon or spa)',
 		'learning' => 'Courses and learning system',

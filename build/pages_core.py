@@ -54,6 +54,7 @@ def home():
     meta = {
         "medicore": ("Offline-first · local network", ["Pharmacy counter", "Queue and triage", "Lab", "Wards and maternity", "Billing and cash-up"], "30-day free online demo"),
         "pos": ("Offline PWA · cloud sync", ["Selling and receipts", "Stock and expiry", "Credit book", "Shifts and staff PINs", "Branches"], "Live demo, one month free"),
+        "complyscope": ("Web app · all 47 counties", ["Obligations", "Deadlines", "Dossier"]),
         "portal": ("WordPress plugin", ["Admissions", "LMS", "Certificates"]),
         "beautysuite": ("Web app", ["Bookings", "Walk-ins", "Commissions"]),
         "ngo": ("Web portal", ["Sponsors", "Fees", "Impact"]),
@@ -167,13 +168,14 @@ def products():
         lines.append(("row", f'<a href="{h}">{t.replace("Pentarch ", "").lower().replace(" & ", "-").replace(" ", "-")}/</a><span>{d}</span>'))
     lines += [("", ""), ("ok", "7 products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
-<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Seven products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
+<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
 {duo("pos-home", "Pentarch POS home screen", "salon-calendar", "Pentarch BeautySuite bookings calendar")}</div></section>'''
 
     detail = {
         "medicore": ("For pharmacies, clinics and hospitals", "Counter with batches and expiry, patients, queue and triage, lab, wards and beds, maternity, billing, shifts and cash-up, stock, branches and MOH reports.", "Runs on the facility computer and local network; works offline", "30-day online demo", "mc-dashboard"),
         "pos": ("For shops, chemists, restaurants, bars and salons", "Selling with M-Pesa and KRA tax codes, stock and expiry, credit book, staff PINs, shifts, reports and branches.", "Offline web app on your computer, with cloud backup", "Live demo and one month free", "pos-sell"),
+        "complyscope": ("For every Kenyan business", "National and county obligations mapped from a short intake, a compliance score, deadlines worked out from the rules, a filing log and a dossier for inspectors and lenders.", "Web app, any browser", "Live dashboard demo, free pilot", "cs-overview"),
         "portal": ("For colleges and training schools", "Admissions, fees, classes, LMS with quizzes, CATs and exams, gradebook, hostel, store, graduation, certificates and alumni.", "WordPress plugin on your college website", "Live at glamourvinecollege.com/portal", "portal-dashboard"),
         "beautysuite": ("For salons, barbers and spas", "Reception desk, bookings calendar, walk-ins, bridal packages with mixed teams, payments, staff commissions and reports.", "Web app for the desk, tablets and phones", "Live for Glamour by Beth", "salon-desk"),
         "learning": ("For training institutes", "Course catalogue in schools, class dates with seats left, online registration with M-Pesa, group rates, trainers and student showcase. Moodle set-up and support.", "WordPress plugin, plus Moodle where needed", "Live at pentarchtraininginstitute.co.ke", "pti-intake"),
@@ -191,9 +193,9 @@ def products():
                  f'<div class="btns">{btn(h, "Explore " + t.replace("Pentarch ", ""), "d", "arrow")}</div></div><div class="prow-vis">{vis}</div></article>')
     lineup = section(rows, cls="sec-prows")
 
-    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
-                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Your website", "Desk, tablet, phone", "Browser", "Browser", "WordPress"]),
-                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live college site", "Demo on request", "Demo on request", "Demo on request", "This website"])]
+    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
+                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Browser", "Your website", "Desk, tablet, phone", "Browser", "Browser", "WordPress"]),
+                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live dashboard, free pilot", "Live college site", "Demo on request", "Demo on request", "Demo on request", "This website"])]
     th = "".join(f'<th scope="col">{t.replace("Pentarch ", "")}</th>' for k, t, *_ in PRODUCTS)
     tb = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{v}</td>" for v in vals) + "</tr>" for r, vals in cmp_rows)
     compare = section(head("Compare at a glance") + f'<div class="tbl-wrap" tabindex="0" role="region" aria-label="Product comparison"><table class="tbl"><thead><tr><td></td>{th}</tr></thead><tbody>{tb}</tbody></table></div>', sid="compare", tone="white")
@@ -201,7 +203,7 @@ def products():
     also = [("wifi", "WiIRA work planner", "Opportunities pipeline, tasks, notes and categories with Gmail integration. Built for Zingira Pesa's own team.", "Private tool"),
             ("monitor", "Pentarch Showroom plugin", "3D showroom, engine cutaways, games and a parts finder for Laqim Autoworld.", "/labs/#showroom"),
             ("layers", "Johms storage planner", "Visitors design a kitchen or wardrobe and send it for a quote.", "/labs/#planners"),
-            ("shield", "Compliance checklist", "Environmental and OSH self-assessment with an instant score, for Charles and Barker.", "/labs/#planners"),
+            ("check", "Compliance checklist", "Environmental and OSH self-assessment with an instant score, for Charles and Barker.", "/labs/#planners"),
             ("server", "Pentarch NetDesk", "Billing for internet service providers, building on PentarchNet.", "Planned")]
     al = "".join(f'<li>{ic(i)}<div><h3>{t}</h3><p>{d}</p>' + (f'<a href="{l}">Learn more</a>' if l.startswith("/") else f'<span class="mono">{l}</span>') + "</div></li>" for i, t, d, l in also)
     also_s = section(head("Also built by our team", "Plugins and tools made for one client, which we can adapt for yours.") + f'<ul class="also">{al}</ul>', tone="ink2")
