@@ -73,7 +73,7 @@ def home():
         cards += (f'<article class="pc pc-{k}"><span class="pc-ic">{ic(i)}</span><p class="pc-m mono">{m[0]}</p>'
                   f'<h3><a href="{h}">{t}</a></h3><p>{d}.</p>{tags(m[1])}</article>')
     products = section(head("Systems we build, run and support", "Each one started with a real client and is in use today. We install it, train your team and stay on WhatsApp when you need us.") +
-                       f'<div class="pgrid">{cards}</div><div class="center">{btn("/products/", "Compare all products", "d", "arrow")}</div>', sid="products")
+                       f'<div class="pgrid">{cards}<a class="pc pc-more" href="/products/#compare"><span class="pc-ic">{ic("layers")}</span><h3>Not sure which one fits?</h3><p>Compare all {len(PRODUCTS)} products side by side: where each runs, what it needs and how to try it.</p><span class="pc-go">Compare products{ic("arrow")}</span></a></div>', sid="products")
 
     le_sites = "".join(f'<li><a href="{u}"{" target=_blank rel=noopener" if u.startswith("http") else ""}>{ic("web")}{d}</a></li>' for n, d, u in LE_SITES)
     engine = section(f'''<div class="eng"><div class="eng-txt">{head("The engine behind every site we build", "Pentarch Live Edit is our WordPress plugin. We design and code each site by hand, then Live Edit turns every page into something you can change by clicking on it.", "pentarch-live-edit")}

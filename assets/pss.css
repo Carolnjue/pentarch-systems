@@ -1386,3 +1386,6 @@ html.vw-on .pss-top{display:none}
 .hero-404 .nf-links h3{color:#fff;margin-bottom:6px}.hero-404 .nf-links p{color:var(--on-ink-b);font-size:.94rem}
 .hero-404 .nf-links li{padding:0;background:none;border:0;box-shadow:none}.hero-404 .nf-links li:hover{transform:none}
 @media(max-width:1280px){.le-tip.t2{right:-8px}}
+.pss .pc-more{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,rgba(20,177,172,.1),rgba(246,178,44,.12));border:1px dashed var(--teal);text-decoration:none!important;color:var(--body)!important}
+.pss .pc-more h3{color:var(--text)}.pss .pc-more .pc-go{display:inline-flex;gap:8px;align-items:center;margin-top:12px;font-weight:700;color:var(--teal-d)}
+.pss .pc-more:hover{border-style:solid}.pss .pc-more:hover .pc-go .ic{transform:translateX(3px)}
