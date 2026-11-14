@@ -387,7 +387,7 @@ def contact():
     hero = f'''<section class="hero hero-contact t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(64)}<div class="wrap ct-grid">
 <div class="ct-txt">{crumb("Contact us")}<h1>Contact us</h1><p class="hero-p">Tell us what you run and when suits you. We call to confirm, then show you the system at your premises or online. You receive a written quote after the demo.</p>
 <ul class="ct-ways"><li><a href="{TEL}">{ic("call")}<span><b>Call</b>{PHONE}</span></a></li><li><a href="{WA}" target="_blank" rel="noopener">{ic("wa")}<span><b>WhatsApp</b>{PHONE}</span></a></li>
-<li><a href="mailto:{MAIL}">{ic("mail")}<span><b>Email</b>{MAIL}</span></a></li><li><span class="ct-n">{ic("pin")}<span><b>Office</b>Nairobi, Kenya · P.O. Box 1087-00241</span></span></li></ul>
+<li class="ct-wide"><a href="mailto:{MAIL}">{ic("mail")}<span><b>Email</b>{MAIL}</span></a></li><li class="ct-wide"><span class="ct-n">{ic("pin")}<span><b>Office</b>Nairobi, Kenya · P.O. Box 1087-00241</span></span></li></ul>
 <ul class="ct-try"><li><a href="{MEDICORE}/try" target="_blank" rel="noopener">{ic("health")}MediCore 30-day online demo{ic("ne")}</a></li><li><a href="/pos/#live-demo">{ic("cart")}Pentarch POS live demo{ic("arrow")}</a></li><li><a href="{POS}?trial=1" target="_blank" rel="noopener">{ic("spark")}POS one month free{ic("ne")}</a></li></ul></div>
 <div class="lead-form ct-form">\n[pss_lead_form button="Book my demo"]\n</div></div></section>'''
     hours = section(f'''<div class="split">{head("Support hours", "WhatsApp and phone support from our Nairobi team, Monday to Saturday, 8am to 6pm.")}

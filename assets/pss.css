@@ -1323,3 +1323,5 @@ a.fam-c:hover{border-color:var(--teal-d)}
 /* Real screenshots inside browser frames */
 .bw-body>img{display:block;width:100%;height:auto}
 .dash-c .bw-body:has(>img){min-height:0;background:#fff}
+.ct-ways .ct-wide{grid-column:1/-1}
+.ct-ways a>span,.ct-ways .ct-n>span{min-width:0;overflow-wrap:anywhere}
