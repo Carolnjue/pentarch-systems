@@ -255,7 +255,7 @@ body{background:var(--paper);overflow-x:clip}
 /* product grid */
 .pgrid{display:grid;gap:16px}
 @media(min-width:700px){.pgrid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1040px){.pgrid{grid-template-columns:repeat(6,1fr)}.pc{grid-column:span 2}.pc-big{grid-column:span 3}}
+@media(min-width:1040px){.pgrid{grid-template-columns:repeat(6,1fr)}.pc{grid-column:span 2}.pc-big{grid-column:span 2}}
 .pc{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r3);padding:26px 24px;display:flex;flex-direction:column;transition:border-color .2s,transform .25s,box-shadow .25s;overflow:hidden}
 .pc:hover{border-color:rgba(10,127,123,.45);transform:translateY(-3px);box-shadow:0 22px 40px -28px rgba(10,21,48,.4)}
 .pc h3 a{color:var(--text);text-decoration:none}
@@ -1325,3 +1325,8 @@ a.fam-c:hover{border-color:var(--teal-d)}
 .dash-c .bw-body:has(>img){min-height:0;background:#fff}
 .ct-ways .ct-wide{grid-column:1/-1}
 .ct-ways a>span,.ct-ways .ct-n>span{min-width:0;overflow-wrap:anywhere}
+/* Icons inside the server-rendered demo form (raw SVGs, no .ic wrapper) */
+.pss .tf .go{display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.pss .tf .go>svg,.pss .tf .btn>svg{width:1.15em;height:1.15em;flex:none;transition:transform .2s}
+.pss .tf .go:hover>svg{transform:translateX(3px)}
+.pss .tf .ok>svg{width:44px;height:44px;padding:10px;border-radius:50%;background:rgba(10,127,123,.12);color:var(--teal-d);flex:none}
