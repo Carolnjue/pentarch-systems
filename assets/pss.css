@@ -1305,7 +1305,7 @@ a.fam-c:hover{border-color:var(--teal-d)}
 @media(min-width:960px){
  .hero-car h1{font-size:clamp(1.9rem,.8rem + 2.1vw,2.85rem)!important}
  .hero-car .hs-p{font-size:1rem}
- .hero-contact .ct-ways{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ .hero-contact .ct-ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
  .hero-contact .ct-ways a,.hero-contact .ct-ways .ct-n{padding:12px 14px}
  .hero-contact .ct-form textarea{min-height:70px;height:70px}
  .hero-contact .ct-form label{margin-top:8px}
@@ -1318,3 +1318,5 @@ a.fam-c:hover{border-color:var(--teal-d)}
 }
 @media(min-width:960px){.hs{min-height:0}.hc-ctl{margin-top:22px}.hs h1,.hs h2{font-size:clamp(1.9rem,.8rem + 2.1vw,2.85rem)}.hs-p{font-size:1rem;margin-top:14px}}
 @media(max-width:959px){.hero-car{min-height:0}}
+.hero-contact .ct-ways span{min-width:0}
+.hero-contact .ct-ways b+*,.hero-contact .ct-ways span span{overflow-wrap:anywhere}
