@@ -200,6 +200,10 @@ function pss_site_setup( $overwrite = false ) {
 	if ( $aid ) {
 		set_theme_mod( 'custom_logo', $aid );
 	}
+	$fav = attachment_url_to_postid( pss_media( 'pss-icon.png' ) );
+	if ( $fav ) {
+		update_option( 'site_icon', $fav );
+	}
 	update_option( 'pss_setup_done', PSS_VER );
 	delete_transient( 'pss_setup_lock' );
 	$report[] = 'Home page set, site title set, address style set to /page-name/.';
