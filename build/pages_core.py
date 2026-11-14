@@ -46,7 +46,7 @@ def home():
         '<div class="readout">' + "".join(
             f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [
                 ("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"),
-                ("19", "business types in Pentarch POS"), ("33", "courses on our training platform")]) +
+                ("19", "business types in Pentarch POS"), ("47", "counties covered by ComplyScope")]) +
         '</div><p class="ro-note">Counted from the systems and sites listed on this website.</p>', cls="sec-ro", tone="ink2")
 
     big = [p for p in PRODUCTS if p[0] in ("medicore", "pos", "complyscope")]
@@ -116,7 +116,7 @@ def home():
         ("offline", "Works offline", "MediCore and POS run on a computer at your premises, so a dropped line or a power cut does not stop a sale."),
         ("cash", "M-Pesa built in", "M-Pesa, cash, card or account on one record, with a daily cash-up and over or short per cashier."),
         ("lock", "Your data is yours", "Every user has a role and a PIN. Export or back up your records at any time; we only open your system to support it, with your permission."),
-        ("users", "Support in Nairobi", "We install, import your data, train each role and stay on call. Questions are answered by the people who built the system.")]) + "</ul>", cls="sec-why", tone="white")
+        ("shield", "Kenyan rules built in", "KRA tax codes on receipts, SHA and insurance billing in MediCore, and ComplyScope to keep every filing and permit on time.")]) + "</ul>", cls="sec-why", tone="white")
 
     how = section(head("From first call to a system your team uses", "The same five steps on every website, portal and system. You approve each stage, and your team is trained before we hand over.") + steps([
         ("Discover", "Your goals, users, workflows and the records you already keep."),
@@ -135,20 +135,18 @@ def home():
     stack_s = section(f'{head("What it runs on", "We pick tools that work on the computers and connections our clients already have.")}<ul class="stack">{st}</ul>',
                       tone="ink", cls="sec-stack")
 
-    cases = [("Glamourvine Hair & Beauty College", "Machakos", "College website, student Portal with certificate verification, and BeautySuite for the owner salon.", "/work/#glamourvine", ["Portal", "BeautySuite", "Live Edit"]),
-             ("Laqim Autoworld", "Nairobi", "A car showcase with a 3D showroom, engine cutaways, a race simulator and rare-parts finder.", "/work/#laqim", ["Three.js", "Games", "Live Edit"]),
-             ("SAM Elimu Charity", "Kenya and Philadelphia", "Charity website and a portal for students, sponsors, donations and alumni.", "/work/#samelimu", ["EduSponsor", "Donations"]),
-             ("Pentarch Training Institute", "Nairobi", "33 courses in five schools, intakes with seats left and online registration.", "/work/#pti", ["Courses", "M-Pesa"])]
+    cases = [("MediCore pilots", "Kenya", "A community pharmacy with its own lab, and a maternity-focused clinic, run their counter, patients and stock on MediCore on their own premises.", "/work/#medicore", ["Pharmacy", "Clinic", "Two facilities"]),
+             ("Pentarch POS", "Nairobi", "Tills set up for dukas, chemists, hardware stores, butcheries, restaurants and bars, each with its own tools, and a live demo anyone can open.", "/pos/#live", ["Retail", "Hospitality", "Live demo"]),
+             ("Pentarch Training Institute", "Nairobi", "A course catalogue in five schools, class dates that show seats left, and registration with M-Pesa.", "/work/#pti", ["Courses", "M-Pesa"]),
+             ("Glamourvine Hair & Beauty College", "Machakos", "College website, student Portal with certificate verification, and BeautySuite for the owner salon.", "/work/#glamourvine", ["Portal", "BeautySuite", "Live Edit"])]
     cs = "".join(f'<article class="case"><p class="case-p">{ic("pin")}{p}</p><h3><a href="{h}">{t}</a></h3><p>{d}</p>{tags(tg)}</article>' for t, p, d, h, tg in cases)
     cases_s = section(head("Recent work", "Real systems for real organisations. Visit them, or ask us for a walk-through.") + f'<div class="cases">{cs}</div><div class="center">{btn("/work/", "See all our work", "d", "arrow")}</div>')
 
     agents = section(f'''<div class="agent-band"><div>{head("Know businesses and facilities? Become a Pentarch agent.", "Medical reps, pharmacists, IT technicians and students across Kenya introduce Pentarch MediCore and Pentarch POS in their area. Sign up free, record your clients from your phone and start their demos yourself. Pentarch installs, trains and supports.", "earn with pentarch")}</div>
 <div class="btns">{btn(MEDICORE + "/portal", "MediCore agents", "p", "ne", True)}{btn(POS + "agents/", "POS agents", "g", "ne", True)}</div></div>''', tone="ink2", cls="sec-agents")
     faqs = section(f'''<div class="split">{head("Before you book a demo")}{faq([
-        ("Do your systems work without internet?", "MediCore and Pentarch POS are built offline-first: they run at your premises and keep working when the line or the power goes, then sync when the connection returns. The Portal, BeautySuite and course systems run online inside your website and work well on mobile data."),
         ("Can you set a system up for the way we work?", "Yes. Each product is configured to your workflows, roles and branding, and we build extra features where you need them. If an existing tool would serve you better, we will tell you."),
         ("How does pricing work?", "A one-off set-up covers configuration, data import and training. After that, a monthly or annual plan covers hosting, support and updates. You receive a written quote after your demo. MediCore has a 30-day online demo and Pentarch POS a free month."),
-        ("Who owns the data?", "You do. You can export or back up your records at any time, and we only access your system to support it, with your permission."),
         ("How long does it take to start?", "Most pharmacies, shops and clinics are running in one day on site. Larger hospitals, schools and colleges are set up in planned stages, department by department."),
         ("Can you take over our existing website or system?", "Usually, yes. We review it first, tell you whether it is worth keeping, and then improve it, move it to secure hosting or rebuild it."),
         ("How does this relate to Pentarch Communications?", "Pentarch Systems Solutions is the systems and software company of the Pentarch family, alongside Pentarch Communications and Pentarch Training Institute. Clients can come to one family for communication, training, websites and the systems that run their work."),
@@ -166,7 +164,7 @@ def products():
     lines = [("cmd", "$ pentarch ls systems/"), ("", "")]
     for k, t, i, d, h in PRODUCTS:
         lines.append(("row", f'<a href="{h}">{t.replace("Pentarch ", "").lower().replace(" & ", "-").replace(" ", "-")}/</a><span>{d}</span>'))
-    lines += [("", ""), ("ok", "7 products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
+    lines += [("", ""), ("ok", f"{len(PRODUCTS)} products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
 <div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
