@@ -1384,3 +1384,4 @@ html.vw-on .pss-top{display:none}
 .hero-404 .nf-links a:hover{border-color:var(--teal-l);transform:translateY(-3px)}
 .hero-404 .nf-links .ic{width:40px;height:40px;padding:9px;border-radius:10px;background:rgba(20,177,172,.18);color:var(--teal-l);margin-bottom:14px}
 .hero-404 .nf-links h3{color:#fff;margin-bottom:6px}.hero-404 .nf-links p{color:var(--on-ink-b);font-size:.94rem}
+.hero-404 .nf-links li{padding:0;background:none;border:0;box-shadow:none}.hero-404 .nf-links li:hover{transform:none}

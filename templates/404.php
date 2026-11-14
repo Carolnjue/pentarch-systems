@@ -23,7 +23,7 @@ $pss_links = array(
 <main id="pss-content">
 <div class="pss pss-page pg-404" id="pss-main">
 <section class="hero t-ink hero-404"><div class="hero-grid" aria-hidden="true"></div><div class="wrap">
-<p class="hs-k"><?php echo pss_icon( 'search' ); // phpcs:ignore ?>Error 404</p>
+<p class="hs-k"><span class="ic"><?php echo pss_icon( 'search' ); // phpcs:ignore ?></span>Error 404</p>
 <h1>This page is not here.</h1>
 <p class="hero-p">The address may have changed when the site was reorganised. These are the main ways in.</p>
 <ul class="caps nf-links">
