@@ -15,7 +15,7 @@ PHONE = "+254 729 455 912"
 TEL = "tel:+254729455912"
 WA = "https://wa.me/254729455912"
 MAIL = "info@pentarchsystemssolutions.co.ke"
-LOGO = "https://pentarchcommunications.com/wp-content/uploads/2026/01/cropped-LOGO-LOGO-TRANSPARENT-200x66.png"
+LOGO = "{{media:https://pentarchcommunications.com/wp-content/uploads/2026/01/cropped-LOGO-LOGO-TRANSPARENT-200x66.png}}"
 LOGO_W = "{{media:pss-logo-white.png}}"
 MARK = "{{media:pss-mark.png}}"
 
