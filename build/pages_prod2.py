@@ -293,7 +293,7 @@ def qr():
          ("cog", "Settings", "Account, campaign and code settings in one place."),
          ("code", "API", "Connect scans to your own systems.")]
     fs = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d in f)
-    feats = section(head("From print to proof", "Every printed code reports back, so you know which placement worked.") + f'<ul class="caps">{fs}</ul>', sid="features")
+    feats = section(head("From print to proof", "Every printed code reports back, so you know which placement worked.") + f'<ul class="caps caps-compact">{fs}</ul>', sid="features")
     how = section(head("How it works") + steps([("Create a code", "Name the campaign and set the address it should open."), ("Print it", "Put the code on posters, flyers, packaging or slides."),
                                               ("People scan", "Each scan is counted and sent on to the address you set."), ("Read the report", "Share the dashboard or export a report for the client.")]), tone="white")
     built = section(f'''<div class="split">{head("Built with Zingira Pesa", "QR Analytics was built with Zingira Pesa, a natural capital advisory, and runs at zingirapesa.com/qr on our own server.")}
