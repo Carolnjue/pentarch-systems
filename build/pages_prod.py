@@ -180,11 +180,9 @@ def medicore():
              ("lab", "Laboratory", "Collect samples, enter and validate results.", "Chapters 4, 5, 9"),
              ("pill", "Pharmacist", "Dispense, sell at the counter and keep stock right.", "Chapters 4, 5, 10, 11"),
              ("cash", "Cashier", "Counter sales, patient checkout and closing the day.", "Chapters 4, 5, 10, 11")]
-    rl = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p><span class="mono man-ch">{c}</span></li>' for i, t, d, c in roles)
-    manual = section(f'''<div class="man-head">{head("The MediCore user manual", "Step-by-step instructions with pictures for every screen, in 22 chapters. Each member of staff starts with the chapter for their job.", "user manual")}
-<div class="btns">{btn(MEDICORE + "/manual/", "Read the manual online", "p", "ne", True)}{btn(MEDICORE + "/manual/Pentarch-MediCore-User-Manual.pdf", "Download the PDF", "g", "ne", True)}</div></div>
-<ul class="caps man-roles">{rl}</ul>''', sid="manual", tone="white")
-    return page("medicore", hero + who + feats + day + screens + kit_s + dep + how + manual + tryit + ints + pilots + faqs + cta)
+    rl = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d, c in roles)
+    rolesec = section(head("One system, a screen for every role", "Each person signs in with their own PIN and sees only what their job needs.", "who uses it") + f'<ul class="caps man-roles">{rl}</ul>', sid="roles", tone="white")
+    return page("medicore", hero + who + rolesec + feats + day + screens + kit_s + dep + how + tryit + ints + pilots + faqs + cta)
 
 
 # ============================================================== POS
