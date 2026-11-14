@@ -190,3 +190,21 @@ add_action(
 		);
 	}
 );
+
+/*
+ * The page designs are Live Edit blocks, and WordPress does not expand shortcodes nested inside
+ * another shortcode's output. Render the demo form wherever a block places it.
+ */
+function pss_render_nested_forms( $html ) {
+	if ( false === strpos( (string) $html, '[pss_lead_form' ) ) {
+		return $html;
+	}
+	return preg_replace_callback(
+		'/\[pss_lead_form[^\]]*\]/',
+		function ( $m ) {
+			return do_shortcode( $m[0] );
+		},
+		$html
+	);
+}
+add_filter( 'the_content', 'pss_render_nested_forms', 20 );
