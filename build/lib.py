@@ -371,6 +371,12 @@ WORK = [
     ("chart", "AGILE dashboard", "Digital media and advocacy dashboard", "/data-maps/#dashboards"),
 ]
 ABOUT = [("/about/", "About us"), ("/about/#team", "Our team"), ("/about/#clients", "Our clients")]
+ABOUT_M = [
+    ("users", "About us", "Who we are and how we work", "/about/"),
+    ("pen", "Our team", "The people who build and support your systems", "/about/#team"),
+    ("handshake", "Our clients", "Organisations running Pentarch systems", "/about/#clients"),
+    ("globe", "The Pentarch family", "Pentarch Communications and Training Institute", "/about/#family"),
+]
 LOGO_C = "{{media:pss-logo.png}}"
 
 
@@ -384,12 +390,14 @@ def header():
     prod = "".join(mega_item(h, i, t, d) for k, t, i, d, h in PRODUCTS)
     serv = "".join(mega_item(h, i, t, d) for i, t, d, h in SERVICES)
     work = "".join(mega_item(h, i, t, d) for i, t, d, h in WORK)
+    abt = "".join(mega_item(h, i, t, d) for i, t, d, h in ABOUT_M)
     feats = {
+        "about": ("pss-shot-pti-intake.jpg", "About us", "The systems arm of Pentarch Communications", "Built and supported by a team in Nairobi.", "/about/", "Meet us"),
         "products": ("pss-shot-mc-dashboard.jpg", "Products", "Systems Kenyan organisations run on", "Ready to install, with a demo before you commit.", "/products/", "Compare all products"),
         "services": ("pss-shot-live-edit.jpg", "Services", "Built to order for your organisation", "Websites, portals, dashboards and interactive experiences.", "/services/", "See our services"),
         "work": ("pss-shot-sim-heart.jpg", "Our work", "Systems and sites in use today", "Visit them live, or ask us for a walk-through.", "/work/", "See all projects"),
     }
-    panels = {"products": prod, "services": serv, "work": work}
+    panels = {"about": abt, "products": prod, "services": serv, "work": work}
 
     def feat(k):
         img, kick, t, d, h, l = feats[k]

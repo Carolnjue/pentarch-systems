@@ -119,7 +119,7 @@ body{background:var(--paper);overflow-x:clip}
 .mm::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .mm-in{background:#fff;border-top:3px solid transparent;border-image:var(--grad) 1;box-shadow:0 30px 50px -24px rgba(10,21,48,.35);display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:36px;padding:24px max(var(--gut),calc((100% - 1280px)/2)) 28px}
 .mm-feat{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;min-height:230px;padding:22px;border-radius:16px;overflow:hidden;background-size:cover;background-position:top left;color:#fff!important;text-decoration:none!important;isolation:isolate}
-.mm-feat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,21,48,.15),rgba(10,21,48,.92) 62%)}
+.mm-feat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,21,48,.35),rgba(10,21,48,.96) 55%)}
 .mm-k{font-family:var(--fm);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sun)}
 .mm-ft{font-family:var(--fh);font-weight:700;font-size:1.25rem;line-height:1.2;letter-spacing:-.01em}
 .mm-fd{font-size:.88rem;color:var(--on-ink-b);line-height:1.4}
