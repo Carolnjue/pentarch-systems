@@ -11,10 +11,10 @@ OUT = os.environ.get("PSS_OUT") or (os.path.dirname(HERE) if os.path.exists(os.p
 PAGES = [
     ("home", "Home", A.home), ("products", "Products", A.products), ("medicore", "Pentarch MediCore", B.medicore),
     ("pos", "Pentarch POS", B.pos), ("portal", "Pentarch Portal", C.portal), ("beautysuite", "Pentarch BeautySuite", C.beautysuite),
-    ("learning", "Courses & Learning", C.learning), ("ngo-portal", "Pentarch EduSponsor", C.ngo), ("qr-analytics", "QR Analytics", C.qr),
-    ("live-edit", "Pentarch Live Edit", A.live_edit), ("services", "Services", D.services), ("solutions", "Solutions", D.solutions), ("labs", "Interactive and 3D Websites", D.labs),
-    ("simlab", "Pentarch SimLab", D.simlab), ("data-maps", "Data & Maps", D.data_maps), ("websites", "Websites", D.websites),
-    ("work", "Our Work", D.work), ("about", "About", D.about), ("contact", "Contact Us", D.contact),
+    ("learning", "Courses and Learning", C.learning), ("ngo-portal", "Pentarch EduSponsor", C.ngo), ("qr-analytics", "Pentarch QR Analytics", C.qr),
+    ("live-edit", "Pentarch Live Edit", A.live_edit), ("services", "Services", D.services), ("solutions", "Solutions", D.solutions), ("labs", "Interactive and 3D", D.labs),
+    ("simlab", "Pentarch SimLab", D.simlab), ("data-maps", "Dashboards and StoryMaps", D.data_maps), ("websites", "Websites", D.websites),
+    ("work", "Our Work", D.work), ("about", "About Us", D.about), ("contact", "Contact Us", D.contact),
     ("dashboards", "Dashboards and StoryMaps", D.dashboards),  # old address, sends visitors to /data-maps/
 ]
 PRODUCTS = [("medicore", "Pentarch MediCore (pharmacy, clinic or hospital)"), ("pos", "Pentarch POS (shops and businesses)"),

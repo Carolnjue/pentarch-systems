@@ -392,7 +392,7 @@ def header():
     work = "".join(mega_item(h, i, t, d) for i, t, d, h in WORK)
     abt = "".join(mega_item(h, i, t, d) for i, t, d, h in ABOUT_M)
     feats = {
-        "about": ("pss-shot-pti-intake.jpg", "About us", "The systems arm of Pentarch Communications", "Built and supported by a team in Nairobi.", "/about/", "Meet us"),
+        "about": ("pss-shot-pti-intake.jpg", "About us", "The systems company of the Pentarch family", "Built and supported by a team in Nairobi.", "/about/", "Meet us"),
         "products": ("pss-shot-mc-dashboard.jpg", "Products", "Systems Kenyan organisations run on", "Ready to install, with a demo before you commit.", "/products/", "Compare all products"),
         "services": ("pss-shot-live-edit.jpg", "Services", "Built to order for your organisation", "Websites, portals, dashboards and interactive experiences.", "/services/", "See our services"),
         "work": ("pss-shot-sim-heart.jpg", "Our work", "Systems and sites in use today", "Visit them live, or ask us for a walk-through.", "/work/", "See all projects"),
@@ -457,11 +457,11 @@ def footer():
 <div class="wrap">
 <div class="ft-top">
 <div class="ft-brand"><a href="/" class="ft-logo"><img src="{LOGO_W}" alt="Pentarch Systems Solutions" width="434" height="144" loading="lazy"></a>
-<p>Pentarch Systems Solutions builds the software behind Pentarch websites and the systems our clients run every day. We are the systems arm of <a href="https://pentarchcommunications.com/" target="_blank" rel="noopener">Pentarch Communications</a>, Nairobi.</p>
+<p>Pentarch Systems Solutions builds the software behind Pentarch websites and the systems our clients run every day. Part of the Pentarch family with <a href="https://pentarchcommunications.com/" target="_blank" rel="noopener">Pentarch Communications</a>, Nairobi.</p>
 <ul class="ft-contact"><li><a href="{TEL}">{ic("call")}{PHONE}</a></li><li><a href="{WA}" target="_blank" rel="noopener">{ic("wa")}WhatsApp</a></li><li><a href="mailto:{MAIL}">{ic("mail")}{MAIL}</a></li><li>{ic("pin")}<span>Nairobi, Kenya</span></li></ul></div>
 {c}
 </div>
-<div class="ft-bot"><p>&copy; 2026 Pentarch Systems Solutions. Part of Pentarch Communications.</p><p class="mono">Built and edited with Pentarch Live Edit</p><a class="ft-up" href="#pss-main">{ic("up")}Back to top</a></div>
+<div class="ft-bot"><p>&copy; 2026 Pentarch Systems Solutions. Part of the Pentarch family.</p><p class="mono">Built and edited with Pentarch Live Edit</p><a class="ft-up" href="#pss-main">{ic("up")}Back to top</a></div>
 </div>
 </footer>'''
 

@@ -15,18 +15,18 @@ function pss_pages() {
 		'pos' => 'Pentarch POS',
 		'portal' => 'Pentarch Portal',
 		'beautysuite' => 'Pentarch BeautySuite',
-		'learning' => 'Courses & Learning',
+		'learning' => 'Courses and Learning',
 		'ngo-portal' => 'Pentarch EduSponsor',
-		'qr-analytics' => 'QR Analytics',
+		'qr-analytics' => 'Pentarch QR Analytics',
 		'live-edit' => 'Pentarch Live Edit',
 		'services' => 'Services',
 		'solutions' => 'Solutions',
-		'labs' => 'Interactive and 3D Websites',
+		'labs' => 'Interactive and 3D',
 		'simlab' => 'Pentarch SimLab',
-		'data-maps' => 'Data & Maps',
+		'data-maps' => 'Dashboards and StoryMaps',
 		'websites' => 'Websites',
 		'work' => 'Our Work',
-		'about' => 'About',
+		'about' => 'About Us',
 		'contact' => 'Contact Us',
 		'dashboards' => 'Dashboards and StoryMaps',
 	);
@@ -166,6 +166,10 @@ function pss_site_setup( $overwrite = false ) {
 		} elseif ( false === strpos( $p->post_content, '[ple id="' . $slug . '"]' ) ) {
 			wp_update_post( array( 'ID' => $p->ID, 'post_content' => '[ple id="' . $slug . '"]' ) );
 			$report[] = "Put the design on page: $title";
+		}
+		if ( $p && $p->post_title !== $title ) {
+			wp_update_post( array( 'ID' => $p->ID, 'post_title' => $title ) );
+			$report[] = "Renamed page: $title";
 		}
 		if ( $p ) {
 			update_post_meta( $p->ID, '_wp_page_template', 'pss-canvas' );

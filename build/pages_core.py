@@ -46,7 +46,7 @@ def home():
         '<div class="readout">' + "".join(
             f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [
                 ("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"),
-                ("18", "business types in Pentarch POS"), ("33", "courses on our training platform")]) +
+                ("19", "business types in Pentarch POS"), ("33", "courses on our training platform")]) +
         '</div><p class="ro-note">Counted from the systems and sites listed on this website.</p>', cls="sec-ro", tone="ink2")
 
     big = [p for p in PRODUCTS if p[0] in ("medicore", "pos")]
@@ -135,7 +135,7 @@ def home():
                       tone="ink", cls="sec-stack")
 
     cases = [("Glamourvine Hair & Beauty College", "Machakos", "College website, student Portal with certificate verification, and BeautySuite for the owner salon.", "/work/#glamourvine", ["Portal", "BeautySuite", "Live Edit"]),
-             ("Laqim Autoworld", "Nairobi", "A car showcase with a 3D showroom, engine lab, race simulator and rare-parts finder.", "/work/#laqim", ["Three.js", "Games", "Live Edit"]),
+             ("Laqim Autoworld", "Nairobi", "A car showcase with a 3D showroom, engine cutaways, a race simulator and rare-parts finder.", "/work/#laqim", ["Three.js", "Games", "Live Edit"]),
              ("SAM Elimu Charity", "Kenya and Philadelphia", "Charity website and a portal for students, sponsors, donations and alumni.", "/work/#samelimu", ["EduSponsor", "Donations"]),
              ("Pentarch Training Institute", "Nairobi", "33 courses in five schools, intakes with seats left and online registration.", "/work/#pti", ["Courses", "M-Pesa"])]
     cs = "".join(f'<article class="case"><p class="case-p">{ic("pin")}{p}</p><h3><a href="{h}">{t}</a></h3><p>{d}</p>{tags(tg)}</article>' for t, p, d, h, tg in cases)
@@ -150,7 +150,7 @@ def home():
         ("Who owns the data?", "You do. You can export or back up your records at any time, and we only access your system to support it, with your permission."),
         ("How long does it take to start?", "Most pharmacies, shops and clinics are running in one day on site. Larger hospitals, schools and colleges are set up in planned stages, department by department."),
         ("Can you take over our existing website or system?", "Usually, yes. We review it first, tell you whether it is worth keeping, and then improve it, move it to secure hosting or rebuild it."),
-        ("How does this relate to Pentarch Communications?", "Pentarch Systems Solutions is the systems and web development business of Pentarch Communications. Clients get one team for communication, websites and the systems that run their work."),
+        ("How does this relate to Pentarch Communications?", "Pentarch Systems Solutions is the systems and software company of the Pentarch family, alongside Pentarch Communications and Pentarch Training Institute. Clients can come to one family for communication, training, websites and the systems that run their work."),
     ])}</div>''', tone="white")
     cta = lead_section("other", "Book my demo", "See it working for your organisation",
                        "Tell us what you run and when suits you. We call to confirm, then show you the system at your premises or online.",
@@ -169,17 +169,17 @@ def products():
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
 <div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Seven products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
-{duo("pos-home", "Pentarch POS home screen", "salon-desk", "Pentarch BeautySuite front desk")}</div></section>'''
+{duo("pos-home", "Pentarch POS home screen", "salon-calendar", "Pentarch BeautySuite bookings calendar")}</div></section>'''
 
     detail = {
         "medicore": ("For pharmacies, clinics and hospitals", "Counter with batches and expiry, patients, queue and triage, lab, wards and beds, maternity, billing, shifts and cash-up, stock, branches and MOH reports.", "Runs on the facility computer and local network; works offline", "30-day online demo", "mc-dashboard"),
-        "pos": ("For shops, chemists, restaurants, bars and salons", "Selling with M-Pesa and KRA tax codes, stock and expiry, credit book, staff PINs, shifts, reports and branches.", "Offline web app on your computer, with cloud backup", "Live demo and one month free", None),
+        "pos": ("For shops, chemists, restaurants, bars and salons", "Selling with M-Pesa and KRA tax codes, stock and expiry, credit book, staff PINs, shifts, reports and branches.", "Offline web app on your computer, with cloud backup", "Live demo and one month free", "pos-sell"),
         "portal": ("For colleges and training schools", "Admissions, fees, classes, LMS with quizzes, CATs and exams, gradebook, hostel, store, graduation, certificates and alumni.", "WordPress plugin on your college website", "Live at glamourvinecollege.com/portal", "portal-dashboard"),
         "beautysuite": ("For salons, barbers and spas", "Reception desk, bookings calendar, walk-ins, bridal packages with mixed teams, payments, staff commissions and reports.", "Web app for the desk, tablets and phones", "Live for Glamour by Beth", "salon-desk"),
         "learning": ("For training institutes", "Course catalogue in schools, class dates with seats left, online registration with M-Pesa, group rates, trainers and student showcase. Moodle set-up and support.", "WordPress plugin, plus Moodle where needed", "Live at pentarchtraininginstitute.co.ke", "pti-intake"),
         "ngo": ("For charities and sponsorship programmes", "Students and schools, sponsors and donations, fees and disbursements, letters, impact and alumni, with public pages.", "Web portal with sponsor and alumni sign-in", "Live for SAM Elimu Charity", "se-dashboard"),
         "simlab": ("For colleges, universities and TVETs", "More than 50 interactive simulations across ten departments, from engineering and ICT to health, media and hospitality. Free for students, nothing to install.", "Website, works in any browser", "Free, open it now", "sim-home"),
-        "qr": ("For campaigns, publishers and events", "Trackable QR codes with a dashboard of scans by date, device and country, client reports and exports to CSV, Excel and PDF.", "Web app with an API", "Demo on request", None),
+        "qr": ("For campaigns, publishers and events", "Trackable QR codes with a dashboard of scans by date, device and country, client reports and exports to CSV, Excel and PDF.", "Web app with an API", "Demo on request", "qr-dashboard"),
         "liveedit": ("For every website we build", "Click to edit text, pictures and links, repeat or remove items, site-wide header and footer, and a revision for every save.", "WordPress plugin", "Installed on every Pentarch site", "live-edit"),
     }
     rows = ""
@@ -202,7 +202,7 @@ def products():
             ("monitor", "Pentarch Showroom plugin", "3D showroom, engine cutaways, games and a parts finder for Laqim Autoworld.", "/labs/#showroom"),
             ("layers", "Johms storage planner", "Visitors design a kitchen or wardrobe and send it for a quote.", "/labs/#planners"),
             ("shield", "Compliance checklist", "Environmental and OSH self-assessment with an instant score, for Charles and Barker.", "/labs/#planners"),
-            ("server", "Pentarch NetDesk", "Billing for internet service providers. Planned, building on PentarchNet.", "Planned")]
+            ("server", "Pentarch NetDesk", "Billing for internet service providers, building on PentarchNet.", "Planned")]
     al = "".join(f'<li>{ic(i)}<div><h3>{t}</h3><p>{d}</p>' + (f'<a href="{l}">Learn more</a>' if l.startswith("/") else f'<span class="mono">{l}</span>') + "</div></li>" for i, t, d, l in also)
     also_s = section(head("Also built by our team", "Plugins and tools made for one client, which we can adapt for yours.") + f'<ul class="also">{al}</ul>', tone="ink2")
     cta = lead_section("other", "Book my demo", "Not sure which one fits?", "Tell us how your organisation works today. We will suggest the smallest set-up that solves it.", ["One call, no obligation", "A demo using your kind of data", "A written quote after the demo"])

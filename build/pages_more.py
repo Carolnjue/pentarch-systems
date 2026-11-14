@@ -333,7 +333,7 @@ def work():
 # ============================================================== ABOUT
 def about():
     hero = f'''<section class="hero hero-about t-ink"><canvas class="net" data-net aria-hidden="true"></canvas><div class="wrap hero-2"><div>{crumb("About")}
-<h1>The systems arm of Pentarch Communications.</h1>
+<h1>The systems company of the Pentarch family.</h1>
 <p class="hero-p">Pentarch Systems Solutions builds, installs and supports the software behind Pentarch websites and the systems our clients run: health, retail, education, salons, charities and campaigns. We work from Nairobi.</p></div>
 <div class="ab-mark"><img src="{MARK}" alt="" width="260" height="260" loading="lazy"><span class="ab-ring" aria-hidden="true"></span></div></div></section>'''
     prin = [("offline", "Offline first", "Our systems keep working when the connection drops, because in many places it does."),
@@ -346,7 +346,7 @@ def about():
             ("shield", "Privacy by design", "Set up around the principles of Kenya's Data Protection Act, with backups and a tested restore plan."),
             ("users", "Trained before handover", "Hands-on training and a short guide for every role, before we call a system live.")]
     p = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d in prin)
-    who = section(f'''<div class="split">{head("The systems business of the Pentarch family", "", "who we are")}<div class="prose"><p>Pentarch Systems Solutions is a business of Pentarch Communications, the Nairobi studio known for communication strategy, design and campaigns. We grew out of building websites and portals for Pentarch clients, and now build and support our own products.</p>
+    who = section(f'''<div class="split">{head("Software built and supported in Nairobi", "", "who we are")}<div class="prose"><p>Pentarch Systems Solutions is the systems and software company of the Pentarch family, alongside Pentarch Communications, the Nairobi studio known for communication strategy, design and campaigns. We grew out of building websites and portals for Pentarch clients, and now build and support our own products.</p>
 <p>Clients get one team that understands both the message and the machinery: what an organisation needs to say, and the systems it needs to run its day.</p></div></div>''', tone="white")
     pr = section(head("What you can expect from us") + f'<ul class="caps caps-3">{p}</ul>', tone="paper")
     fam = section(f'''{head("Part of the Pentarch family")}<div class="fam">
