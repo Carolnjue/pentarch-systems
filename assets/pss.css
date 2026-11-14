@@ -1374,3 +1374,6 @@ html.vw-on .pss-top{display:none}
 .pss .kv dd{overflow-wrap:anywhere;min-width:0}
 .dash2>*,.sites>*,.cases>*,.caps>*{min-width:0}.pss .bw{max-width:100%}
 .gal>*,.roles>*,.steps>*,.prow>*,.split>*{min-width:0}
+.tour-d .to-t b{color:var(--teal-l)}
+.tour-d .to-t[aria-selected=true] b{color:var(--coral-d)}
+.pss .tf p a{color:var(--teal-d)!important;font-weight:600;text-decoration:underline}
