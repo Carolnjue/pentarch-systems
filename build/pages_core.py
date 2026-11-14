@@ -57,7 +57,6 @@ def home():
         "complyscope": ("Web app · all 47 counties", ["Obligations", "Deadlines", "Dossier"]),
         "portal": ("WordPress plugin · on your website", ["Admissions and fees", "LMS and exams", "Gradebook", "Certificates", "Alumni"], "Live at a college in Machakos"),
         "beautysuite": ("Web app", ["Bookings", "Walk-ins", "Commissions"]),
-        "ngo": ("Web portal", ["Sponsors", "Fees", "Impact"]),
         "simlab": ("Browser · free for students", ["Engineering", "Health", "ICT and media"]),
         "qr": ("Web app · API", ["Scans", "Devices", "Reports"]),
         "liveedit": ("WordPress plugin", ["Click to edit", "Revisions", "Blocks"]),
@@ -89,28 +88,6 @@ def home():
 <article class="lab-c">{embed("https://storymaps.arcgis.com/stories/2f52bd444ef048fb8109f8ca95b92870", "Kenya Rangeland Validation Project StoryMap", "ArcGIS StoryMap · 2026", "4/3", f'<div class="emb-art">{topo(5, 800, 600, 7)}</div>', label="Open the StoryMap")}<h3><a href="/data-maps/#storymaps">Kenya Rangeland Validation</a></h3><p>A dry-season field campaign told with maps. Built with Zingira Pesa.</p></article>
 </div>''', cls="sec-labs", tone="ink2")
 
-    def sp(text, pts, links, vis):
-        bt = "".join(btn(h, l, k, ic_) for h, l, k, ic_ in links)
-        return (f'<div class="fp"><div class="fp-txt"><p>{text}</p>{ticks(pts)}<div class="btns">{bt}</div></div><div class="fp-vis">{vis}</div></div>')
-    S = [("health", "Health facilities", "health", sp("Choose your facility type and MediCore switches on the screens you need: a fast counter for a chemist, the patient journey for a clinic, wards and beds for a hospital.",
-            ["Batch and expiry tracking from the delivery to the receipt", "Lab requests, results and referrals", "SHA, insurance, M-Pesa and cash on one bill", "Several branches on one owner dashboard"],
-            [("/medicore/", "Explore MediCore", "p", "arrow"), ("/solutions/#health", "Health solutions", "g", None)], shot("mc-dashboard", "MediCore dashboard", "shot-n"))),
-         ("edu", "Schools and colleges", "school", sp("Applicants become students the moment their admission fee is confirmed. Staff, trainers and students each get a dashboard built for their job, and course websites fill intakes online.",
-            ["Online applications and admission numbers", "Fees confirmed by M-Pesa, with statements", "Classes, marks, practical logbooks and certificates", "Course websites with live intakes and SimLab for students"],
-            [("/portal/", "Explore the Portal", "p", "arrow"), ("/learning/", "Courses and Learning", "g", None)], shot("portal-stu-dashboard", "A student's dashboard in the Pentarch Portal", "shot-n"))),
-         ("retail", "Shops and restaurants", "cart", sp("A counter that is quick for staff and strict about stock. The owner sees takings, profit and who did what, from the shop or from home.",
-            ["Barcode scanning, receipts and cash drawer", "Stock in, transfers and stock takes", "Shifts with over or short per cashier", "Our device kit, or your own computer"],
-            [("/pos/", "Explore Pentarch POS", "p", "arrow"), ("/pos/#live-demo", "Open the live demo", "g", "play")], f'<div class="mon">{pos_till()}</div>')),
-         ("beauty", "Salons and spas", "scissor", sp("Reception logs every job, bookings arrive from the website, and each stylist's commission is worked out without arguments.",
-            ["Front-desk bookings and walk-ins", "Packages and bridal teams", "Day close and commissions", "Works alongside a beauty college portal"],
-            [("/beautysuite/", "Explore BeautySuite", "p", "arrow")], shot("salon-desk", "BeautySuite front desk", "shot-n"))),
-         ("ngo", "NGOs and companies", "handshake", sp("Sponsorship programmes on one portal, a website that explains what you do and wins work, and StoryMaps and dashboards that make programme data easy to read.",
-            ["Students, sponsors, fees and letters on one record", "Websites with Live Edit, hosting and care", "ArcGIS StoryMaps for field results", "Dashboards for managers and funders"],
-            [("/ngo-portal/", "Pentarch EduSponsor", "p", "arrow"), ("/data-maps/", "Data and maps", "g", None)], shot("se-dashboard", "Pentarch EduSponsor dashboard", "shot-n"))),
-         ("campaigns", "Campaigns and media", "chart", sp("Know which poster, flyer or slide was scanned, where and when, and share a report with each client.",
-            ["Trackable QR codes per placement", "Scans by day, device and country", "Client reports and exports", "Dashboards for media and advocacy"],
-            [("/qr-analytics/", "Explore QR Analytics", "p", "arrow"), ("/data-maps/#dashboards", "AGILE dashboard", "g", None)], qr_dash()))]
-    sectors_s = section(head("Find the system for your organisation", "Most clients start with one system and add a website or a second system later. They share the same support line.", "by sector") + tabs("sec", S), sid="sectors", tone="white")
 
     why = section(head("Made for power cuts, M-Pesa and busy people", "", "why pentarch") + '<ul class="caps">' + "".join(f"<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>" for i, t, d in [
         ("offline", "Works offline", "MediCore and POS run on a computer at your premises, so a dropped line or a power cut does not stop a sale."),
@@ -177,7 +154,6 @@ def products():
         "portal": ("For colleges and training schools", "Admissions, fees, classes, LMS with quizzes, CATs and exams, gradebook, hostel, store, graduation, certificates and alumni.", "WordPress plugin on your college website", "Live at glamourvinecollege.com/portal", "portal-dashboard"),
         "beautysuite": ("For salons, barbers and spas", "Reception desk, bookings calendar, walk-ins, bridal packages with mixed teams, payments, staff commissions and reports.", "Web app for the desk, tablets and phones", "Live for Glamour by Beth", "salon-desk"),
         "learning": ("For training institutes", "Course catalogue in schools, class dates with seats left, online registration with M-Pesa, group rates, trainers and student showcase. Moodle set-up and support.", "WordPress plugin, plus Moodle where needed", "Live at pentarchtraininginstitute.co.ke", "pti-intake"),
-        "ngo": ("For charities and sponsorship programmes", "Students and schools, sponsors and donations, fees and disbursements, letters, impact and alumni, with public pages.", "Web portal with sponsor and alumni sign-in", "Live for SAM Elimu Charity", "se-dashboard"),
         "simlab": ("For colleges, universities and TVETs", "More than 50 interactive simulations across ten departments, from engineering and ICT to health, media and hospitality. Free for students, nothing to install.", "Website, works in any browser", "Free, open it now", "sim-home"),
         "qr": ("For campaigns, publishers and events", "Trackable QR codes with a dashboard of scans by date, device and country, client reports and exports to CSV, Excel and PDF.", "Web app with an API", "Demo on request", "qr-dashboard"),
         "liveedit": ("For every website we build", "Click to edit text, pictures and links, repeat or remove items, site-wide header and footer, and a revision for every save.", "WordPress plugin", "Installed on every Pentarch site", "live-edit"),

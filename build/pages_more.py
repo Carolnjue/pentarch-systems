@@ -58,9 +58,6 @@ def solutions_old():
          ("beauty", "scissor", "Salons and spas", "Salons, barbers, spas and beauty colleges with a training floor.",
           ["Desk, calendar and walk-ins", "Bridal packages with mixed teams", "Commission per stylist", "Product sales at the counter"],
           [("Pentarch BeautySuite", "/beautysuite/"), ("Pentarch POS, salon type", "/pos/")]),
-         ("ngo", "handshake", "NGOs and charities", "Sponsorship programmes, conservation and development projects.",
-          ["Students, sponsors and donations", "Fees paid to schools and letters", "StoryMaps of field work", "Dashboards for programme results"],
-          [("Pentarch EduSponsor", "/ngo-portal/"), ("Data & maps", "/data-maps/")]),
          ("campaigns", "chart", "Campaigns and media", "Publishers, communication teams and event organisers.",
           ["Trackable QR codes on print", "Scans by place, device and time", "Interactive dashboards", "Event and conference microsites"],
           [("QR Analytics", "/qr-analytics/"), ("Dashboards", "/data-maps/#dashboards")]),
@@ -75,7 +72,7 @@ def solutions_old():
     for n, (k, i, t, d, pts, prods) in enumerate(S):
         p = "".join(f'<li><a href="{h}">{x}{ic("arrow")}</a></li>' for x, h in prods)
         vis = {"health": medicore_queue(), "retail": f'<div class="mon">{pos_till()}</div>', "education": portal_cert(), "beauty": salon_cal(),
-               "ngo": f'<div class="sol-flow">{ngo_flow()}</div>', "campaigns": qr_dash(), "web": browser("your-site.co.ke", liveedit_mock())}[k]
+               "campaigns": qr_dash(), "web": browser("your-site.co.ke", liveedit_mock())}[k]
         body += section(f'<div class="sol{" sol-r" if n % 2 else ""}"><div class="sol-t"><div class="sol-h"><span class="sol-ic">{ic(i)}</span><h2>{t}</h2><p>{d}</p></div>{ticks(pts)}<div class="sol-p"><p class="mono">Systems</p><ul>{p}</ul></div></div><div class="sol-v">{vis}</div></div>',
                         sid=k, tone="white" if n % 2 else "paper", cls="sec-sol")
     cta = lead_section("other", "Book my demo", "Not on the list?", "We also build custom systems. Tell us what you need to run and we will tell you honestly whether we can help.", ["One call, no obligation", "A written quote after the demo", "Built and supported in Nairobi"])
@@ -255,9 +252,9 @@ SITES = [
 
 
 SITE_SHOT = {"glamourvinecollege.com": "glamourvine", "laqimautoworld.com": "laqim", "pentarchtraininginstitute.co.ke": "pti", "zingirapesa.com": "zingira",
-             "pentarchcommunications.com": "comms", "lfesolutions.co.ke": "lfe", "rarcconsulting.com": "rarc", "samelimu.pentarchcommunications.com": "samelimu",
-             "johms.pentarchcommunications.com": "johms", "cnb.pentarchcommunications.com": "cnb", "sasamedia.pentarchcommunications.com": "sasamedia",
-             "net.pentarchcommunications.com": "net", "nsnew.pentarchcommunications.com": "ns"}
+             "pentarchcommunications.com": "comms", "lfesolutions.co.ke": "lfe", "rarcconsulting.com": "rarc",
+             "johms.pentarchcommunications.com": "johms", "sasamedia.pentarchcommunications.com": "sasamedia",
+             "net.pentarchcommunications.com": "net"}
 
 
 def site_shot(d, n):
