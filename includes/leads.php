@@ -130,7 +130,7 @@ add_shortcode(
 			$o .= '<option value="' . esc_attr( $k ) . '"' . selected( $sel, $k, false ) . '>' . esc_html( $v ) . '</option>';
 		}
 		$o .= '</select></label>';
-		$eg = array( 'medicore' => 'Afya Bora Chemist', 'pos' => 'Mama Njeri Supermarket', 'portal' => 'Machakos Training College', 'beautysuite' => 'Glow Salon and Spa', 'learning' => 'Kilimani Training Centre', 'simlab' => 'Rift Valley Technical College', 'ngo' => 'Hope for Children Trust', 'qr' => 'Green Valley Campaign', 'complyscope' => 'Baraka Hardware Ltd' );
+		$eg = array( 'medicore' => 'Afya Bora Chemist', 'pos' => 'Mama Njeri Supermarket', 'portal' => 'Machakos Training College', 'beautysuite' => 'Glow Salon and Spa', 'learning' => 'Kilimani Training Centre', 'simlab' => 'Rift Valley Technical College', 'qr' => 'Green Valley Campaign', 'complyscope' => 'Baraka Hardware Ltd', 'liveedit' => 'Kamau and Co. Advocates', 'website' => 'Tumaini Community Group', 'data' => 'Nakuru County Health Office', 'interactive' => 'Mwangaza Science Centre' );
 		$o .= '<label>Organisation or business<input name="org" placeholder="e.g. ' . esc_attr( $eg[ $sel ] ?? 'Your organisation' ) . '" autocomplete="organization"></label>';
 		$o .= '<div class="r2"><label>Your name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" required inputmode="tel" placeholder="07…" autocomplete="tel"></label></div>';
 		$o .= '<div class="r2"><label>Email (optional)<input name="email" type="email" autocomplete="email"></label><label>Town<input name="town" placeholder="e.g. Nairobi"></label></div>';
