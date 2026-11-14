@@ -324,17 +324,17 @@
     }
     function setType(t, start) {
       type = t;
-      $$('.sw button', root).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-type') === t ? 'true' : 'false'); });
+      $$('.sw button', page).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-type') === t ? 'true' : 'false'); });
       links();
       if (frame || start) load();
     }
-    $$('.sw button', root).forEach(function (b) { b.addEventListener('click', function () { setType(b.getAttribute('data-type'), true); }); });
+    $$('.sw button', page).forEach(function (b) { b.addEventListener('click', function () { setType(b.getAttribute('data-type'), true); }); });
     var go = d.getElementById('pp-go'); if (go) go.addEventListener('click', load);
     function toDemo() { var el = d.getElementById('live-demo'); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
     $$('[data-try]', page).forEach(function (b) {
       b.addEventListener('click', function () {
         var t = b.getAttribute('data-try'); toDemo(); setType(t, true);
-        var s = root.querySelector('.sw button[data-type="' + t + '"]'); if (s) s.scrollIntoView({ block: 'nearest', inline: 'center' });
+        var s = page.querySelector('.sw button[data-type="' + t + '"]'); if (s) s.scrollIntoView({ block: 'nearest', inline: 'center' });
       });
     });
     $$('[data-act=start]', page).forEach(function (a) { a.addEventListener('click', function (ev) { ev.preventDefault(); toDemo(); if (!frame) load(); }); });

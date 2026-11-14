@@ -211,7 +211,7 @@ def products():
 
 # ============================================================== LIVE EDIT
 def live_edit():
-    hero = f'''<section class="hero hero-le t-paper"><div class="le-dots" aria-hidden="true"></div><div class="wrap">
+    hero = f'''<section class="hero hero-le t-paper"><div class="le-dots" aria-hidden="true"></div><div class="wrap hero-2">
 <div class="le-hero-txt">{crumb(("Products", "/products/"), "Live Edit")}<p class="hs-k">{ic("pen")}Pentarch Live Edit · WordPress plugin</p>
 <h1>We build it custom. You edit it yourself.</h1><p class="hero-p">Live Edit is the engine inside every website Pentarch builds. Your site is designed and coded by hand, and you still change any word, picture or link by clicking on it.</p>
 <div class="btns">{btn("#try", "Try it on this page", "p", "pen")}{btn("/websites/", "Sites running Live Edit", "g")}</div></div>

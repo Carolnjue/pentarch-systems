@@ -194,17 +194,18 @@ POS_TYPES = [("duka", "Shop", "box"), ("minimart", "Supermarket", "cart"), ("har
 
 def pos():
     sw = "".join(f'<button type="button" data-type="{k}" aria-pressed="{"true" if n == 0 else "false"}">{ic(i)}{l}</button>' for n, (k, l, i) in enumerate(POS_TYPES))
-    hero = f'''<section class="hero hero-pos t-paper" data-pos="{POS}"><div class="pos-dots" aria-hidden="true"></div><div class="wrap">
-<div class="pos-head">{crumb(("Products", "/products/"), "Pentarch POS")}<p class="hs-k">{ic("cart")}Pentarch POS · point of sale</p>
+    hero = f'''<section class="hero hero-pos t-paper" data-pos="{POS}"><div class="pos-dots" aria-hidden="true"></div><div class="wrap hero-2">
+<div class="pos-head pos-head-l">{crumb(("Products", "/products/"), "Pentarch POS")}<p class="hs-k">{ic("cart")}Pentarch POS · point of sale</p>
 <h1>Sell, count stock and track credit, even when the internet is down.</h1>
 <p class="hero-p">One till system for Kenyan shops, chemists, hardware stores, restaurants, bars and salons. M-Pesa, KRA tax codes and Kiswahili are built in. Try the real system below.</p>
-<div class="btns"><a class="btn btn-p" href="#live-demo" data-act="start">{ic("play")}Try the live demo</a><a class="btn btn-d" href="{POS}?trial=1" data-link="trial" target="_blank" rel="noopener">Start the one-month free trial{ic("ne")}</a><a class="btn btn-g" href="#demo">Book a demo</a></div></div>
-<div class="pos-demo" id="live-demo"><div class="pd-top"><p>Choose your type of business, then use the system as you would at the counter.</p><a href="{POS}?demo=1&amp;type=duka" data-link="full" target="_blank" rel="noopener">Open full-screen demo{ic("ne")}</a></div>
+<div class="btns"><a class="btn btn-p" href="#live-demo" data-act="start">{ic("play")}Try the live demo</a><a class="btn btn-d" href="{POS}?trial=1" data-link="trial" target="_blank" rel="noopener">Start the one-month free trial{ic("ne")}</a></div><ul class="pos-badges"><li>{ic("offline")}Works offline</li><li>{ic("cash")}M-Pesa</li><li>{ic("shield")}KRA tax codes</li><li>{ic("globe")}English and Kiswahili</li><li>{ic("pin")}Made in Nairobi</li></ul></div>
+{solo("pos-sell", "Pentarch POS sell screen")}</div></section>'''
+    live = section(f'''<div class="pos-demo" id="live-demo"><div class="pd-top"><p>Choose your type of business, then use the system as you would at the counter.</p><a href="{POS}?demo=1&amp;type=duka" data-link="full" target="_blank" rel="noopener">Open full-screen demo{ic("ne")}</a></div>
 <div class="sw" role="group" aria-label="Business type">{sw}</div>
 <div class="monitor"><div class="scr" id="pp-scr"><div class="pst">{img("pos-sell", "Pentarch POS sell screen", lazy=False)}</div>
 <button type="button" class="pp-go" id="pp-go"><span class="pp-play">{ic("play")}</span><b>Start the live demo</b><small>The full system with a sample business. Everything stays in your browser.</small></button></div><div class="stand" aria-hidden="true"></div></div>
 <ul class="pd-notes"><li>{ic("lock")}Sample data only, nothing is sent to us</li><li>{ic("users")}If the screen locks, use PIN Owner 1234 or Cashier 1111</li><li>{ic("layers")}Switch business type at any time</li></ul></div>
-<ul class="pos-badges"><li>{ic("offline")}Works offline</li><li>{ic("cash")}M-Pesa</li><li>{ic("shield")}KRA tax codes</li><li>{ic("globe")}English and Kiswahili</li><li>{ic("pin")}Made in Nairobi</li></ul></div></section>'''
+''', sid="live", tone="white", cls="sec-pos-live")
 
     biz = [("box", "Shop and duka", "duka", ["Quick keys for your fastest sellers", "Sell by piece or by carton", "Credit book for regular customers"]),
            ("cart", "Minimart and supermarket", "minimart", ["Scale barcodes for weighed items", "Loyalty points for customers", "Several tills and branches"]),
@@ -314,4 +315,4 @@ def pos():
         ("What support do I get?", f"WhatsApp and phone support from our Nairobi team, Monday to Saturday, 8am to 6pm, on {PHONE}. Updates are included."),
     ])}</div>''')
     cta = lead_section("pos", "Book my demo", "See it working in your business", "Tell us about your business and a convenient time. We will call to confirm, then show you the system at your premises or online.", ["A demo set up for your type of business", "Honest advice on the right devices", "A written quote after the demo"])
-    return page("pos", hero + biz_s + feats + how + hw_s + cmp_s + ints + faqs + cta)
+    return page("pos", hero + live + biz_s + feats + how + hw_s + cmp_s + ints + faqs + cta)

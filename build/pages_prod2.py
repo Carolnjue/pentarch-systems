@@ -41,13 +41,12 @@ def roles_grid(items):
 
 
 def portal():
-    hero = f'''<section class="hero hero-portal t-ink"><div class="hero-grid" aria-hidden="true"></div><div class="wrap">
+    hero = f'''<section class="hero hero-portal t-ink"><div class="hero-grid" aria-hidden="true"></div><div class="wrap hero-2">
 <div class="hp-txt">{crumb(("Products", "/products/"), "Portal")}<p class="hs-k">{ic("school")}Pentarch Portal · college management</p>
 <h1>One record for each student, from the first application to the alumni list.</h1>
 <p class="hero-p">A complete management portal for schools, colleges and training centres, running inside your own website. Applicants become students the moment their admission fee is confirmed, and everyone gets a dashboard that fits their role.</p>
 <div class="btns">{btn("#demo", "Book a Portal demo", "p", "arrow")}{btn("#journey", "Follow a student through it", "g")}</div>
 <ul class="hero-facts"><li>{ic("pin")}Live at a college in Machakos</li><li>{ic("users")}A dashboard for every role</li><li>{ic("web")}Runs inside your WordPress website</li></ul></div>
-<div class="hp-path">{journey()}</div>
 <div class="hp-shots">{shot("portal-dashboard", "The Pentarch Portal admin dashboard at Glamourvine Hair & Beauty College", "shot-a", GVU + "/dashboard")}{shot("portal-cert-full", "A Pentarch Portal certificate with its verification code", "shot-b")}</div></div></section>'''
 
     T = [("adm", "Admissions and fees", "users", feat_panel("Applications that become students",
@@ -244,7 +243,7 @@ def learning():
 
 # ============================================================== NGO PORTAL
 def ngo():
-    hero = f'''<section class="hero hero-ngo t-paper"><div class="wrap">
+    hero = f'''<section class="hero hero-ngo t-paper"><div class="wrap hero-2">
 <div class="ngo-txt">{crumb(("Products", "/products/"), "Pentarch EduSponsor")}<p class="hs-k">{ic("handshake")}Pentarch EduSponsor</p>
 <h1>Every sponsor, every student, every shilling, traced.</h1>
 <p class="hero-p">For charities and education sponsorship programmes. Track students and schools, sponsors and donations, fees paid to schools, letters between sponsors and students, and the impact years later.</p>
