@@ -190,7 +190,7 @@ def agile_section(sid, tone="ink", compact=False):
     poster = (f'<div class="emb-art ag-art"><div class="ag-k"><i></i><i></i><i></i><i></i></div><div class="qd-chart">{bars}</div>'
               f'<div class="ag-ring"><svg viewBox="0 0 42 42" aria-hidden="true" focusable="false"><circle cx="21" cy="21" r="15.9" class="r0"/><circle cx="21" cy="21" r="15.9" class="r1"/><circle cx="21" cy="21" r="15.9" class="r2"/></svg></div></div>')
     txt = (f'<p class="hs-k">{ic("chart")}Flagship dashboard</p><h2>AGILE Digital Media &amp; Advocacy Dashboard</h2>'
-           f'<p class="lead">Built for ALMANA SS in South Sudan: a data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
+           f'<p class="lead">Built for AMALNA South Sudan: a data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
            + ticks(["Interactive single-page dashboard, open in any browser", "Backed by its own database, not a static spreadsheet", "Build and configuration kept separate from the data", "Hosted and maintained by Pentarch"])
            + f'<div class="btns">{btn(AGILE, "Open the dashboard", "p", "ne", True)}{"" if compact else btn("/contact/?product=data", "Talk about a dashboard", "g")}</div>')
     poster = f'<div class="emb-art emb-shot">{img("agile", "AGILE Digital Media and Advocacy Dashboard")}</div>'
@@ -304,7 +304,7 @@ def work():
         ("zingira", "Zingira Pesa", "Nairobi and Maputo", "A natural capital and nature-finance advisory registered in Kenya and Mozambique.",
          ["Website with free nature-finance calculators", "QR Analytics for printed and event material", "WiIRA, an internal opportunities and task planner with Gmail integration", "ArcGIS StoryMaps of field campaigns", "Its filings, permits and renewals tracked in ComplyScope Kenya"],
          [("Data & maps", "/data-maps/"), ("ComplyScope Kenya", "/complyscope/"), ("Visit the site", "https://zingirapesa.com/")], "cs-overview"),
-        ("agile", "AGILE dashboard", "South Sudan", "A digital media and advocacy dashboard for ALMANA SS, a South Sudanese company, that brings its programme's online results into one place.",
+        ("agile", "AGILE dashboard", "South Sudan", "A digital media and advocacy dashboard for AMALNA South Sudan, a South Sudanese organisation, that brings its programme's online results into one place.",
          ["Campaign and media results in one view", "Filters by channel, period and theme", "Built on a private database", "Shared with partners by link"],
          [("Open the dashboard", AGILE), ("Dashboards and maps", "/data-maps/#dashboards")], "agile"),
         ("medicore", "MediCore pilots", "Kenya", "A community pharmacy with its own lab, and a maternity-focused clinic.",
@@ -358,7 +358,7 @@ def about():
         ("scissor", "Glamour by Beth", "Pentarch BeautySuite", "/beautysuite/"),
         ("monitor", "Laqim Autoworld", "3D showroom and website", "/work/#laqim"),
         ("map", "Zingira Pesa", "Website, StoryMaps, QR Analytics and ComplyScope", "/work/#zingira"),
-        ("chart", "ALMANA SS, South Sudan", "AGILE media and advocacy dashboard", "/work/#agile"),
+        ("chart", "AMALNA South Sudan", "AGILE media and advocacy dashboard", "/work/#agile"),
         ("book", "Pentarch Training Institute", "Website and course registration", "/work/#pti"),
         ("web", "LFE Solutions", "Website", "/websites/"),
         ("web", "RARC Consulting", "Website", "/websites/"),
@@ -406,7 +406,7 @@ def services():
 <p class="hs-k">{ic("layers")}Built to order</p><h1>When a ready-made product does not fit, we build it.</h1>
 <p class="hero-p">Websites, portals, dashboards, interactive experiences and integrations, designed around how your organisation works. Every Pentarch product started this way, for one client, and is still in use.</p>
 <div class="btns">{btn("/contact/", "Tell us what you need", "p", "arrow")}{btn("/work/", "See what we have built", "g")}</div></div>
-<div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("agile", "The AGILE dashboard built for ALMANA SS", "shot-b")}</div></div></section>'''
+<div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("agile", "The AGILE dashboard built for AMALNA SS", "shot-b")}</div></div></section>'''
     S = [("websites", "web", "Websites", "Designed and coded by hand for each client, then handed over with Pentarch Live Edit so your team changes any word, picture or link by clicking on it.",
           ["Custom design, no templates", "Fast on phones and slow connections", "Live Edit included on every site", "Hosting, domains and email set up for you"],
           [("See the websites we built", "/websites/"), ("How Live Edit works", "/live-edit/")], "live-edit"),

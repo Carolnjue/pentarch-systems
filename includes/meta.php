@@ -23,7 +23,7 @@ function pss_meta_map() {
 		'simlab'       => array( 'Pentarch SimLab: more than 50 interactive simulations for college and university students, free and running in any browser.', 'sim-home' ),
 		'data-maps'    => array( 'ArcGIS StoryMaps, interactive dashboards and campaign analytics that turn field data and programme results into pages people read.', 'sm-map' ),
 		'websites'     => array( 'Ten websites built by Pentarch, each edited by its owner with Live Edit: colleges, consultancies, a car showcase, a media agency and an internet provider.', 'site-glamourvine' ),
-		'work'         => array( 'Systems and websites in use today: MediCore pilots, Glamourvine, Laqim Autoworld, Pentarch Training Institute, Zingira Pesa and ALMANA SS.', 'agile' ),
+		'work'         => array( 'Systems and websites in use today: MediCore pilots, Glamourvine, Laqim Autoworld, Pentarch Training Institute, Zingira Pesa and AMALNA South Sudan.', 'agile' ),
 		'about'        => array( 'Pentarch Systems Solutions builds, installs and supports software for Kenyan organisations. Part of the Pentarch family, based in Nairobi.', 'pti-intake' ),
 		'contact'      => array( 'Book a demo or talk to the Pentarch Systems Solutions team in Nairobi by phone, WhatsApp or email.', 'mc-dashboard' ),
 	);
