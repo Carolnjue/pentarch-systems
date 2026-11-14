@@ -1372,3 +1372,5 @@ html.vw-on .pss-top{display:none}
 @media(min-width:1040px){.caps.caps-5{grid-template-columns:repeat(5,1fr)}}
 .pss .ig-note{margin-top:18px;color:var(--mute);font-size:.92rem;max-width:860px}
 .pss .kv dd{overflow-wrap:anywhere;min-width:0}
+.dash2>*,.sites>*,.cases>*,.caps>*{min-width:0}.pss .bw{max-width:100%}
+.gal>*,.roles>*,.steps>*,.prow>*,.split>*{min-width:0}
