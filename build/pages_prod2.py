@@ -123,7 +123,6 @@ def portal():
 
     story = section(f'''<div class="split">{head("In use at Glamourvine Hair & Beauty College, Machakos", "The Pentarch Portal replaced a generic learning system at Glamourvine. Applications, admissions, fees and practical work now run inside the college website, and the college salon runs on Pentarch BeautySuite alongside it.", "in use")}
 <div class="also-po"><div class="ap">{ic("scissor")}<div><h3>The college salon</h3><p>Glamour by Beth runs on Pentarch BeautySuite, sharing one store with the college.</p><a href="/beautysuite/">See BeautySuite</a></div></div>
-<div class="ap">{ic("handshake")}<div><h3>Scholarship programmes</h3><p>Charities that sponsor students use Pentarch EduSponsor, in use at SAM Elimu Charity.</p><a href="/ngo-portal/">See Pentarch EduSponsor</a></div></div>
 <div class="btns">{btn(GV + "/", "Visit glamourvinecollege.com", "d", "ne", True)}</div></div></div>''', tone="ink", cls="sec-story")
 
     how = section(head("Setting up your college") + steps([
@@ -243,37 +242,11 @@ def learning():
 
 # ============================================================== NGO PORTAL
 def ngo():
-    hero = f'''<section class="hero hero-ngo t-paper"><div class="wrap hero-2">
-<div class="ngo-txt">{crumb(("Products", "/products/"), "Pentarch EduSponsor")}<p class="hs-k">{ic("handshake")}Pentarch EduSponsor</p>
-<h1>Every sponsor, every student, every shilling, traced.</h1>
-<p class="hero-p">For charities and education sponsorship programmes. Track students and schools, sponsors and donations, fees paid to schools, letters between sponsors and students, and the impact years later.</p>
-<div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("https://samelimu.pentarchcommunications.com/", "See it live for SAM Elimu", "g", "ne", True)}</div></div>
-{duo("se-dashboard", "Pentarch EduSponsor programme dashboard", "se-sponsor", "Pentarch EduSponsor sponsor view")}</div></section>'''
-    mods = [("school", "Students and schools", "Each student's school, class, results and needs, with a tracker across the programme."),
-            ("handshake", "Sponsors and donations", "Sponsor records, gifts and online donations by card, PayPal or M-Pesa."),
-            ("cash", "Fees and disbursements", "Fees owed and paid to each school, requested, approved and paid with a reference."),
-            ("mail", "Letters", "Letters between sponsors and students, reviewed by staff before delivery."),
-            ("chart", "Impact and alumni", "Progress over the years, an annual impact report and an alumni network for mentoring."),
-            ("globe", "Public pages", "Pages that show the programme's work and the students awaiting a sponsor.")]
-    m = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d in mods)
-    mods_s = section(head("Six parts, one portal", "Shown as it runs for SAM Elimu Charity, which has supported children in rural Kenya through school since 2002.") + f'<ul class="caps caps-3">{m}</ul>', sid="features", tone="white")
-    SEU = "samelimu.pentarchcommunications.com"
-    tour_s = section(head("Inside the portal", "The demonstration portal, with invented sample data. Every screen below is the real system.", "real screens") + tour("se", [
-        ("se-dashboard", "Programme dashboard", "Students supported, money raised and disbursed, results by level, and what needs attention today.", ""),
-        ("se-student", "A student's whole journey", "Results by term, fees paid, welfare visits with photos, letters and a one-click progress report.", ""),
-        ("se-fees", "Every shilling leaves a trail", "Staff request a fee, an administrator approves it, and it is paid with a bank or M-Pesa reference.", ""),
-        ("se-sponsor", "Sponsor view", "Sponsors see only their own students: results, field visit notes, letters and receipts.", ""),
-        ("se-letters", "Letters, reviewed first", "Letters between sponsors and students wait for staff approval before delivery.", ""),
-        ("se-alumni", "Alumni and mentoring", "Graduates record their careers and mentor current students.", ""),
-        ("se-impact", "Annual impact report", "Built from live records and saved as a PDF in one click.", ""),
-        ("se-public", "Sponsor a student", "The public website lists students awaiting a sponsor, with first names only.", "")], "tour-d"), sid="screens", tone="ink2")
-    rl = [("cog", "Administrators", "Approve fee payments and see the whole programme."), ("users", "Programme staff", "Run students, schools, welfare visits, fees and reports."),
-          ("globe", "The board", "Their own sign-in to follow the programme."), ("handshake", "Sponsors", "Follow their own students' progress, receipts and letters."),
-          ("school", "Students", "Their own record and letters from their sponsor."), ("star", "Alumni", "Record their careers and mentor current students.")]
-    roles = section(f'''<div class="split">{head("Six ways in", "Administrators, programme staff, the board, sponsors, students and alumni each sign in to their own view of the same portal.")}
-<ul class="roles roles-6">{"".join(f'<li>{ic(i)}<div><h3>{t}</h3><p>{d}</p></div></li>' for i, t, d in rl)}</ul></div>''', tone="ink")
-    cta = lead_section("ngo", "Book a demo", "Run your programme from one portal", "Tell us how many students and sponsors you work with. We will show you the portal with your own structure.", ["Your programmes and schools", "Online donations", "No obligation"])
-    return page("ngo-portal", hero + mods_s + tour_s + roles + cta)
+    """No longer showcased: old address sends visitors to Products."""
+    body = section(f'''<div class="moved" data-redirect="/products/"><meta http-equiv="refresh" content="0; url=/products/">
+<p class="hs-k">{ic("layers")}Products</p><h1>This page has moved to Products</h1>
+<div class="btns">{btn("/products/", "Go to Products", "p", "arrow")}</div></div>''', tone="ink", cls="sec-moved")
+    return page("ngo-portal", body)
 
 
 # ============================================================== QR ANALYTICS

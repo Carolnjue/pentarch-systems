@@ -16,7 +16,7 @@ def home():
     slides = [
         ("products", "layers", "Products",
          "Systems Kenyan organisations run on, even when the internet is down.",
-         "Pharmacies, shops, salons, colleges and charities run on Pentarch systems every day, with M-Pesa and KRA tax codes built in and a demo before you commit.",
+         "Pharmacies, shops, salons and colleges run on Pentarch systems every day, with M-Pesa and KRA tax codes built in and a demo before you commit.",
          [btn("/products/", "See our products", "p", "arrow"), btn("/pos/#live-demo", "Try the POS now", "g", "play")],
          duo("mc-dashboard", "Pentarch MediCore dashboard at a pharmacy", "pos-sell", "Pentarch POS sell screen")),
         ("services", "web", "Services",
@@ -45,7 +45,7 @@ def home():
     readout = section(
         '<div class="readout">' + "".join(
             f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [
-                ("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"),
+                ("10", "systems built and in use"), ("10", "websites running Live Edit"), ("50+", "interactive simulations"),
                 ("19", "business types in Pentarch POS"), ("47", "counties covered by ComplyScope")]) +
         '</div><p class="ro-note">Counted from the systems and sites listed on this website.</p>', cls="sec-ro", tone="ink2")
 
@@ -166,7 +166,7 @@ def products():
         lines.append(("row", f'<a href="{h}">{t.replace("Pentarch ", "").lower().replace(" & ", "-").replace(" ", "-")}/</a><span>{d}</span>'))
     lines += [("", ""), ("ok", f"{len(PRODUCTS)} products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
-<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
+<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Seven products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
 {duo("pos-home", "Pentarch POS home screen", "salon-calendar", "Pentarch BeautySuite bookings calendar")}</div></section>'''
 
@@ -191,9 +191,9 @@ def products():
                  f'<div class="btns">{btn(h, "Explore " + t.replace("Pentarch ", ""), "d", "arrow")}</div></div><div class="prow-vis">{vis}</div></article>')
     lineup = section(rows, cls="sec-prows")
 
-    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
-                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Browser", "Your website", "Desk, tablet, phone", "Browser", "Browser", "WordPress"]),
-                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live dashboard, free pilot", "Live college site", "Demo on request", "Demo on request", "Demo on request", "This website"])]
+    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
+                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Browser", "Your website", "Desk, tablet, phone", "Browser", "WordPress"]),
+                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live dashboard, free pilot", "Live college site", "Demo on request", "Demo on request", "This website"])]
     th = "".join(f'<th scope="col">{t.replace("Pentarch ", "")}</th>' for k, t, *_ in PRODUCTS)
     tb = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{v}</td>" for v in vals) + "</tr>" for r, vals in cmp_rows)
     compare = section(head("Compare at a glance") + f'<div class="tbl-wrap" tabindex="0" role="region" aria-label="Product comparison"><table class="tbl"><thead><tr><td></td>{th}</tr></thead><tbody>{tb}</tbody></table></div>', sid="compare", tone="white")
@@ -201,7 +201,6 @@ def products():
     also = [("wifi", "WiIRA work planner", "Opportunities pipeline, tasks, notes and categories with Gmail integration. Built for Zingira Pesa's own team.", "Private tool"),
             ("monitor", "Pentarch Showroom plugin", "3D showroom, engine cutaways, games and a parts finder for Laqim Autoworld.", "/labs/#showroom"),
             ("layers", "Johms storage planner", "Visitors design a kitchen or wardrobe and send it for a quote.", "/labs/#planners"),
-            ("check", "Compliance checklist", "Environmental and OSH self-assessment with an instant score, for Charles and Barker.", "/labs/#planners"),
             ("server", "Pentarch NetDesk", "Billing for internet service providers, building on PentarchNet.", "Planned")]
     al = "".join(f'<li>{ic(i)}<div><h3>{t}</h3><p>{d}</p>' + (f'<a href="{l}">Learn more</a>' if l.startswith("/") else f'<span class="mono">{l}</span>') + "</div></li>" for i, t, d, l in also)
     also_s = section(head("Also built by our team", "Plugins and tools made for one client, which we can adapt for yours.") + f'<ul class="also">{al}</ul>', tone="ink2")
@@ -243,7 +242,7 @@ def live_edit():
     ]))
 
     sites = "".join(f'<li><a href="{u}"{" target=_blank rel=noopener" if u.startswith("http") else ""}><span class="ls-dot"></span><b>{n}</b><small class="mono">{d}</small>{ic("ne")}</a></li>' for n, d, u in LE_SITES)
-    sites_s = section(f'<div class="split">{head("Installed on every Pentarch site", "Thirteen websites run Live Edit today, from a college with a student portal to a car showcase with a 3D showroom.")}<div><ul class="le-list">{sites}</ul>{btn("/websites/", "See all thirteen sites", "d", "arrow")}</div></div>', tone="white")
+    sites_s = section(f'<div class="split">{head("Installed on every Pentarch site", "Ten websites run Live Edit today, from a college with a student portal to a car showcase with a 3D showroom.")}<div><ul class="le-list">{sites}</ul>{btn("/websites/", "See all ten sites", "d", "arrow")}</div></div>', tone="white")
 
     faqs = faq([
         ("Do I need to know code?", "No. You edit by clicking on the page. Code stays with us, for when you want a new section or a redesign."),

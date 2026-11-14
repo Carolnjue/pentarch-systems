@@ -349,7 +349,6 @@ PRODUCTS = [
     ("complyscope", "ComplyScope Kenya", "shield", "Every filing, permit and renewal for a Kenyan business", "/complyscope/"),
     ("portal", "Pentarch Portal", "school", "College management from admission to alumni", "/portal/"),
     ("beautysuite", "Pentarch BeautySuite", "scissor", "Bookings, desk and commissions for salons", "/beautysuite/"),
-    ("ngo", "Pentarch EduSponsor", "handshake", "Education sponsorship: students, sponsors, fees and impact", "/ngo-portal/"),
     ("qr", "Pentarch QR Analytics", "scan", "Track every scan of a printed campaign", "/qr-analytics/"),
     ("liveedit", "Pentarch Live Edit", "pen", "Edit your website by clicking on it", "/live-edit/"),
 ]

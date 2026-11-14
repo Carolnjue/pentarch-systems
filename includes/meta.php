@@ -9,22 +9,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 function pss_meta_map() {
 	return array(
 		'home'         => array( 'Systems Kenyan organisations run on: MediCore for health facilities, Pentarch POS, ComplyScope, school portals and websites your team edits itself. Built and supported in Nairobi.', 'mc-dashboard' ),
-		'products'     => array( 'Eight products in daily use: MediCore, Pentarch POS, ComplyScope Kenya, Portal, BeautySuite, EduSponsor, QR Analytics and Live Edit. Compare them and book a demo.', 'pos-home' ),
+		'products'     => array( 'Seven products in daily use: MediCore, Pentarch POS, ComplyScope Kenya, Portal, BeautySuite, QR Analytics and Live Edit. Compare them and book a demo.', 'pos-home' ),
 		'medicore'     => array( 'Pentarch MediCore runs a pharmacy, clinic or hospital on one system, with or without internet: counter, patients, lab, wards, billing, SHA and stock. Try it free for 30 days.', 'mc-dashboard' ),
 		'pos'          => array( 'Pentarch POS: an offline till for Kenyan shops, chemists, hardware stores, restaurants and bars, with M-Pesa, KRA tax codes, credit book and Kiswahili. Try the live demo.', 'pos-sell' ),
 		'complyscope'  => array( 'ComplyScope Kenya maps every filing, permit and renewal a Kenyan business owes, national and county, scores your compliance and keeps a dossier ready for inspectors.', 'cs-overview' ),
 		'portal'       => array( 'Pentarch Portal: admissions, fees, LMS, exams, certificates with QR verification and alumni, running inside your own college website.', 'portal-dashboard' ),
 		'beautysuite'  => array( 'Pentarch BeautySuite: front desk, bookings, bridal packages and fair staff commissions for salons, barbers and spas.', 'salon-desk' ),
 		'learning'     => array( 'Course catalogues that fill classes: schools, class dates with seats left, registration with M-Pesa, group rates and Moodle support for training institutes.', 'pti-intake' ),
-		'ngo-portal'   => array( 'Pentarch EduSponsor tracks students, sponsors, donations, school fees, letters and impact for education sponsorship programmes.', 'se-dashboard' ),
 		'qr-analytics' => array( 'Pentarch QR Analytics: trackable QR codes for printed campaigns, with scans by date, device and country, and client reports.', 'qr-dashboard' ),
 		'live-edit'    => array( 'Pentarch Live Edit: a custom-designed website that your team edits by clicking on the page, with a revision for every save.', 'live-edit' ),
 		'services'     => array( 'Websites, custom systems and portals, interactive and 3D, dashboards and StoryMaps, and integrations with M-Pesa, KRA eTIMS, WhatsApp, SMS and AI assistants.', 'portal-dashboard' ),
 		'labs'         => array( 'Websites people stay on: 3D showrooms, engine cutaways, games, parts finders, calculators and planners that run in an ordinary browser.', 'laqim-showroom' ),
 		'simlab'       => array( 'Pentarch SimLab: more than 50 interactive simulations for college and university students, free and running in any browser.', 'sim-home' ),
 		'data-maps'    => array( 'ArcGIS StoryMaps, interactive dashboards and campaign analytics that turn field data and programme results into pages people read.', 'sm-map' ),
-		'websites'     => array( 'Thirteen websites built by Pentarch, each edited by its owner with Live Edit: colleges, consultancies, charities, a car showcase and an internet provider.', 'site-glamourvine' ),
-		'work'         => array( 'Systems and websites in use today: Glamourvine, Laqim Autoworld, SAM Elimu, Pentarch Training Institute, Zingira Pesa, ALMANA SS, MediCore pilots and Charles and Barker.', 'agile' ),
+		'websites'     => array( 'Ten websites built by Pentarch, each edited by its owner with Live Edit: colleges, consultancies, a car showcase, a media agency and an internet provider.', 'site-glamourvine' ),
+		'work'         => array( 'Systems and websites in use today: MediCore pilots, Glamourvine, Laqim Autoworld, Pentarch Training Institute, Zingira Pesa and ALMANA SS.', 'agile' ),
 		'about'        => array( 'Pentarch Systems Solutions builds, installs and supports software for Kenyan organisations. Part of the Pentarch family, based in Nairobi.', 'pti-intake' ),
 		'contact'      => array( 'Book a demo or talk to the Pentarch Systems Solutions team in Nairobi by phone, WhatsApp or email.', 'mc-dashboard' ),
 	);
@@ -73,7 +72,7 @@ add_action(
 /* Pages kept only to forward old addresses stay out of search. */
 function pss_moved_page_ids() {
 	$ids = array();
-	foreach ( array( 'solutions', 'dashboards' ) as $s ) {
+	foreach ( array( 'solutions', 'dashboards', 'ngo-portal' ) as $s ) {
 		$p = get_page_by_path( $s );
 		if ( $p ) {
 			$ids[] = (int) $p->ID;

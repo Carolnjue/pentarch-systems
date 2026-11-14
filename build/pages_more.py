@@ -126,7 +126,6 @@ def labs():
     tools_s = section(head("Nature-finance tools, built with Zingira Pesa", "Free calculators on zingirapesa.com. Each one explains its method and its limits on the page.") + f'<div class="tools">{t}</div>', sid="tools", tone="ink")
 
     plan = [("Design your storage", "Johms Interiors", "Visitors choose a space, style, finish and size, add room photos and send the design for a tailored quote.", "https://johms.pentarchcommunications.com/", "layers"),
-            ("Compliance self-assessment", "Charles and Barker", "Two checklists, environmental due diligence (21 questions) and occupational safety and health (30), with an instant score and recommendations.", "https://cnb.pentarchcommunications.com/checklist/", "shield"),
             ("Course planner", "Glamourvine College", "Matches a visitor to a course and shows what it involves.", "https://glamourvinecollege.com/", "school")]
     p = "".join(f'<article class="tool tool-l">{ic(i)}<p class="mono">{c}</p><h3>{n}</h3><p>{d}</p><a href="{u}" target="_blank" rel="noopener">Open it{ic("ne")}</a></article>' for n, c, d, u, i in plan)
     plan_s = section(head("Planners and checklists on client sites", "Small tools that turn a visitor into an enquiry.") + f'<div class="tools">{p}</div>', sid="planners", tone="white")
@@ -249,12 +248,9 @@ SITES = [
     ("Pentarch Communications", "pentarchcommunications.com", "https://pentarchcommunications.com/", "Studio", "Communication, design and digital studio with hover mega menus and a portfolio of work.", ["Mega menu"]),
     ("LFE Solutions", "lfesolutions.co.ke", "https://lfesolutions.co.ke/", "Company", "Company website with a carousel home hero.", ["Carousel"]),
     ("RARC Consulting", "rarcconsulting.com", "https://rarcconsulting.com/", "Advisory", "Advisory firm for non-profits: six practice areas, team and an assess-build-grow approach.", ["Team pages"]),
-    ("SAM Elimu Charity", "samelimu.pentarchcommunications.com", "https://samelimu.pentarchcommunications.com/", "Charity", "Charity site with sponsor, alumni and staff sign-in and online donations by card, PayPal or M-Pesa.", ["NGO Portal", "Donations"]),
     ("Johms Interiors", "johms.pentarchcommunications.com", "https://johms.pentarchcommunications.com/", "Interiors", "Design-and-build joinery studio with a design-your-storage planner, packages and guides.", ["Planner", "Custom plugin"]),
-    ("Charles and Barker", "cnb.pentarchcommunications.com", "https://cnb.pentarchcommunications.com/", "Consultancy", "Environmental and OSH consultancy with a free compliance self-assessment.", ["Checklist tool"]),
     ("Sasa Media", "sasamedia.pentarchcommunications.com", "https://sasamedia.pentarchcommunications.com/", "Media agency", "Corporate publishing and development communication agency, with a sample media-monitoring dashboard.", ["Sample dashboard"]),
     ("PentarchNet", "net.pentarchcommunications.com", "https://net.pentarchcommunications.com/", "Internet", "Home and business internet, pay-as-you-go hotspot by M-Pesa, CCTV and networking.", ["Hotspot"]),
-    ("Natural State", "nsnew.pentarchcommunications.com", "https://nsnew.pentarchcommunications.com/", "Redesign concept", "A redesign concept for a restoration NGO, explaining how a data point becomes funding.", ["Concept"]),
 ]
 
 
@@ -272,8 +268,8 @@ def site_shot(d, n):
 def websites():
     stack = "".join(f'<div class="bwst" style="--i:{i}">{browser(d, site_shot(d, n))}</div>' for i, (n, d, *_r) in enumerate(SITES[:4]))
     hero = f'''<section class="hero hero-web t-paper"><div class="wrap hero-2"><div>{crumb(("Services", "/services/"), "Websites")}
-<h1>Thirteen websites, each one edited by its owner.</h1>
-<p class="hero-p">Colleges, consultancies, charities, a car showcase and an internet provider. Every one is coded by hand, hosted on our server and editable by its owner.</p>
+<h1>Ten websites, each one edited by its owner.</h1>
+<p class="hero-p">Colleges, consultancies, a car showcase, a media agency and an internet provider. Every one is coded by hand, hosted on our server and editable by its owner.</p>
 <div class="btns">{btn("#sites", "See the websites", "p", "arrow")}{btn("/live-edit/", "How Live Edit works", "g")}</div></div><div class="bw-stack">{stack}</div></div></section>'''
     cards = "".join(f'''<article class="site"><a class="site-vis" href="{u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{browser(d, site_shot(d, n))}</a>
 <p class="site-k mono">{k}</p><h3><a href="{u}" target="_blank" rel="noopener">{n}{ic("ne")}</a></h3><p>{t}</p>{tags(["Live Edit"] + tg)}</article>''' for i, (n, d, u, k, t, tg) in enumerate(SITES))
@@ -302,9 +298,6 @@ def work():
         ("laqim", "Laqim Autoworld", "Nairobi", "A car showcase where visitors explore, learn how cars work and play.",
          ["3D virtual showroom with brand pavilions and a guided tour", "Under the Hood: engine cutaways and an engine builder", "Race simulator, hot lap, launch control and more games", "Rare parts finder"],
          [("Interactive websites", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], "laqim-showroom"),
-        ("samelimu", "SAM Elimu Charity", "Kenya and Philadelphia", "A charity that has supported children in rural Kenya through school since 2002.",
-         ["New charity website", "Portal for students, schools, sponsors, donations, fees, letters and alumni", "Online donations by card, PayPal or M-Pesa", "Sponsor progress tracking"],
-         [("Pentarch EduSponsor", "/ngo-portal/"), ("Visit the site", "https://samelimu.pentarchcommunications.com/")], "se-sponsor"),
         ("pti", "Pentarch Training Institute", "Nairobi", "A professional training institute with 33 certificate courses in five schools.",
          ["Course catalogue by school", "Class dates with live seats left", "Registration with M-Pesa", "Group and organisation requests"],
          [("Courses & Learning", "/learning/"), ("Visit the site", "https://pentarchtraininginstitute.co.ke/")], "pti-intake"),
@@ -317,9 +310,6 @@ def work():
         ("medicore", "MediCore pilots", "Kenya", "A community pharmacy with its own lab, and a maternity-focused clinic.",
          ["Counter, lab and referrals for the pharmacy", "Inpatient beds and maternity for the clinic", "Runs on the local network", "Sample data removed before real use"],
          [("MediCore", "/medicore/")], "mc-queue"),
-        ("cnb", "Charles and Barker", "Nairobi", "An environmental and OSH consultancy working across sub-Saharan Africa.",
-         ["Website with nine practice areas", "Free compliance self-assessment: 21 and 30 questions", "Instant score with recommendations"],
-         [("Visit the checklist", "https://cnb.pentarchcommunications.com/checklist/")], None),
     ]
     idx = "".join(f'<li><a href="#{k}"><span class="mono">{i + 1:02d}</span>{t}</a></li>' for i, (k, t, *_r) in enumerate(cases))
     hero = f'''<section class="hero hero-work t-white"><div class="wrap hero-2"><div>{crumb("Our work")}<h1>Our work, in use.</h1>
@@ -339,7 +329,7 @@ def work():
 def about():
     hero = f'''<section class="hero hero-about t-ink"><canvas class="net" data-net aria-hidden="true"></canvas><div class="wrap hero-2"><div>{crumb("About")}
 <h1>The systems company of the Pentarch family.</h1>
-<p class="hero-p">Pentarch Systems Solutions builds, installs and supports the software behind Pentarch websites and the systems our clients run: health, retail, education, salons, charities and campaigns. We work from Nairobi.</p></div>
+<p class="hero-p">Pentarch Systems Solutions builds, installs and supports the software behind Pentarch websites and the systems our clients run: health, retail, education, salons, compliance and campaigns. We work from Nairobi.</p></div>
 <div class="ab-mark"><img src="{MARK}" alt="" width="260" height="260" loading="lazy"><span class="ab-ring" aria-hidden="true"></span></div></div></section>'''
     prin = [("offline", "Offline first", "Our systems keep working when the connection drops, because in many places it does."),
             ("cash", "Built for local payment and tax", "M-Pesa, KRA tax codes and SHA billing where the system needs them."),
@@ -366,18 +356,16 @@ def about():
     clients = section(head("Our clients", "Organisations running Pentarch systems and websites today.", "clients") + '<ul class="cl-list">' + "".join(f'<li><a href="{h}">{ic(ii)}<span><b>{n}</b><small>{w}</small></span></a></li>' for ii, n, w, h in [
         ("school", "Glamourvine Hair & Beauty College", "Website and Pentarch Portal", "/work/#glamourvine"),
         ("scissor", "Glamour by Beth", "Pentarch BeautySuite", "/beautysuite/"),
-        ("handshake", "SAM Elimu Charity", "Website and Pentarch EduSponsor", "/work/#samelimu"),
         ("monitor", "Laqim Autoworld", "3D showroom and website", "/work/#laqim"),
         ("map", "Zingira Pesa", "Website, StoryMaps, QR Analytics and ComplyScope", "/work/#zingira"),
         ("chart", "ALMANA SS, South Sudan", "AGILE media and advocacy dashboard", "/work/#agile"),
         ("book", "Pentarch Training Institute", "Website and course registration", "/work/#pti"),
-        ("shield", "Charles and Barker", "Website and compliance checklist", "/work/#cnb"),
         ("web", "LFE Solutions", "Website", "/websites/"),
         ("web", "RARC Consulting", "Website", "/websites/"),
         ("layers", "Johms Interiors", "Website and storage planner", "/websites/"),
     ]) + "</ul>", sid="clients", tone="paper")
 
-    nums = section('<div class="readout">' + "".join(f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"), ("2", "MediCore pilot facilities")]) + "</div>", tone="ink2", cls="sec-ro")
+    nums = section('<div class="readout">' + "".join(f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [("10", "systems built and in use"), ("10", "websites running Live Edit"), ("50+", "interactive simulations"), ("2", "MediCore pilot facilities")]) + "</div>", tone="ink2", cls="sec-ro")
     cta = lead_section("other", "Get in touch", "Talk to us", "Tell us about your organisation and what you need to run.", ["Nairobi-based team", "Phone and WhatsApp support", "Written quote after the demo"])
     return page("about", hero + who + pr + fam + team + clients + nums + cta)
 
@@ -418,13 +406,13 @@ def services():
 <p class="hs-k">{ic("layers")}Built to order</p><h1>When a ready-made product does not fit, we build it.</h1>
 <p class="hero-p">Websites, portals, dashboards, interactive experiences and integrations, designed around how your organisation works. Every Pentarch product started this way, for one client, and is still in use.</p>
 <div class="btns">{btn("/contact/", "Tell us what you need", "p", "arrow")}{btn("/work/", "See what we have built", "g")}</div></div>
-<div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("se-dashboard", "A sponsorship portal built for SAM Elimu Charity", "shot-b")}</div></div></section>'''
+<div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("agile", "The AGILE dashboard built for ALMANA SS", "shot-b")}</div></div></section>'''
     S = [("websites", "web", "Websites", "Designed and coded by hand for each client, then handed over with Pentarch Live Edit so your team changes any word, picture or link by clicking on it.",
           ["Custom design, no templates", "Fast on phones and slow connections", "Live Edit included on every site", "Hosting, domains and email set up for you"],
           [("See the websites we built", "/websites/"), ("How Live Edit works", "/live-edit/")], "live-edit"),
          ("systems", "layers", "Custom systems and portals", "Management systems built around your own process: who does what, who approves, and what each person sees. We start from a working demo and grow it with you.",
           ["Student, member and client portals", "Fees, payments and M-Pesa", "Approvals with a full audit trail", "Reports your board and funders ask for"],
-          [("Glamourvine college portal", "/work/#glamourvine"), ("SAM Elimu sponsorship portal", "/work/#samelimu")], "portal-students"),
+          [("Glamourvine college portal", "/work/#glamourvine"), ("Zingira Pesa tools and planner", "/work/#zingira")], "portal-students"),
          ("interactive", "monitor", "Interactive and 3D", "Experiences people stay on: 3D showrooms, simulations, games, planners and calculators that run in an ordinary browser.",
           ["3D showrooms and product tours", "Simulations for teaching", "Games built from real data", "Planners and calculators that bring enquiries"],
           [("Interactive and 3D work", "/labs/"), ("Pentarch SimLab", "/simlab/")], "sim-home"),
