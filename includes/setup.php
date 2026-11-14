@@ -1,0 +1,242 @@
+<?php
+/**
+ * Site set-up: page designs (Live Edit blocks), pages, home page, logo and images.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+function pss_pages() {
+	return array(
+		'home'        => 'Home',
+		'medicore'    => 'Pentarch MediCore',
+		'pos'         => 'Pentarch POS',
+		'portal'      => 'Pentarch Portal',
+		'beautysuite' => 'Pentarch BeautySuite',
+		'learning'    => 'Courses and Learning Systems',
+		'live-edit'   => 'Pentarch Live Edit',
+		'simlab'      => 'Pentarch SimLab',
+		'websites'    => 'Websites and Hosting',
+		'dashboards'  => 'Dashboards and StoryMaps',
+		'work'        => 'Our Work',
+		'about'       => 'About',
+		'contact'     => 'Book a Demo',
+	);
+}
+
+/** Import a file from a URL into the Media Library once; returns the local URL. */
+function pss_media( $url ) {
+	$name = sanitize_file_name( basename( wp_parse_url( $url, PHP_URL_PATH ) ) );
+	$have = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'meta_key'       => '_pss_src', // phpcs:ignore WordPress.DB.SlowDBQuery
+			'meta_value'     => $name, // phpcs:ignore WordPress.DB.SlowDBQuery
+			'fields'         => 'ids',
+		)
+	);
+	if ( $have ) {
+		return wp_get_attachment_url( $have[0] );
+	}
+	$same = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'meta_key'       => '_wp_attached_file', // phpcs:ignore WordPress.DB.SlowDBQuery
+			'meta_value'     => gmdate( 'Y/m/' ) . $name, // phpcs:ignore WordPress.DB.SlowDBQuery
+			'fields'         => 'ids',
+		)
+	);
+	if ( $same ) {
+		update_post_meta( $same[0], '_pss_src', $name );
+		return wp_get_attachment_url( $same[0] );
+	}
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	if ( false === strpos( $url, '://' ) ) {
+		$src = PSS_DIR . 'assets/img/' . $name;
+		if ( ! file_exists( $src ) ) {
+			return PSS_URL . 'assets/img/' . $name;
+		}
+		$tmp = wp_tempnam( $name );
+		copy( $src, $tmp );
+	} else {
+		$tmp = download_url( $url, 60 );
+	}
+	if ( is_wp_error( $tmp ) ) {
+		return false === strpos( $url, '://' ) ? PSS_URL . 'assets/img/' . $name : $url;
+	}
+	$id = media_handle_sideload(
+		array(
+			'name'     => $name,
+			'tmp_name' => $tmp,
+		),
+		0,
+		'Pentarch Systems: ' . preg_replace( '/\.[a-z]+$/i', '', $name )
+	);
+	if ( is_wp_error( $id ) ) {
+		@unlink( $tmp ); // phpcs:ignore WordPress.PHP.NoSilencedErrors, WordPress.WP.AlternativeFunctions
+		return false === strpos( $url, '://' ) ? PSS_URL . 'assets/img/' . $name : $url;
+	}
+	update_post_meta( $id, '_pss_src', $name );
+	return wp_get_attachment_url( $id );
+}
+
+function pss_site_setup( $overwrite = false ) {
+	$report = array();
+	if ( get_transient( 'pss_setup_lock' ) ) {
+		return array( 'Set-up is already running. Wait a minute, then reload this page.' );
+	}
+	set_transient( 'pss_setup_lock', 1, 300 );
+	@set_time_limit( 300 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors
+
+	if ( ! post_type_exists( 'ple_block' ) ) {
+		return array( 'Pentarch Live Edit is not active. Activate it, then press "Set up the site" again.' );
+	}
+
+	foreach ( glob( PSS_DIR . 'blocks/*.html' ) as $f ) {
+		$slug = basename( $f, '.html' );
+		$old  = get_page_by_path( $slug, OBJECT, 'ple_block' );
+		if ( $old && ! $overwrite ) {
+			continue;
+		}
+		$html = file_get_contents( $f ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+		$html = preg_replace_callback(
+			'/\{\{icon:([a-z-]+)\}\}/',
+			function ( $m ) {
+				return pss_icon( $m[1] );
+			},
+			$html
+		);
+		$html = preg_replace_callback(
+			'/\{\{media:([^}]+)\}\}/',
+			function ( $m ) {
+				return esc_url( pss_media( trim( $m[1] ) ) );
+			},
+			$html
+		);
+		$loc  = 0 === strpos( $slug, 'global-header' ) ? 'body_open' : ( 0 === strpos( $slug, 'global-footer' ) ? 'footer' : 'none' );
+		$args = array(
+			'post_type'    => 'ple_block',
+			'post_status'  => 'publish',
+			'post_name'    => $slug,
+			'post_content' => wp_slash( $html ),
+		);
+		if ( $old ) {
+			$args['ID'] = $old->ID;
+			$id         = wp_update_post( $args );
+		} else {
+			$args['post_title'] = 'Systems ' . ucwords( str_replace( '-', ' ', $slug ) );
+			$id                 = wp_insert_post( $args );
+		}
+		if ( $id && ! is_wp_error( $id ) ) {
+			update_post_meta( $id, '_ple_location', $loc );
+			$report[] = ( $old ? 'Updated' : 'Created' ) . " design: $slug";
+		}
+	}
+
+	foreach ( pss_pages() as $slug => $title ) {
+		$p = get_page_by_path( $slug );
+		if ( ! $p ) {
+			$pid = wp_insert_post(
+				array(
+					'post_type'    => 'page',
+					'post_status'  => 'publish',
+					'post_title'   => $title,
+					'post_name'    => $slug,
+					'post_content' => '[ple id="' . $slug . '"]',
+				)
+			);
+			if ( $pid && ! is_wp_error( $pid ) ) {
+				$p        = get_post( $pid );
+				$report[] = "Created page: $title";
+			}
+		} elseif ( false === strpos( $p->post_content, '[ple id="' . $slug . '"]' ) ) {
+			wp_update_post( array( 'ID' => $p->ID, 'post_content' => '[ple id="' . $slug . '"]' ) );
+			$report[] = "Put the design on page: $title";
+		}
+		if ( $p ) {
+			update_post_meta( $p->ID, '_wp_page_template', 'pss-canvas' );
+		}
+	}
+
+	$home = get_page_by_path( 'home' );
+	if ( $home ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $home->ID );
+	}
+	foreach ( array( 'hello-world' => 'post', 'sample-page' => 'page' ) as $s => $t ) {
+		$x = get_page_by_path( $s, OBJECT, $t );
+		if ( $x && 'publish' === $x->post_status ) {
+			wp_trash_post( $x->ID );
+		}
+	}
+	update_option( 'blogname', 'Pentarch Systems Solutions' );
+	update_option( 'blogdescription', 'Websites, portals and management systems for Kenyan organisations' );
+	if ( ! get_option( 'permalink_structure' ) ) {
+		update_option( 'permalink_structure', '/%postname%/' );
+	}
+	flush_rewrite_rules();
+
+	$icon = pss_media( 'pss-logo.png' );
+	$aid  = attachment_url_to_postid( $icon );
+	if ( $aid ) {
+		set_theme_mod( 'custom_logo', $aid );
+	}
+	update_option( 'pss_setup_done', PSS_VER );
+	delete_transient( 'pss_setup_lock' );
+	$report[] = 'Home page set, site title set, address style set to /page-name/.';
+	return $report;
+}
+
+/* Admin screen. */
+add_action(
+	'admin_menu',
+	function () {
+		add_menu_page( 'Pentarch Systems', 'Pentarch Systems', 'manage_options', 'pss-setup', 'pss_admin_page', 'dashicons-screenoptions', 3 );
+	}
+);
+
+function pss_admin_page() {
+	$report = array();
+	if ( isset( $_POST['pss_go'] ) && check_admin_referer( 'pss_setup' ) ) {
+		update_option( 'pss_notify', sanitize_email( wp_unslash( $_POST['pss_notify'] ?? '' ) ) );
+		$report = pss_site_setup( ! empty( $_POST['pss_overwrite'] ) );
+	}
+	echo '<div class="wrap"><h1>Pentarch Systems Solutions website</h1>';
+	if ( function_exists( 'pss_update_box' ) ) {
+		pss_update_box();
+	}
+	if ( $report ) {
+		echo '<div class="notice notice-success"><p>' . implode( '<br>', array_map( 'esc_html', $report ) ) . '</p></div>';
+	}
+	if ( ! post_type_exists( 'ple_block' ) ) {
+		echo '<div class="notice notice-warning"><p>Install and activate <b>Pentarch Live Edit</b> first. It holds the page designs and lets you edit them on the page.</p></div>';
+	}
+	echo '<form method="post">';
+	wp_nonce_field( 'pss_setup' );
+	echo '<table class="form-table"><tr><th>Send demo requests to</th><td><input type="email" class="regular-text" name="pss_notify" value="' . esc_attr( get_option( 'pss_notify', 'info@pentarchcommunications.com' ) ) . '"></td></tr>';
+	echo '<tr><th>Designs</th><td><label><input type="checkbox" name="pss_overwrite" value="1"> Restore the original page designs (edits made with Live Edit stay in each block\'s revisions)</label></td></tr></table>';
+	echo '<p><button class="button button-primary button-hero" name="pss_go" value="1">Set up the site</button></p></form>';
+	echo '<p>Demo requests from the website are listed under <a href="' . esc_url( admin_url( 'edit.php?post_type=pss_lead' ) ) . '">Demo requests</a>.</p></div>';
+}
+
+register_activation_hook(
+	PSS_DIR . 'pentarch-systems.php',
+	function () {
+		add_option( 'pss_run_setup', 1 );
+	}
+);
+add_action(
+	'admin_init',
+	function () {
+		if ( get_option( 'pss_run_setup' ) && current_user_can( 'manage_options' ) && post_type_exists( 'ple_block' ) ) {
+			delete_option( 'pss_run_setup' );
+			pss_site_setup( false );
+		}
+	}
+);
