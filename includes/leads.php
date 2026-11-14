@@ -15,7 +15,7 @@ function pss_products() {
 		'learning' => 'Courses and learning system',
 		'simlab' => 'Pentarch SimLab for my students',
 		'ngo' => 'Pentarch EduSponsor (education sponsorship)',
-		'qr' => 'QR Analytics for a campaign',
+		'qr' => 'Pentarch QR Analytics for a campaign',
 		'website' => 'A new website or a website revamp',
 		'data' => 'Dashboards and StoryMaps',
 		'custom' => 'A custom system',
@@ -110,6 +110,9 @@ add_shortcode(
 	function ( $a ) {
 		$a    = shortcode_atts( array( 'product' => '', 'button' => 'Book my demo' ), $a );
 		$sel  = isset( $_GET['product'] ) ? sanitize_key( wp_unslash( $_GET['product'] ) ) : $a['product']; // phpcs:ignore WordPress.Security.NonceVerification
+		if ( '' === $sel ) {
+			$sel = 'other';
+		}
 		$sent = isset( $_GET['sent'] ); // phpcs:ignore WordPress.Security.NonceVerification
 		$err  = isset( $_GET['err'] ) ? sanitize_key( wp_unslash( $_GET['err'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 		if ( $sent ) {

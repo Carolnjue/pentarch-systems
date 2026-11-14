@@ -351,7 +351,7 @@ def about():
     pr = section(head("What you can expect from us") + f'<ul class="caps caps-3">{p}</ul>', tone="paper")
     fam = section(f'''{head("Part of the Pentarch family")}<div class="fam">
 <a class="fam-c" href="https://pentarchcommunications.com/" target="_blank" rel="noopener"><img src="{LOGO}" alt="Pentarch Communications" width="168" height="56" loading="lazy"><p>Strategic communication, design and digital studio.</p><span>pentarchcommunications.com{ic("ne")}</span></a>
-<div class="fam-c fam-me"><span class="fam-ic">{ic("server")}</span><h3>Pentarch Systems Solutions</h3><p>Systems, plugins, labs and websites.</p><span class="mono">pentarchsystemssolutions.co.ke</span></div>
+<div class="fam-c fam-me"><span class="fam-ic">{ic("server")}</span><h3>Pentarch Systems Solutions</h3><p>Systems, plugins and websites.</p><span class="mono">pentarchsystemssolutions.co.ke</span></div>
 <a class="fam-c" href="https://pentarchtraininginstitute.co.ke/" target="_blank" rel="noopener"><span class="fam-ic">{ic("book")}</span><h3>Pentarch Training Institute</h3><p>Professional certificate courses, taught by practitioners.</p><span>pentarchtraininginstitute.co.ke{ic("ne")}</span></a>
 </div>''', tone="white", sid="family")
 
@@ -424,7 +424,7 @@ def services():
           [("Interactive and 3D work", "/labs/"), ("Pentarch SimLab", "/simlab/")], "sim-home"),
          ("data", "map", "Dashboards and StoryMaps", "Programme and campaign data turned into dashboards, maps and reports that people can explore and act on.",
           ["ArcGIS StoryMaps of field work", "Media and advocacy dashboards", "QR tracking for printed material", "Training so your team keeps them up to date"],
-          [("Dashboards and maps we built", "/data-maps/"), ("Zingira Pesa StoryMaps", "/data-maps/#storymaps")], "se-impact")]
+          [("Dashboards and maps we built", "/data-maps/"), ("Zingira Pesa StoryMaps", "/data-maps/#storymaps")], "agile")]
     body = ""
     for n, (k, i, t, d, pts, links, sh) in enumerate(S):
         lk = "".join(btn(h, l, "d" if j == 0 else "g", "arrow") for j, (l, h) in enumerate(links))
@@ -436,7 +436,7 @@ def services():
         ("Build", "We build in short rounds and you test each one."),
         ("Train", "Hands-on training for every role, with a short guide."),
         ("Support", "Phone and WhatsApp support from the people who built it.")]), tone="ink2")
-    cta = lead_section("other", "Send my request", "Tell us what you need built", "A short description is enough. We will call you back and arrange a meeting.", ["One call, no obligation", "A written quote after the demo", "Built and supported in Nairobi"])
+    cta = lead_section("custom", "Send my request", "Tell us what you need built", "A short description is enough. We will call you back and arrange a meeting.", ["One call, no obligation", "A written quote after the demo", "Built and supported in Nairobi"])
     return page("services", hero + body + how + cta)
 
 
