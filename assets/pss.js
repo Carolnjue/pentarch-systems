@@ -425,10 +425,65 @@
     d.addEventListener('visibilitychange', function () { run(!d.hidden); });
   }
 
+  /* ---------- viewer: open client sites and tools inside this site */
+  var VIEW_HOSTS = /(^|\.)(laqimautoworld\.com|glamourvinecollege\.com|pentarchtraininginstitute\.co\.ke|zingirapesa\.com|lfesolutions\.co\.ke|rarcconsulting\.com|pentarchcommunications\.com|storymaps\.arcgis\.com)$|^(pos|medicore|complyscope)\.pentarchsystemssolutions\.co\.ke$/i;
+  var VIEW_SKIP = /\/(signup|login|account|portal\/?$|agents|try|wp-admin|wp-login)/i;
+  var vw = null;
+  function viewerEl() {
+    if (vw) return vw;
+    vw = d.createElement('div');
+    vw.className = 'pss-vw';
+    vw.setAttribute('role', 'dialog'); vw.setAttribute('aria-modal', 'true'); vw.setAttribute('aria-label', 'Site viewer'); vw.hidden = true;
+    vw.innerHTML = '<div class="vw-box"><div class="vw-bar"><span class="vw-dots" aria-hidden="true"><i></i><i></i><i></i></span><b class="vw-t"></b><span class="vw-u"></span>' +
+      '<a class="vw-open" target="_blank" rel="noopener">Open in a new tab</a><button type="button" class="vw-x" aria-label="Close">&times;</button></div>' +
+      '<div class="vw-body"><div class="vw-load" aria-hidden="true"></div><iframe title="" loading="eager" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>';
+    d.body.appendChild(vw);
+    function close() { vw.hidden = true; vw.querySelector('iframe').src = 'about:blank'; d.documentElement.classList.remove('vw-on'); if (vw._from) vw._from.focus(); }
+    vw.querySelector('.vw-x').addEventListener('click', close);
+    vw.addEventListener('click', function (ev) { if (ev.target === vw) close(); });
+    d.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !vw.hidden) close(); });
+    vw.querySelector('iframe').addEventListener('load', function () { vw.classList.add('vw-ready'); });
+    return vw;
+  }
+  function viewer() {
+    if (!once(d.body, 'vw')) return;
+    d.addEventListener('click', function (ev) {
+      if (ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target.closest && ev.target.closest('a[href]');
+      if (!a || !a.closest('.pss') || a.closest('[data-pss-header], .ft, .pss-vw, .emb, [data-noview]')) return;
+      var u; try { u = new URL(a.href, location.href); } catch (e) { return; }
+      if (!/^https?:$/.test(u.protocol) || u.host === location.host || !VIEW_HOSTS.test(u.hostname) || VIEW_SKIP.test(u.pathname)) return;
+      ev.preventDefault();
+      var v = viewerEl(), fr = v.querySelector('iframe');
+      var t = (a.getAttribute('aria-label') || a.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!t || t.length > 60 || /^(visit|open|see|explore|try)/i.test(t)) t = u.hostname.replace(/^www\./, '');
+      v.querySelector('.vw-t').textContent = t;
+      v.querySelector('.vw-u').textContent = u.hostname.replace(/^www\./, '') + (u.pathname.length > 1 ? u.pathname : '');
+      v.querySelector('.vw-open').href = u.href;
+      fr.title = t; v.classList.remove('vw-ready'); fr.src = u.href;
+      v._from = a; v.hidden = false; d.documentElement.classList.add('vw-on');
+      v.querySelector('.vw-x').focus();
+    });
+  }
+
+  /* ---------- back to top */
+  function toTop() {
+    if (!once(d.body, 'top')) return;
+    var b = d.createElement('button');
+    b.type = 'button'; b.className = 'pss-top'; b.setAttribute('aria-label', 'Back to top');
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>';
+    d.body.appendChild(b);
+    b.addEventListener('click', function () { w.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+    var tick = false;
+    function upd() { tick = false; b.classList.toggle('on', w.scrollY > 700); }
+    w.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+
   function init() {
     var mv = d.querySelector('.pss [data-redirect]');
     if (mv && !d.body.classList.contains('logged-in')) { w.location.replace(mv.getAttribute('data-redirect')); return; }
-    header(); offscreen(); embeds(); filters(); posDemo(); leTry(); mcTry();
+    header(); offscreen(); embeds(); viewer(); toTop(); filters(); posDemo(); leTry(); mcTry();
     $$('.pss [data-carousel]').forEach(carousel);
     $$('.pss [data-tabs]').forEach(tabsInit);
     $$('.pss [data-journey]').forEach(journeyInit);

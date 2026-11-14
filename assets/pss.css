@@ -1330,3 +1330,32 @@ a.fam-c:hover{border-color:var(--teal-d)}
 .pss .tf .go>svg,.pss .tf .btn>svg{width:1.15em;height:1.15em;flex:none;transition:transform .2s}
 .pss .tf .go:hover>svg{transform:translateX(3px)}
 .pss .tf .ok>svg{width:44px;height:44px;padding:10px;border-radius:50%;background:rgba(10,127,123,.12);color:var(--teal-d);flex:none}
+/* Site viewer: client sites and tools open inside this site */
+.pss-vw{position:fixed;inset:0;z-index:100000;background:rgba(6,14,32,.72);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:28px;animation:vwIn .2s ease}
+.pss-vw[hidden]{display:none}
+html.vw-on,html.vw-on body{overflow:hidden}
+.pss-vw .vw-box{width:min(1280px,100%);height:min(860px,100%);background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
+.pss-vw .vw-bar{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:#0A1530;color:#fff;font:500 14px/1.2 "DM Sans",system-ui,sans-serif}
+.pss-vw .vw-dots{display:flex;gap:6px}.pss-vw .vw-dots i{width:10px;height:10px;border-radius:50%;background:#EE4B3B}.pss-vw .vw-dots i:nth-child(2){background:#F6B22C}.pss-vw .vw-dots i:nth-child(3){background:#14B1AC}
+.pss-vw .vw-t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:30%}
+.pss-vw .vw-u{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#9FB0CF;font-family:"JetBrains Mono",monospace;font-size:12px}
+.pss-vw .vw-open{color:#7FE3DF;text-decoration:none;white-space:nowrap;font-size:13px;padding:6px 10px;border:1px solid rgba(127,227,223,.35);border-radius:999px}
+.pss-vw .vw-open:hover{background:rgba(127,227,223,.12)}
+.pss-vw .vw-x{width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.pss-vw .vw-x:hover{background:#C9301F}
+.pss-vw .vw-body{position:relative;flex:1;background:#F4F5F8}
+.pss-vw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;opacity:0;transition:opacity .3s}
+.pss-vw.vw-ready iframe{opacity:1}
+.pss-vw .vw-load{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:3px solid #DDE3EE;border-top-color:#0A7F7B;animation:vwSpin .8s linear infinite}
+.pss-vw.vw-ready .vw-load{display:none}
+@keyframes vwSpin{to{transform:rotate(360deg)}}
+@keyframes vwIn{from{opacity:0}}
+@media(max-width:700px){.pss-vw{padding:0}.pss-vw .vw-box{border-radius:0;height:100%}.pss-vw .vw-dots,.pss-vw .vw-u{display:none}.pss-vw .vw-t{flex:1;max-width:none}}
+/* Back to top */
+.pss-top{position:fixed;right:22px;bottom:22px;z-index:9990;width:48px;height:48px;border-radius:50%;border:0;background:#C9301F;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 28px -10px rgba(201,48,31,.8);opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .25s,transform .25s,background .2s}
+.pss-top.on{opacity:1;transform:none;pointer-events:auto}
+.pss-top:hover{background:#A82615;transform:translateY(-2px)}
+.pss-top svg{width:22px;height:22px}
+@media(max-width:560px){.pss-top{right:14px;bottom:14px;width:44px;height:44px}}
+@media print{.pss-top,.pss-vw{display:none!important}}
+html.vw-on .pss-top{display:none}
