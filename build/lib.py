@@ -474,7 +474,8 @@ def _nowrap_headings(html):
     """Keep hyphenated names such as M-Pesa on one line inside headings."""
     import re as _re
     def fix(m):
-        return _re.sub(r'(?<![\w-])(M-Pesa|e-TIMS|Wi-Fi|One-click)(?![\w-])', r'<span class="nw">\1</span>', m.group(0))
+        parts = _re.split(r'(<[^>]+>)', m.group(0))
+        return "".join(p if p.startswith("<") else _re.sub(r'(?<![\w-])([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)(?![\w-])', r'<span class="nw">\1</span>', p) for p in parts)
     return _re.sub(r'<h[1-3][^>]*>.*?</h[1-3]>', fix, html, flags=_re.S)
 
 
