@@ -398,7 +398,7 @@ def header():
     feats = {
         "about": ("pss-shot-pti-intake.jpg", "About us", "The systems company of the Pentarch family", "Built and supported by a team in Nairobi.", "/about/", "Meet us"),
         "products": ("pss-shot-mc-dashboard.jpg", "Products", "Systems Kenyan organisations run on", "Ready to install, with a demo before you commit.", "/products/", "Compare all products"),
-        "services": ("pss-shot-live-edit.jpg", "Services", "Built to order for your organisation", "Websites, portals, dashboards and interactive experiences.", "/services/", "See our services"),
+        "services": ("pss-shot-live-edit.jpg", "Services", "Built to order for your organisation", "Websites, portals, dashboards, 3D and integrations.", "/services/", "See our services"),
         "work": ("pss-shot-sim-heart.jpg", "Our work", "Systems and sites in use today", "Visit them live, or ask us for a walk-through.", "/work/", "See all projects"),
     }
     panels = {"about": abt, "products": prod, "services": serv, "work": work}

@@ -416,7 +416,7 @@ def dashboards():
 def services():
     hero = f'''<section class="hero hero-svc t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(17)}<div class="wrap hero-2"><div>{crumb("Services")}
 <p class="hs-k">{ic("layers")}Built to order</p><h1>When a ready-made product does not fit, we build it.</h1>
-<p class="hero-p">Websites, portals, dashboards and interactive experiences designed around how your organisation works. Every Pentarch product started this way, for one client, and is still in use.</p>
+<p class="hero-p">Websites, portals, dashboards, interactive experiences and integrations, designed around how your organisation works. Every Pentarch product started this way, for one client, and is still in use.</p>
 <div class="btns">{btn("/contact/", "Tell us what you need", "p", "arrow")}{btn("/work/", "See what we have built", "g")}</div></div>
 <div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("se-dashboard", "A sponsorship portal built for SAM Elimu Charity", "shot-b")}</div></div></section>'''
     S = [("websites", "web", "Websites", "Designed and coded by hand for each client, then handed over with Pentarch Live Edit so your team changes any word, picture or link by clicking on it.",
