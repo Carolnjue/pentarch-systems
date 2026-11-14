@@ -173,7 +173,18 @@ def medicore():
         ("Can the owner see several branches?", "Yes. Add branches of any type under one account. The owner sees all of them together or one at a time, and can move stock between them."),
     ])}</div>''')
     cta = lead_section("medicore", "Book a MediCore demo", "See MediCore with your own services", "Tell us about your facility and a time that suits you. We will show you MediCore at your premises or online.", ["Set up for your facility type", "Your services, departments and prices", "No obligation"])
-    return page("medicore", hero + who + feats + day + screens + kit_s + dep + how + tryit + ints + pilots + faqs + cta)
+    roles = [("cog", "Owner or administrator", "Set up the facility, staff, prices and branches, then go live.", "Chapters 1–5, 15–20"),
+             ("users", "Reception", "Register patients, add them to the queue, book appointments and take payments.", "Chapters 4–7, 13"),
+             ("health", "Nurse or midwife", "Triage, vital signs, wards and the partograph.", "Chapters 4–7, 12"),
+             ("pen", "Clinical officer or doctor", "Consult, order tests, prescribe, refer and admit.", "Chapters 4–9, 12–14"),
+             ("lab", "Laboratory", "Collect samples, enter and validate results.", "Chapters 4, 5, 9"),
+             ("pill", "Pharmacist", "Dispense, sell at the counter and keep stock right.", "Chapters 4, 5, 10, 11"),
+             ("cash", "Cashier", "Counter sales, patient checkout and closing the day.", "Chapters 4, 5, 10, 11")]
+    rl = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p><span class="mono man-ch">{c}</span></li>' for i, t, d, c in roles)
+    manual = section(f'''<div class="man-head">{head("The MediCore user manual", "Step-by-step instructions with pictures for every screen, in 22 chapters. Each member of staff starts with the chapter for their job.", "user manual")}
+<div class="btns">{btn(MEDICORE + "/manual/", "Read the manual online", "p", "ne", True)}{btn(MEDICORE + "/manual/Pentarch-MediCore-User-Manual.pdf", "Download the PDF", "g", "ne", True)}</div></div>
+<ul class="caps man-roles">{rl}</ul>''', sid="manual", tone="white")
+    return page("medicore", hero + who + feats + day + screens + kit_s + dep + how + manual + tryit + ints + pilots + faqs + cta)
 
 
 # ============================================================== POS

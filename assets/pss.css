@@ -1271,3 +1271,8 @@ a.fam-c:hover{border-color:var(--teal-d)}
 .cl-list a:hover .ic{background:var(--coral-d);color:#fff}
 .cl-list b{display:block;font-family:var(--fh);font-weight:600}.cl-list small{display:block;color:var(--mute);font-size:.84rem}
 .emb-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.man-head{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.man-head .sh{margin-bottom:0;max-width:680px}
+.man-roles{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important}
+.man-roles li{display:flex;flex-direction:column}
+.man-ch{margin-top:auto;padding-top:12px;font-size:.78rem;color:var(--teal-d)}
