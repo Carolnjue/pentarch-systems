@@ -15,7 +15,7 @@ function pss_meta_map() {
 		'complyscope'  => array( 'ComplyScope Kenya maps every filing, permit and renewal a Kenyan business owes, national and county, scores your compliance and keeps a dossier ready for inspectors.', 'cs-overview' ),
 		'portal'       => array( 'Pentarch Portal: admissions, fees, LMS, exams, certificates with QR verification and alumni, running inside your own college website.', 'portal-dashboard' ),
 		'beautysuite'  => array( 'Pentarch BeautySuite: front desk, bookings, bridal packages and fair staff commissions for salons, barbers and spas.', 'salon-desk' ),
-		'learning'     => array( 'Course catalogues that fill classes: schools, class dates with seats left, registration with M-Pesa, group rates and Moodle support for training institutes.', 'pti-intake' ),
+		'learning'     => array( 'Course catalogues that fill classes: schools, class dates with seats left, registration with M-Pesa, group rates and trainer profiles for training institutes.', 'pti-intake' ),
 		'qr-analytics' => array( 'Pentarch QR Analytics: trackable QR codes for printed campaigns, with scans by date, device and country, and client reports.', 'qr-dashboard' ),
 		'live-edit'    => array( 'Pentarch Live Edit: a custom-designed website that your team edits by clicking on the page, with a revision for every save.', 'live-edit' ),
 		'services'     => array( 'Websites, custom systems and portals, interactive and 3D, dashboards and StoryMaps, and integrations with M-Pesa, KRA eTIMS, WhatsApp, SMS and AI assistants.', 'portal-dashboard' ),
