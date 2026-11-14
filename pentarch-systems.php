@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Pentarch Systems Solutions Site
  * Description:       The Pentarch Systems Solutions website: page designs, header and footer (edited with Pentarch Live Edit), demo requests and the site set-up.
- * Version:           1.3.1
+ * Version:           1.3.2
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            Pentarch Systems Solutions
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PSS_VER', '1.3.1' );
+define( 'PSS_VER', '1.3.2' );
 define( 'PSS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PSS_URL', plugin_dir_url( __FILE__ ) );
 

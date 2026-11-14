@@ -845,3 +845,4 @@ body:has(#pss-form) #pc-foot .cta{display:none}
 }
 @media (max-width:560px){.pc .jr-play span{display:none}.pc .jr-vis.has-inset{padding-bottom:48px}}
 .pc .jr-9 .jr-steps{grid-template-columns:repeat(9,1fr)}
+.pc .jr-10 .jr-steps{grid-template-columns:repeat(10,1fr)}
