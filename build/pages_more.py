@@ -60,7 +60,7 @@ def solutions():
           [("Pentarch BeautySuite", "/beautysuite/"), ("Pentarch POS, salon type", "/pos/")]),
          ("ngo", "handshake", "NGOs and charities", "Sponsorship programmes, conservation and development projects.",
           ["Students, sponsors and donations", "Fees paid to schools and letters", "StoryMaps of field work", "Dashboards for programme results"],
-          [("NGO & Sponsorship Portal", "/ngo-portal/"), ("Data & maps", "/data-maps/")]),
+          [("Pentarch EduSponsor", "/ngo-portal/"), ("Data & maps", "/data-maps/")]),
          ("campaigns", "chart", "Campaigns and media", "Publishers, communication teams and event organisers.",
           ["Trackable QR codes on print", "Scans by place, device and time", "Interactive dashboards", "Event and conference microsites"],
           [("QR Analytics", "/qr-analytics/"), ("Dashboards", "/data-maps/#dashboards")]),
@@ -85,9 +85,9 @@ def solutions():
 # ============================================================== LABS
 def labs():
     hero = f'''<section class="hero hero-labs t-ink">{waves()}<div class="wrap">
-{crumb("Labs")}<h1>Things you can play with, built to teach and to sell.</h1>
-<p class="hero-p">Simulations for students, a walk-through 3D showroom, animated engine cutaways, a race simulator, calculators and planners. All of them run in an ordinary browser.</p>
-<ul class="lab-jump">{"".join(f'<li><a href="#{a}">{ic(i)}{t}</a></li>' for a, i, t in [("simlab", "lab", "SimLab"), ("showroom", "monitor", "3D showroom"), ("engine", "cog", "Engine lab"), ("play", "play", "Games"), ("parts", "search", "Parts finder"), ("tools", "spark", "Nature-finance tools"), ("planners", "layers", "Planners")])}</ul></div></section>'''
+{crumb(("Our Work", "/work/"), "Interactive and 3D websites")}<h1>Websites people stay on.</h1>
+<p class="hero-p">A walk-through 3D showroom, animated engine cutaways, a race simulator, calculators and planners, built into client websites. All of them run in an ordinary browser.</p>
+<ul class="lab-jump">{"".join(f'<li><a href="#{a}">{ic(i)}{t}</a></li>' for a, i, t in [("showroom", "monitor", "3D showroom"), ("engine", "cog", "Engine cutaways"), ("play", "play", "Games"), ("parts", "search", "Parts finder"), ("tools", "spark", "Nature-finance tools"), ("planners", "layers", "Planners")])}</ul></div></section>'''
 
     simlab = section(f'''<div class="split">{head("Pentarch SimLab", "More than 50 interactive labs across ten departments, from engineering to health, free for every student and run entirely in the browser.")}
 <div>{sim_mock()}<div class="btns">{btn("/simlab/", "Explore all simulations", "p", "arrow")}{btn(SIMLAB + "/", "Open SimLab", "g", "ne", True)}</div></div></div>''', sid="simlab", tone="paper")
@@ -130,7 +130,7 @@ def labs():
     p = "".join(f'<article class="tool tool-l">{ic(i)}<p class="mono">{c}</p><h3>{n}</h3><p>{d}</p><a href="{u}" target="_blank" rel="noopener">Open it{ic("ne")}</a></article>' for n, c, d, u, i in plan)
     plan_s = section(head("Planners and checklists on client sites", "Small tools that turn a visitor into an enquiry.") + f'<div class="tools">{p}</div>', sid="planners", tone="white")
     cta = lead_section("custom", "Talk about my idea", "Want something interactive?", "Simulations, 3D, calculators or games: tell us what you want people to understand or do.", ["Runs in an ordinary browser", "Light enough for phones", "Built and hosted by us"])
-    return page("labs", hero + simlab + showroom + engine + play + parts + tools_s + plan_s + cta)
+    return page("labs", hero + showroom + engine + play + parts + tools_s + plan_s + cta)
 
 
 # ============================================================== SIMLAB
@@ -138,7 +138,7 @@ def simlab():
     allk = [(s, k) for s, ks in SIMS.items() for k in ks]
     fan = "".join(f'<div class="fan-i fan-{n}">{shot(k, "", "shot-n")}</div>' for n, k in enumerate(["sim-tv-studio", "sim-heart", "sim-robot-arm"], 1))
     hero = f'''<section class="hero hero-sim t-ink"><div class="sim-orbits" aria-hidden="true"><i></i><i></i><i></i><b></b></div><div class="wrap hero-2">
-<div>{crumb(("Labs", "/labs/"), "SimLab")}<p class="hs-k">{ic("lab")}Pentarch SimLab · interactive learning</p><h1>See the maths move.</h1>
+<div>{crumb(("Systems", "/products/"), "SimLab")}<p class="hs-k">{ic("lab")}Pentarch SimLab · interactive learning</p><h1>See the maths move.</h1>
 <p class="hero-p">A library of {len(allk)} interactive simulations for college and university students, from engineering and physics to anatomy, pharmacology and broadcast media. Every lab runs in the browser with nothing to install, and it is free for every student.</p>
 <div class="btns">{btn("#sims", "Browse the simulations", "p", "arrow")}{btn(SIMLAB + "/", "Open SimLab", "g", "ne", True)}</div>
 <ul class="hero-facts"><li>{ic("lab")}{len(allk)} interactive labs</li><li>{ic("users")}Free for every student</li><li>{ic("phone")}Laptops, tablets and phones</li></ul></div>
@@ -295,10 +295,10 @@ def work():
          [("Portal", "/portal/"), ("BeautySuite", "/beautysuite/"), ("Visit the site", "https://glamourvinecollege.com/")], "portal-verify"),
         ("laqim", "Laqim Autoworld", "Nairobi", "A car showcase where visitors explore, learn how cars work and play.",
          ["3D virtual showroom with brand pavilions and a guided tour", "Under the Hood lab with engine cutaways and an engine builder", "Race simulator, hot lap, launch control and more games", "Rare parts finder"],
-         [("Labs", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], None),
+         [("Interactive websites", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], None),
         ("samelimu", "SAM Elimu Charity", "Kenya and Philadelphia", "A charity that has supported children in rural Kenya through school since 2002.",
          ["New charity website", "Portal for students, schools, sponsors, donations, fees, letters and alumni", "Online donations by card, PayPal or M-Pesa", "Sponsor progress tracking"],
-         [("NGO Portal", "/ngo-portal/"), ("Visit the site", "https://samelimu.pentarchcommunications.com/")], "se-sponsor"),
+         [("Pentarch EduSponsor", "/ngo-portal/"), ("Visit the site", "https://samelimu.pentarchcommunications.com/")], "se-sponsor"),
         ("pti", "Pentarch Training Institute", "Nairobi", "A professional training institute with 33 certificate courses in five schools.",
          ["Course catalogue by school", "Class dates with live seats left", "Registration with M-Pesa", "Group and organisation requests"],
          [("Courses & Learning", "/learning/"), ("Visit the site", "https://pentarchtraininginstitute.co.ke/")], "pti-intake"),

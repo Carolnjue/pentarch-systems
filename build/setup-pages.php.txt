@@ -1,0 +1,25 @@
+<?php
+/* Pentarch Systems Solutions: replace pss_pages() in includes/setup.php with this function. */
+function pss_pages() {
+	return array(
+		'home' => 'Home',
+		'products' => 'Products',
+		'medicore' => 'Pentarch MediCore',
+		'pos' => 'Pentarch POS',
+		'portal' => 'Pentarch Portal',
+		'beautysuite' => 'Pentarch BeautySuite',
+		'learning' => 'Courses & Learning',
+		'ngo-portal' => 'Pentarch EduSponsor',
+		'qr-analytics' => 'QR Analytics',
+		'live-edit' => 'Pentarch Live Edit',
+		'solutions' => 'Solutions',
+		'labs' => 'Interactive and 3D Websites',
+		'simlab' => 'Pentarch SimLab',
+		'data-maps' => 'Data & Maps',
+		'websites' => 'Websites',
+		'work' => 'Our Work',
+		'about' => 'About',
+		'contact' => 'Book a Demo',
+		'dashboards' => 'Dashboards and StoryMaps',
+	);
+}

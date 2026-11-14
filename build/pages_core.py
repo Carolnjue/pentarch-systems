@@ -34,10 +34,10 @@ def home():
          "The engine inside every website we build. Click any text to type, click a picture to change it, and every save is kept so you can undo.",
          [btn("/live-edit/", "See how Live Edit works", "p", "arrow"), btn("/websites/", "Sites built with it", "g")],
          f'<div class="hs-dev hs-dev-le">{browser("johms.pentarchcommunications.com", liveedit_mock())}</div>'),
-        ("labs", "lab", "Labs and interactive web",
-         "Simulations, 3D showrooms and games that run in a browser.",
-         "Pentarch SimLab has more than 50 interactive labs for students. For Laqim Autoworld we built a walk-through 3D showroom, engine cutaways and a race simulator.",
-         [btn("/simlab/", "Explore SimLab", "p", "arrow"), btn("/labs/", "See all labs", "g")],
+        ("simlab", "lab", "Pentarch SimLab",
+         "Science you can touch, in any browser.",
+         "More than 50 interactive simulations for college and university students, from engines and circuits to the heart and pharmacology. Free to open, nothing to install.",
+         [btn("/simlab/", "Explore SimLab", "p", "arrow"), btn("https://simlab.pentarchcommunications.com/", "Open SimLab", "g", "ne", True)],
          f'<div class="hs-dev hs-dev-sim">{sim_mock()}</div>'),
     ]
     sl, tb = "", ""
@@ -66,8 +66,8 @@ def home():
         "pos": ("Offline PWA · cloud sync", ["Selling and receipts", "Stock and expiry", "Credit book", "Shifts and staff PINs", "Branches"], "Live demo, one month free"),
         "portal": ("WordPress plugin", ["Admissions", "LMS", "Certificates"]),
         "beautysuite": ("Web app", ["Bookings", "Walk-ins", "Commissions"]),
-        "learning": ("WordPress plugin", ["Intakes", "Seats left", "M-Pesa"]),
         "ngo": ("Web portal", ["Sponsors", "Fees", "Impact"]),
+        "simlab": ("Browser · free for students", ["Engineering", "Health", "ICT and media"]),
         "qr": ("Web app · API", ["Scans", "Devices", "Reports"]),
         "liveedit": ("WordPress plugin", ["Click to edit", "Revisions", "Blocks"]),
     }
@@ -115,7 +115,7 @@ def home():
             [("/beautysuite/", "Explore BeautySuite", "p", "arrow")], shot("salon-desk", "BeautySuite front desk", "shot-n"))),
          ("ngo", "NGOs and companies", "handshake", sp("Sponsorship programmes on one portal, a website that explains what you do and wins work, and StoryMaps and dashboards that make programme data easy to read.",
             ["Students, sponsors, fees and letters on one record", "Websites with Live Edit, hosting and care", "ArcGIS StoryMaps for field results", "Dashboards for managers and funders"],
-            [("/ngo-portal/", "NGO and Sponsorship Portal", "p", "arrow"), ("/data-maps/", "Data and maps", "g", None)], shot("se-dashboard", "NGO and Sponsorship Portal dashboard", "shot-n"))),
+            [("/ngo-portal/", "Pentarch EduSponsor", "p", "arrow"), ("/data-maps/", "Data and maps", "g", None)], shot("se-dashboard", "Pentarch EduSponsor dashboard", "shot-n"))),
          ("campaigns", "Campaigns and media", "chart", sp("Know which poster, flyer or slide was scanned, where and when, and share a report with each client.",
             ["Trackable QR codes per placement", "Scans by day, device and country", "Client reports and exports", "Dashboards for media and advocacy"],
             [("/qr-analytics/", "Explore QR Analytics", "p", "arrow"), ("/data-maps/#dashboards", "AGILE dashboard", "g", None)], qr_dash()))]
@@ -146,7 +146,7 @@ def home():
 
     cases = [("Glamourvine Hair & Beauty College", "Machakos", "College website, student Portal with certificate verification, and BeautySuite for the owner salon.", "/work/#glamourvine", ["Portal", "BeautySuite", "Live Edit"]),
              ("Laqim Autoworld", "Nairobi", "A car showcase with a 3D showroom, engine lab, race simulator and rare-parts finder.", "/work/#laqim", ["Three.js", "Games", "Live Edit"]),
-             ("SAM Elimu Charity", "Kenya and Philadelphia", "Charity website and a portal for students, sponsors, donations and alumni.", "/work/#samelimu", ["NGO Portal", "Donations"]),
+             ("SAM Elimu Charity", "Kenya and Philadelphia", "Charity website and a portal for students, sponsors, donations and alumni.", "/work/#samelimu", ["EduSponsor", "Donations"]),
              ("Pentarch Training Institute", "Nairobi", "33 courses in five schools, intakes with seats left and online registration.", "/work/#pti", ["Courses", "M-Pesa"])]
     cs = "".join(f'<article class="case"><p class="case-p">{ic("pin")}{p}</p><h3><a href="{h}">{t}</a></h3><p>{d}</p>{tags(tg)}</article>' for t, p, d, h, tg in cases)
     cases_s = section(head("Recent work", "Real systems for real organisations. Visit them, or ask us for a walk-through.") + f'<div class="cases">{cs}</div><div class="center">{btn("/work/", "See all our work", "d", "arrow")}</div>')
@@ -175,7 +175,7 @@ def products():
         lines.append(("row", f'<a href="{h}">{t.replace("Pentarch ", "").lower().replace(" & ", "-").replace(" ", "-")}/</a><span>{d}</span>'))
     lines += [("", ""), ("ok", "8 products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
-<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
+<div class="wrap hero-2"><div>{crumb("Systems")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
 {terminal("pentarch@systems ~", lines, "term-xl")}</div></section>'''
 
@@ -186,6 +186,7 @@ def products():
         "beautysuite": ("For salons, barbers and spas", "Reception desk, bookings calendar, walk-ins, bridal packages with mixed teams, payments, staff commissions and reports.", "Web app for the desk, tablets and phones", "Live for Glamour by Beth", "salon-desk"),
         "learning": ("For training institutes", "Course catalogue in schools, class dates with seats left, online registration with M-Pesa, group rates, trainers and student showcase. Moodle set-up and support.", "WordPress plugin, plus Moodle where needed", "Live at pentarchtraininginstitute.co.ke", "pti-intake"),
         "ngo": ("For charities and sponsorship programmes", "Students and schools, sponsors and donations, fees and disbursements, letters, impact and alumni, with public pages.", "Web portal with sponsor and alumni sign-in", "Live for SAM Elimu Charity", "se-dashboard"),
+        "simlab": ("For colleges, universities and TVETs", "More than 50 interactive simulations across ten departments, from engineering and ICT to health, media and hospitality. Free for students, nothing to install.", "Website, works in any browser", "Free, open it now", "sim-home"),
         "qr": ("For campaigns, publishers and events", "Trackable QR codes with a dashboard of scans by date, device and country, client reports and exports to CSV, Excel and PDF.", "Web app with an API", "Demo on request", None),
         "liveedit": ("For every website we build", "Click to edit text, pictures and links, repeat or remove items, site-wide header and footer, and a revision for every save.", "WordPress plugin", "Installed on every Pentarch site", "live-edit"),
     }
@@ -199,15 +200,14 @@ def products():
     lineup = section(rows, cls="sec-prows")
 
     cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
-                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Your website", "Desk, tablet, phone", "Your website", "Browser", "Browser", "WordPress"]),
-                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live college site", "Demo on request", "Live institute site", "Demo on request", "Demo on request", "This website"])]
+                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Your website", "Desk, tablet, phone", "Browser", "Browser", "Browser", "WordPress"]),
+                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live college site", "Demo on request", "Demo on request", "Free, open it now", "Demo on request", "This website"])]
     th = "".join(f'<th scope="col">{t.replace("Pentarch ", "")}</th>' for k, t, *_ in PRODUCTS)
     tb = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{v}</td>" for v in vals) + "</tr>" for r, vals in cmp_rows)
     compare = section(head("Compare at a glance") + f'<div class="tbl-wrap" tabindex="0" role="region" aria-label="Product comparison"><table class="tbl"><thead><tr><td></td>{th}</tr></thead><tbody>{tb}</tbody></table></div>', sid="compare", tone="white")
 
     also = [("wifi", "WiIRA work planner", "Opportunities pipeline, tasks, notes and categories with Gmail integration. Built for Zingira Pesa's own team.", "Private tool"),
-            ("lab", "Pentarch SimLab", "More than 50 browser simulations for college and university students.", "/simlab/"),
-            ("monitor", "Pentarch Showroom plugin", "3D showroom, engine lab, games and parts finder for Laqim Autoworld.", "/labs/#showroom"),
+            ("monitor", "Pentarch Showroom plugin", "3D showroom, engine cutaways, games and a parts finder for Laqim Autoworld.", "/labs/#showroom"),
             ("layers", "Johms storage planner", "Visitors design a kitchen or wardrobe and send it for a quote.", "/labs/#planners"),
             ("shield", "Compliance checklist", "Environmental and OSH self-assessment with an instant score, for Charles and Barker.", "/labs/#planners"),
             ("server", "Pentarch NetDesk", "Billing for internet service providers. Planned, building on PentarchNet.", "Planned")]
@@ -220,7 +220,7 @@ def products():
 # ============================================================== LIVE EDIT
 def live_edit():
     hero = f'''<section class="hero hero-le t-paper"><div class="le-dots" aria-hidden="true"></div><div class="wrap">
-<div class="le-hero-txt">{crumb(("Products", "/products/"), "Live Edit")}<p class="hs-k">{ic("pen")}Pentarch Live Edit · WordPress plugin</p>
+<div class="le-hero-txt">{crumb(("Systems", "/products/"), "Live Edit")}<p class="hs-k">{ic("pen")}Pentarch Live Edit · WordPress plugin</p>
 <h1>We build it custom. You edit it yourself.</h1><p class="hero-p">Live Edit is the engine inside every website Pentarch builds. Your site is designed and coded by hand, and you still change any word, picture or link by clicking on it.</p>
 <div class="btns">{btn("#try", "Try it on this page", "p", "pen")}{btn("/websites/", "Sites running Live Edit", "g")}</div></div>
 <div class="le-stage">{browser("your-site.co.ke", liveedit_mock(), "bw-xl bw-glow")}<span class="le-tip t1">{ic("pen")}Click text to type</span><span class="le-tip t2">{ic("layers")}Duplicate or delete</span><span class="le-tip t3">{ic("clock")}Every save kept</span></div>

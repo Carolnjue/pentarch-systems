@@ -332,96 +332,74 @@ PRODUCTS = [
     ("pos", "Pentarch POS", "cart", "Point of sale for shops, restaurants and bars", "/pos/"),
     ("portal", "Pentarch Portal", "school", "College management from admission to alumni", "/portal/"),
     ("beautysuite", "Pentarch BeautySuite", "scissor", "Bookings, desk and commissions for salons", "/beautysuite/"),
-    ("learning", "Courses & Learning", "book", "Course catalogues, intakes and online registration", "/learning/"),
-    ("ngo", "NGO & Sponsorship Portal", "handshake", "Students, sponsors, donations and impact", "/ngo-portal/"),
-    ("qr", "QR Analytics", "scan", "Track every scan of a printed campaign", "/qr-analytics/"),
+    ("ngo", "Pentarch EduSponsor", "handshake", "Education sponsorship: students, sponsors, fees and impact", "/ngo-portal/"),
+    ("simlab", "Pentarch SimLab", "lab", "50+ browser simulations for college students", "/simlab/"),
+    ("qr", "Pentarch QR Analytics", "scan", "Track every scan of a printed campaign", "/qr-analytics/"),
     ("liveedit", "Pentarch Live Edit", "pen", "Edit your website by clicking on it", "/live-edit/"),
 ]
 
 MENU = [
-    ("Products", "/products/", "products"),
-    ("Solutions", "/solutions/", "solutions"),
-    ("Labs", "/labs/", "labs"),
-    ("Data & maps", "/data-maps/", "data"),
-    ("Websites", "/websites/", None),
-    ("Live Edit", "/live-edit/", None),
-    ("Company", "/about/", "company"),
+    ("Systems", "/products/", "products"),
+    ("Our Work", "/work/", "work"),
+    ("About", "/about/", None),
+    ("Contact", "/contact/", None),
 ]
+LOGO_C = "{{media:pss-logo.png}}"
 
 
-def mega_item(href, icon, title, desc, ext=False):
+def mega_item(href, icon, title, desc, ext=False, tag=""):
     t = ' target="_blank" rel="noopener"' if ext else ""
-    return f'<li><a href="{href}"{t}>{ic(icon)}<span><b>{title}</b><small>{desc}</small></span></a></li>'
+    tg = f' <em class="mm-tag">{tag}</em>' if tag else ""
+    return f'<li><a href="{href}"{t}><span class="mm-ic">{ic(icon)}</span><span><b>{title}{tg}</b><small>{desc}</small></span></a></li>'
 
 
 def header():
     prod = "".join(mega_item(h, i, t, d) for k, t, i, d, h in PRODUCTS)
-    sol = "".join(mega_item(h, i, t, d) for h, i, t, d in [
-        ("/solutions/#health", "health", "Health", "Pharmacies, clinics and hospitals"),
-        ("/solutions/#retail", "cart", "Retail and hospitality", "Shops, chemists, restaurants and bars"),
-        ("/solutions/#education", "school", "Colleges and training", "Admissions, learning and certificates"),
-        ("/solutions/#beauty", "scissor", "Salons and spas", "Bookings, teams and commissions"),
-        ("/solutions/#ngo", "handshake", "NGOs and charities", "Sponsorship, impact and maps"),
-        ("/solutions/#campaigns", "chart", "Campaigns and media", "QR tracking and dashboards"),
-    ])
-    labs = "".join(mega_item(h, i, t, d) for h, i, t, d in [
-        ("/simlab/", "lab", "Pentarch SimLab", "50+ simulations for students"),
-        ("/labs/#showroom", "monitor", "3D virtual showroom", "Walk a hall of cars in the browser"),
-        ("/labs/#engine", "cog", "Under the Hood lab", "Animated 3D engine cutaways"),
-        ("/labs/#play", "play", "Race simulator and games", "Physics from real specifications"),
-        ("/labs/#tools", "spark", "Nature-finance tools", "Calculators built with Zingira Pesa"),
-        ("/labs/#planners", "layers", "Planners and checklists", "Design-your-storage, compliance score"),
-    ])
-    data = "".join(mega_item(h, i, t, d) for h, i, t, d in [
-        ("/data-maps/#storymaps", "map", "ArcGIS StoryMaps", "Field work told with maps"),
-        ("/data-maps/#dashboards", "chart", "AGILE dashboard", "Data-backed media and advocacy dashboard"),
-        ("/qr-analytics/", "scan", "QR Analytics", "Scans by place, device and time"),
-        ("/data-maps/#method", "globe", "How we work with data", "From field data to a public story"),
-    ])
-    comp = "".join(mega_item(h, i, t, d) for h, i, t, d in [
-        ("/work/", "layers", "Our work", "Systems and sites in use"),
-        ("/about/", "users", "About us", "The systems arm of Pentarch Communications"),
-        ("/contact/", "cal", "Book a demo", "At your premises or online"),
-    ])
-    promos = {
-        "products": ('Try it now', 'Pentarch POS runs in your browser with a sample business. No sign-up.', '/pos/#live-demo', 'Open the POS demo', "cart"),
-        "solutions": ('Free trial', 'Pentarch MediCore: a 30-day online demo with your own facility set-up.', MEDICORE + '/try', 'Start the 30-day demo', "health"),
-        "labs": ('See the maths move', 'Gears, orbits, a beating heart: SimLab runs in any browser.', '/simlab/', 'Explore SimLab', "lab"),
-        "data": ('Built with Zingira Pesa', 'StoryMaps from field campaigns in Kenya and Mozambique.', '/data-maps/#storymaps', 'Read the StoryMaps', "map"),
-        "company": ('Talk to us', f'Call or WhatsApp {PHONE}, Monday to Saturday.', WA, 'Chat on WhatsApp', "wa"),
+    work = [("/work/", "Clients and systems in use"), ("/websites/", "Websites we built"), ("/labs/", "Interactive and 3D websites"), ("/data-maps/", "Data, maps and dashboards")]
+    feats = {
+        "products": ("pss-shot-mc-dashboard.jpg", "Pentarch systems", "Software Kenyan organisations run on", "Built for real clients, supported from Nairobi.", "/products/", "Compare all systems"),
     }
-    panels = {"products": prod, "solutions": sol, "labs": labs, "data": data, "company": comp}
+    panels = {"products": prod}
 
-    def promo(k):
-        t, d, h, l, i = promos[k]
-        ext = ' target="_blank" rel="noopener"' if h.startswith("http") else ""
-        return (f'<div class="mm-promo">{circuit(11 + len(k), 400, 300, 8, 20, 3)}<span class="mm-pi">{ic(i)}</span>'
-                f'<p class="mm-pt">{t}</p><p>{d}</p><a class="btn btn-p btn-s" href="{h}"{ext}>{l}{ic("arrow")}</a></div>')
+    def feat(k):
+        img, kick, t, d, h, l = feats[k]
+        return (f'<a class="mm-feat" href="{h}" style="background-image:url({{{{media:{img}}}}})">'
+                f'<span class="mm-k">{kick}</span><span class="mm-ft">{t}</span><span class="mm-fd">{d}</span>'
+                f'<span class="mm-fl">{l}{ic("arrow")}</span></a>')
 
     nav = ""
     for label, href, key in MENU:
-        if key:
-            wide = " mm-wide" if key == "products" else ""
-            nav += (f'<li class="has-mm{wide}"><a class="nl" href="{href}" aria-haspopup="true" aria-expanded="false">{label}{ic("chev", "nl-c")}</a>'
-                    f'<div class="mm"><div class="mm-in"><ul class="mm-list">{panels[key]}</ul>{promo(key)}</div></div></li>')
+        if key in panels:
+            nav += (f'<li class="has-mm"><a class="nl" href="{href}" aria-haspopup="true" aria-expanded="false">{label}{ic("chev", "nl-c")}</a>'
+                    f'<div class="mm"><div class="mm-in">{feat(key)}<ul class="mm-list">{panels[key]}</ul></div></div></li>')
+        elif key == "work":
+            sub = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in work)
+            nav += (f'<li class="has-mm has-dd"><a class="nl" href="{href}" aria-haspopup="true" aria-expanded="false">{label}{ic("chev", "nl-c")}</a>'
+                    f'<div class="mm dd"><ul>{sub}</ul></div></li>')
         else:
-            cls = ' class="nl nl-le"' if href == "/live-edit/" else ' class="nl"'
-            nav += f'<li><a{cls} href="{href}">{label}</a></li>'
+            nav += f'<li><a class="nl" href="{href}">{label}</a></li>'
 
     drawer = ""
     for label, href, key in MENU:
-        if key:
+        if key in panels:
             sub = panels[key].replace('<small>', '<small hidden>')
+            drawer += f'<details><summary>{label}{ic("chev")}</summary><ul>{sub}</ul></details>'
+        elif key == "work":
+            sub = "".join(f'<li><a href="{h}"><b>{t}</b></a></li>' for h, t in work)
             drawer += f'<details><summary>{label}{ic("chev")}</summary><ul>{sub}</ul></details>'
         else:
             drawer += f'<a class="dr-l" href="{href}">{label}</a>'
 
     return f'''<header class="pss pss-hd" data-pss-header>
 <a class="skip" href="#pss-main">Skip to content</a>
+<div class="hd-top"><div class="hd-top-in">
+<span class="hd-tl"><a href="{TEL}">{ic("call")}{PHONE}</a><a href="mailto:{MAIL}">{ic("mail")}{MAIL}</a><a href="{WA}" target="_blank" rel="noopener">{ic("wa")}WhatsApp</a></span>
+<span class="hd-tr"><a href="https://pentarchcommunications.com/" target="_blank" rel="noopener">Pentarch Communications</a><a href="https://pentarchtraininginstitute.co.ke/" target="_blank" rel="noopener">Pentarch Training Institute</a></span>
+</div></div>
 <div class="hd-in">
-<a class="hd-logo" href="/" aria-label="Pentarch Systems Solutions home"><img src="{LOGO_W}" alt="Pentarch Systems Solutions" width="434" height="144"></a>
+<a class="hd-logo" href="/" aria-label="Pentarch Systems Solutions home"><img src="{LOGO_C}" alt="Pentarch Systems Solutions" width="434" height="144"></a>
 <nav class="hd-nav" aria-label="Main"><ul>{nav}</ul></nav>
-<div class="hd-act"><a class="hd-call" href="{TEL}">{ic("call")}<span>{PHONE}</span></a>{btn("/contact/", "Book a demo", "p", None, attrs=' data-cta')}
+<div class="hd-act">{btn("/contact/", "Book a demo", "p", "arrow", attrs=' data-cta')}
 <button type="button" class="hd-burger" aria-expanded="false" aria-controls="pss-drawer" aria-label="Open menu">{ic("menu", "i-open")}{ic("x", "i-close")}</button></div>
 </div>
 <div class="drawer" id="pss-drawer" hidden><div class="dr-in">{drawer}
@@ -431,10 +409,9 @@ def header():
 
 def footer():
     cols = [
-        ("Products", [(t, h) for k, t, i, d, h in PRODUCTS]),
-        ("Labs and data", [("Pentarch SimLab", "/simlab/"), ("3D and interactive", "/labs/"), ("Nature-finance tools", "/labs/#tools"),
-                           ("StoryMaps", "/data-maps/#storymaps"), ("AGILE dashboard", "/data-maps/#dashboards"), ("Websites we built", "/websites/")]),
-        ("Company", [("Solutions by sector", "/solutions/"), ("Our work", "/work/"), ("About us", "/about/"), ("Book a demo", "/contact/"),
+        ("Systems", [(t, h) for k, t, i, d, h in PRODUCTS]),
+        ("Our work", [("Clients and systems in use", "/work/"), ("Websites we built", "/websites/"), ("Interactive and 3D websites", "/labs/"), ("Data, maps and dashboards", "/data-maps/")]),
+        ("Company", [("About us", "/about/"), ("Book a demo", "/contact/"),
                      ("Pentarch Communications", "https://pentarchcommunications.com/"), ("Pentarch Training Institute", "https://pentarchtraininginstitute.co.ke/")]),
     ]
     c = ""

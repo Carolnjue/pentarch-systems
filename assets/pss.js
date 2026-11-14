@@ -45,6 +45,8 @@
       if (!drawer.hidden) toggle(false);
     });
     d.addEventListener('click', function (ev) { if (!hd.contains(ev.target)) closeAll(); });
+    var onScroll = function () { hd.classList.toggle('is-scrolled', w.scrollY > 60); };
+    w.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     var burger = hd.querySelector('.hd-burger'), drawer = d.getElementById('pss-drawer');
     function toggle(on) {
       if (!drawer) return;
@@ -56,7 +58,7 @@
     if (burger && drawer) {
       burger.addEventListener('click', function () { toggle(drawer.hidden); });
       $$('a', drawer).forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
-      w.addEventListener('resize', function () { if (w.innerWidth >= 1140 && !drawer.hidden) toggle(false); });
+      w.addEventListener('resize', function () { if (w.innerWidth >= 1100 && !drawer.hidden) toggle(false); });
     }
   }
 

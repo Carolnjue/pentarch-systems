@@ -56,7 +56,7 @@ def lis(items):
 def medicore():
     hero = f'''<section class="hero hero-mc t-ink"><div class="hero-grid" aria-hidden="true"></div>
 <div class="mc-trace" aria-hidden="true">{ecg()}</div>
-<div class="wrap hero-2"><div>{crumb(("Products", "/products/"), "MediCore")}<p class="hs-k">{ic("health")}Pentarch MediCore · health facility system</p>
+<div class="wrap hero-2"><div>{crumb(("Systems", "/products/"), "MediCore")}<p class="hs-k">{ic("health")}Pentarch MediCore · health facility system</p>
 <h1>The whole facility on one system, with or without internet.</h1>
 <p class="hero-p">Counter sales, stock, patients, lab, wards and money in one system for pharmacies, clinics and hospitals in Kenya. It runs on a computer inside your facility and records every sale and every stock movement.</p>
 <div class="btns">{btn("#try", "Try it free for 30 days", "p", "arrow")}{btn("#demo", "Book a demo at your facility", "g")}</div>
@@ -186,7 +186,7 @@ POS_TYPES = [("duka", "Shop", "box"), ("minimart", "Supermarket", "cart"), ("har
 def pos():
     sw = "".join(f'<button type="button" data-type="{k}" aria-pressed="{"true" if n == 0 else "false"}">{ic(i)}{l}</button>' for n, (k, l, i) in enumerate(POS_TYPES))
     hero = f'''<section class="hero hero-pos t-paper" data-pos="{POS}"><div class="pos-dots" aria-hidden="true"></div><div class="wrap">
-<div class="pos-head">{crumb(("Products", "/products/"), "Pentarch POS")}<p class="hs-k">{ic("cart")}Pentarch POS · point of sale</p>
+<div class="pos-head">{crumb(("Systems", "/products/"), "Pentarch POS")}<p class="hs-k">{ic("cart")}Pentarch POS · point of sale</p>
 <h1>Sell, count stock and track credit, even when the internet is down.</h1>
 <p class="hero-p">One till system for Kenyan shops, chemists, hardware stores, restaurants, bars and salons. M-Pesa, KRA tax codes and Kiswahili are built in. Try the real system below.</p>
 <div class="btns"><a class="btn btn-p" href="#live-demo" data-act="start">{ic("play")}Try the live demo</a><a class="btn btn-d" href="{POS}?trial=1" data-link="trial" target="_blank" rel="noopener">Start the one-month free trial{ic("ne")}</a><a class="btn btn-g" href="#demo">Book a demo</a></div></div>

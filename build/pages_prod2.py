@@ -42,7 +42,7 @@ def roles_grid(items):
 
 def portal():
     hero = f'''<section class="hero hero-portal t-ink"><div class="hero-grid" aria-hidden="true"></div><div class="wrap">
-<div class="hp-txt">{crumb(("Products", "/products/"), "Portal")}<p class="hs-k">{ic("school")}Pentarch Portal · college management</p>
+<div class="hp-txt">{crumb(("Systems", "/products/"), "Portal")}<p class="hs-k">{ic("school")}Pentarch Portal · college management</p>
 <h1>One record for each student, from the first application to the alumni list.</h1>
 <p class="hero-p">A complete management portal for schools, colleges and training centres, running inside your own website. Applicants become students the moment their admission fee is confirmed, and everyone gets a dashboard that fits their role.</p>
 <div class="btns">{btn("#demo", "Book a Portal demo", "p", "arrow")}{btn("#journey", "Follow a student through it", "g")}</div>
@@ -124,7 +124,7 @@ def portal():
 
     story = section(f'''<div class="split">{head("In use at Glamourvine Hair & Beauty College, Machakos", "The Pentarch Portal replaced a generic learning system at Glamourvine. Applications, admissions, fees and practical work now run inside the college website, and the college salon runs on Pentarch BeautySuite alongside it.", "in use")}
 <div class="also-po"><div class="ap">{ic("scissor")}<div><h3>The college salon</h3><p>Glamour by Beth runs on Pentarch BeautySuite, sharing one store with the college.</p><a href="/beautysuite/">See BeautySuite</a></div></div>
-<div class="ap">{ic("handshake")}<div><h3>Scholarship programmes</h3><p>The same Portal, set up for SAM Elimu Charity, with views for staff, the board, sponsors, students and alumni.</p><a href="/ngo-portal/">See the NGO and Sponsorship Portal</a></div></div>
+<div class="ap">{ic("handshake")}<div><h3>Scholarship programmes</h3><p>Charities that sponsor students use Pentarch EduSponsor, in use at SAM Elimu Charity.</p><a href="/ngo-portal/">See Pentarch EduSponsor</a></div></div>
 <div class="btns">{btn(GV + "/", "Visit glamourvinecollege.com", "d", "ne", True)}</div></div></div>''', tone="ink", cls="sec-story")
 
     how = section(head("Setting up your college") + steps([
@@ -180,7 +180,7 @@ def bridal_mock():
 
 def beautysuite():
     hero = f'''<section class="hero hero-salon t-white"><div class="sal-art" aria-hidden="true">{circuit(31, 1200, 600, 14, 40, 0)}</div><div class="wrap hero-2">
-<div>{crumb(("Products", "/products/"), "BeautySuite")}<p class="hs-k">{ic("scissor")}Pentarch BeautySuite · salons and spas</p>
+<div>{crumb(("Systems", "/products/"), "BeautySuite")}<p class="hs-k">{ic("scissor")}Pentarch BeautySuite · salons and spas</p>
 <h1>The front desk, the bookings and fair commissions, on one screen.</h1>
 <p class="hero-p">Front desk, online booking, payments and staff commissions in one system for salons, spas and barbershops. Built with a busy bridal salon, so it handles real days like a four-stylist wedding package before breakfast.</p>
 <div class="btns">{btn("#demo", "Book a BeautySuite demo", "p", "arrow")}{btn("#journey", "Follow a client's visit", "g")}</div>
@@ -224,7 +224,7 @@ def learning():
     schools = [("Creative Media", 7), ("Digital and Tech", 11), ("Research, Data and Impact", 9), ("Communication and Public Relations", 5), ("Training of Trainers", 1)]
     sc = "".join(f'<li><b>{n}</b><span>{s}</span><i style="--w:{n / 11 * 100:.0f}%"></i></li>' for s, n in schools)
     hero = f'''<section class="hero hero-learn t-ink"><div class="hero-grid" aria-hidden="true"></div><div class="wrap hero-2">
-<div>{crumb(("Products", "/products/"), "Courses & Learning")}<p class="hs-k">{ic("book")}Courses & Learning · training platforms</p>
+<div>{crumb(("Our Work", "/work/"), "Courses & Learning")}<p class="hs-k">{ic("book")}Courses & Learning · training platforms</p>
 <h1>Course catalogues that fill classes.</h1>
 <p class="hero-p">A WordPress plugin for training institutes: courses grouped into schools, class dates with live seats left, online registration with M-Pesa, group rates, trainers and a student showcase. We also set up and support Moodle.</p>
 <div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("https://pentarchtraininginstitute.co.ke/", "See it live", "g", "ne", True)}</div></div>
@@ -245,7 +245,7 @@ def learning():
 # ============================================================== NGO PORTAL
 def ngo():
     hero = f'''<section class="hero hero-ngo t-paper"><div class="wrap">
-<div class="ngo-txt">{crumb(("Products", "/products/"), "NGO & Sponsorship Portal")}<p class="hs-k">{ic("handshake")}NGO & Sponsorship Portal</p>
+<div class="ngo-txt">{crumb(("Systems", "/products/"), "Pentarch EduSponsor")}<p class="hs-k">{ic("handshake")}Pentarch EduSponsor</p>
 <h1>Every sponsor, every student, every shilling, traced.</h1>
 <p class="hero-p">For charities and education sponsorship programmes. Track students and schools, sponsors and donations, fees paid to schools, letters between sponsors and students, and the impact years later.</p>
 <div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("https://samelimu.pentarchcommunications.com/", "See it live for SAM Elimu", "g", "ne", True)}</div></div>
@@ -280,7 +280,7 @@ def ngo():
 # ============================================================== QR ANALYTICS
 def qr():
     hero = f'''<section class="hero hero-qr t-ink"><div class="qr-field" aria-hidden="true">{qr_art(9, 29)}</div><div class="wrap hero-2">
-<div>{crumb(("Products", "/products/"), "QR Analytics")}<p class="hs-k">{ic("scan")}QR Analytics · campaign tracking</p>
+<div>{crumb(("Systems", "/products/"), "QR Analytics")}<p class="hs-k">{ic("scan")}QR Analytics · campaign tracking</p>
 <h1>Know which poster was scanned, where and when.</h1>
 <p class="hero-p">Create trackable QR codes for printed campaigns, events and publications. Every scan is counted by date, device and country, and clients get their own reports.</p>
 <div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("#features", "See the features", "g")}</div></div>

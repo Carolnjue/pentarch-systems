@@ -14,7 +14,7 @@ function pss_products() {
 		'beautysuite' => 'Pentarch BeautySuite (salon or spa)',
 		'learning' => 'Courses and learning system',
 		'simlab' => 'Pentarch SimLab for my students',
-		'ngo' => 'NGO and Sponsorship Portal',
+		'ngo' => 'Pentarch EduSponsor (education sponsorship)',
 		'qr' => 'QR Analytics for a campaign',
 		'website' => 'A new website or a website revamp',
 		'data' => 'Dashboards and StoryMaps',
