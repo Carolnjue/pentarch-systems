@@ -9,8 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php wp_head(); ?>
+<?php ob_start(); wp_head(); $pss_head = ob_get_clean(); if ( false === stripos( $pss_head, 'name="viewport"' ) ) { echo '<meta name="viewport" content="width=device-width, initial-scale=1">' . "\n"; } echo $pss_head; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
