@@ -404,7 +404,7 @@ def header():
 
     def feat(k):
         img, kick, t, d, h, l = feats[k]
-        return (f'<a class="mm-feat" href="{h}" style="background-image:url({{{{media:{img}}}}})">'
+        return (f'<a class="mm-feat" href="{h}" data-bg="{{{{media:{img}}}}}">'
                 f'<span class="mm-k">{kick}</span><span class="mm-ft">{t}</span><span class="mm-fd">{d}</span>'
                 f'<span class="mm-fl">{l}{ic("arrow")}</span></a>')
 

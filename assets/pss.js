@@ -18,6 +18,10 @@
       if (h && h !== '/' && path.indexOf(h) === 0) a.setAttribute('aria-current', 'page');
     });
     var items = $$('.has-mm', hd);
+    /* menu pictures load on first use, or once the page is idle, not with the page */
+    function bg(scope) { $$('[data-bg]', scope).forEach(function (el) { el.style.backgroundImage = 'url(' + el.getAttribute('data-bg') + ')'; el.removeAttribute('data-bg'); }); }
+    items.forEach(function (li) { ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) { li.addEventListener(ev, function () { bg(li); }, { once: true, passive: true }); }); });
+    w.addEventListener('load', function () { setTimeout(function () { (w.requestIdleCallback || setTimeout)(function () { bg(hd); }); }, 2500); });
     function closeAll(except) {
       items.forEach(function (li) { if (li !== except) { li.classList.remove('open'); var a = li.querySelector('.nl'); if (a) a.setAttribute('aria-expanded', 'false'); } });
     }
