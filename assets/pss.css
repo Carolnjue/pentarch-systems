@@ -1377,3 +1377,10 @@ html.vw-on .pss-top{display:none}
 .tour-d .to-t b{color:var(--teal-l)}
 .tour-d .to-t[aria-selected=true] b{color:var(--coral-d)}
 .pss .tf p a{color:var(--teal-d)!important;font-weight:600;text-decoration:underline}
+/* 404 */
+.hero-404{min-height:calc(100vh - var(--hd) - 40px);display:flex;align-items:center}
+.hero-404 .nf-links{margin:34px 0 28px}
+.hero-404 .nf-links a{display:block;height:100%;padding:22px;border-radius:var(--r3);background:var(--glass);border:1px solid var(--gline);color:#fff!important;text-decoration:none!important;transition:border-color .2s,transform .2s}
+.hero-404 .nf-links a:hover{border-color:var(--teal-l);transform:translateY(-3px)}
+.hero-404 .nf-links .ic{width:40px;height:40px;padding:9px;border-radius:10px;background:rgba(20,177,172,.18);color:var(--teal-l);margin-bottom:14px}
+.hero-404 .nf-links h3{color:#fff;margin-bottom:6px}.hero-404 .nf-links p{color:var(--on-ink-b);font-size:.94rem}
