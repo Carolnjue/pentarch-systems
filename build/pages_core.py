@@ -155,7 +155,7 @@ def home():
                        "Tell us what you run and when suits you. We call to confirm, then show you the system at your premises or online.",
                        ["A demo set up for your type of organisation", "Honest advice on the right system and devices", "No obligation to buy"])
     sv = "".join(f'<li><a href="{h}">{ic(i)}<h3>{t}</h3><p>{d}</p><span class="sv-go">Learn more{ic("arrow")}</span></a></li>' for i, t, d, h in SERVICES)
-    services_s = section(head("Built to order", "When a ready-made product does not fit, we build what you need.", "services") + f'<ul class="caps caps-4 sv-cards">{sv}</ul>', tone="white")
+    services_s = section(head("Built to order", "When a ready-made product does not fit, we build what you need.", "services") + f'<ul class="caps caps-5 sv-cards">{sv}</ul>', tone="white")
     return page("home", hero + readout + products + services_s + why + cases_s + how + agents + faqs + cta)
 
 

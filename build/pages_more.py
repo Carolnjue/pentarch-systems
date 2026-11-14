@@ -436,6 +436,18 @@ def services():
         lk = "".join(btn(h, l, "d" if j == 0 else "g", "arrow") for j, (l, h) in enumerate(links))
         body += section(f'<article class="wcase{" wcase-r" if n % 2 else ""}"><div class="wc-txt"><p class="case-p">{ic(i)}Service {n + 1:02d}</p><h2>{t}</h2><p class="lead">{d}</p>{ticks(pts)}<div class="btns">{lk}</div></div><div class="wc-vis">{shot(sh, t)}</div></article>',
                         sid=k, tone="paper" if n % 2 == 0 else "white")
+    ig = [("cash", "M-Pesa payments", "STK Push prompts on the customer's phone, Paybill and Till confirmations matched to the right bill, B2C payouts and a daily reconciliation."),
+          ("shield", "KRA eTIMS invoicing", "Invoices and receipts from your own system signed through eTIMS, with the control unit details printed on every receipt."),
+          ("wa", "WhatsApp Business", "Receipts, reminders, appointment confirmations and order updates sent on WhatsApp, with replies routed to your team."),
+          ("phone", "Bulk SMS and USSD", "Reminders, alerts and short menus that reach customers on any phone, including those without data."),
+          ("globe", "Online card and mobile checkout", "Pesapal, Flutterwave, Paystack or Stripe on your website, with payments landing in your system automatically."),
+          ("spark", "AI assistants", "An assistant on your website or WhatsApp that answers from your own documents and prices, and hands over to staff when it should."),
+          ("cal", "Google Workspace and Microsoft 365", "Forms, calendars, sheets and email connected to your system, so records stop being copied by hand."),
+          ("layers", "Data migration", "Records moved from Excel, QuickBooks or an old system, checked line by line before you go live.")]
+    igs = "".join(f'<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>' for i, t, d in ig)
+    integ = section(head("Integrations and automation", "Connect the tools you already use to your system, website or each other. We build these into Pentarch products and into what we build for you.", f"service {len(S) + 1:02d}") +
+                    f'<ul class="caps">{igs}</ul><p class="ig-note">Already in use: M-Pesa code checks and WhatsApp receipts in Pentarch POS, WhatsApp summaries in MediCore, calendar links in ComplyScope and Gmail in the WiIRA planner.</p>'
+                    f'<div class="btns">{btn("/contact/?product=custom", "Talk about an integration", "d", "arrow")}</div>', sid="integrations", tone="paper" if len(S) % 2 == 0 else "white")
     how = section(head("How a build runs", "You approve each stage, and your team is trained before we hand over.") + steps([
         ("Listen", "We meet your team and see how the work is done today."),
         ("Demo", "A working demo with your own names and sample data, usually within two weeks."),
@@ -443,7 +455,7 @@ def services():
         ("Train", "Hands-on training for every role, with a short guide."),
         ("Support", "Phone and WhatsApp support from the people who built it.")]), tone="ink2")
     cta = lead_section("custom", "Send my request", "Tell us what you need built", "A short description is enough. We will call you back and arrange a meeting.", ["One call, no obligation", "A written quote after the demo", "Built and supported in Nairobi"])
-    return page("services", hero + body + how + cta)
+    return page("services", hero + body + integ + how + cta)
 
 
 def solutions():

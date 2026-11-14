@@ -1359,3 +1359,15 @@ html.vw-on,html.vw-on body{overflow:hidden}
 @media(max-width:560px){.pss-top{right:14px;bottom:14px;width:44px;height:44px}}
 @media print{.pss-top,.pss-vw{display:none!important}}
 html.vw-on .pss-top{display:none}
+/* Comparison tables on phones: label column stays put while the rest scrolls; three-column tables fit without scrolling */
+@media(max-width:700px){
+ .tbl-wrap{position:relative}
+ .tbl tbody th,.tbl thead td{position:sticky;left:0;z-index:1;background:#fff;width:auto;min-width:120px;box-shadow:1px 0 0 var(--line)}
+ .tbl thead td{background:var(--paper)}
+ .tbl th,.tbl td{padding:10px 10px;font-size:.84rem}
+ .tbl-cmp{min-width:0}
+ .tbl-cmp tbody th{min-width:0;width:30%}
+}
+.pss .nw{white-space:nowrap}
+@media(min-width:1040px){.caps.caps-5{grid-template-columns:repeat(5,1fr)}}
+.pss .ig-note{margin-top:18px;color:var(--mute);font-size:.92rem;max-width:860px}

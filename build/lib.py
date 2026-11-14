@@ -229,6 +229,8 @@ def faq(items):
 
 
 def steps(items, cls="steps"):
+    if cls == "steps" and len(items) in (3, 5):
+        cls = f"steps steps-{len(items)}"
     out = f'<ol class="{cls}">'
     for i, (t, d) in enumerate(items, 1):
         out += f'<li><span class="st-n" aria-hidden="true">{i:02d}</span><h3>{t}</h3><p>{d}</p></li>'
@@ -363,6 +365,7 @@ SERVICES = [
     ("layers", "Custom systems and portals", "Software built around how your organisation works", "/services/#systems"),
     ("monitor", "Interactive and 3D", "Showrooms, simulations, games and planners in the browser", "/labs/"),
     ("map", "Dashboards and StoryMaps", "Data, maps and reports people can explore", "/data-maps/"),
+    ("cog", "Integrations and automation", "M-Pesa, KRA eTIMS, WhatsApp, SMS and AI assistants", "/services/#integrations"),
 ]
 WORK = [
     ("layers", "All projects", "Every system and site we have built", "/work/"),
@@ -462,10 +465,18 @@ def footer():
 <ul class="ft-contact"><li><a href="{TEL}">{ic("call")}{PHONE}</a></li><li><a href="{WA}" target="_blank" rel="noopener">{ic("wa")}WhatsApp</a></li><li><a href="mailto:{MAIL}">{ic("mail")}{MAIL}</a></li><li>{ic("pin")}<span>Nairobi, Kenya</span></li></ul></div>
 {c}
 </div>
-<div class="ft-bot"><p>&copy; 2026 Pentarch Systems Solutions. Part of the Pentarch family.</p><p class="mono">Built and edited with Pentarch Live Edit</p><a class="ft-up" href="#pss-main">{ic("up")}Back to top</a></div>
+<div class="ft-bot"><p>&copy; 2026 Pentarch Systems Solutions. Part of the Pentarch family.</p><p class="mono">Built and edited with Pentarch Live Edit</p></div>
 </div>
 </footer>'''
 
 
+def _nowrap_headings(html):
+    """Keep hyphenated names such as M-Pesa on one line inside headings."""
+    import re as _re
+    def fix(m):
+        return _re.sub(r'(?<![\w-])(M-Pesa|e-TIMS|Wi-Fi|One-click)(?![\w-])', r'<span class="nw">\1</span>', m.group(0))
+    return _re.sub(r'<h[1-3][^>]*>.*?</h[1-3]>', fix, html, flags=_re.S)
+
+
 def page(slug, body):
-    return f'<div class="pss pss-page pg-{slug}" id="pss-main">\n{body}\n</div>\n'
+    return f'<div class="pss pss-page pg-{slug}" id="pss-main">\n{_nowrap_headings(body)}\n</div>\n'
