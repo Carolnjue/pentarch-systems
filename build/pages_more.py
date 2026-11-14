@@ -104,7 +104,7 @@ def labs():
            ("Stopping distance", "Pick a car, speed, surface and driver state, then see whether it stops before the crossing."),
            ("Performance map", "Plot any two metrics for every car, with bubble size for weight and colour for body style.")]
     e = "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in eng)
-    engine = section(f'''<div class="split">{head("Under the Hood: engine cutaways", "How cars work, shown with animated 3D models you can orbit, slow down and take apart.")}<div>{engine_mock()}{btn(LQ + "/lab/", "Open the lab", "d", "ne", True)}</div></div><ul class="cards6">{e}</ul>''', sid="engine", tone="white")
+    engine = section(f'''<div class="split">{head("Under the Hood: engine cutaways", "How cars work, shown with animated 3D models you can orbit, slow down and take apart.")}<div>{engine_mock()}<div class="btns">{btn(LQ + "/lab/", "Open the lab", "d", "ne", True)}</div></div></div><ul class="cards6">{e}</ul>''', sid="engine", tone="white")
 
     games = [("Race simulator", "Any two cars, any conditions. Power, weight, grip, gearbox, drag and the thin air at Nairobi's altitude decide the result, over 0–100 km/h, a quarter mile, 1 km or an 80–120 overtake."),
              ("Hot lap", "Drive any showcase car round the Laqim circuit in 3D and beat your best lap."),
