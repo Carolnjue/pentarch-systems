@@ -49,13 +49,13 @@ def home():
                 ("19", "business types in Pentarch POS"), ("47", "counties covered by ComplyScope")]) +
         '</div><p class="ro-note">Counted from the systems and sites listed on this website.</p>', cls="sec-ro", tone="ink2")
 
-    big = [p for p in PRODUCTS if p[0] in ("medicore", "pos", "complyscope")]
-    rest = [p for p in PRODUCTS if p[0] not in ("medicore", "pos", "complyscope")]
+    big = [p for p in PRODUCTS if p[0] in ("medicore", "pos", "portal")]
+    rest = [p for p in PRODUCTS if p[0] not in ("medicore", "pos", "portal")]
     meta = {
         "medicore": ("Offline-first · local network", ["Pharmacy counter", "Queue and triage", "Lab", "Wards and maternity", "Billing and cash-up"], "30-day free online demo"),
         "pos": ("Offline PWA · cloud sync", ["Selling and receipts", "Stock and expiry", "Credit book", "Shifts and staff PINs", "Branches"], "Live demo, one month free"),
-        "complyscope": ("Web app · all 47 counties", ["Obligations", "Deadlines and reminders", "Filing log", "Dossier"], "Live dashboard, free pilot"),
-        "portal": ("WordPress plugin", ["Admissions", "LMS", "Certificates"]),
+        "complyscope": ("Web app · all 47 counties", ["Obligations", "Deadlines", "Dossier"]),
+        "portal": ("WordPress plugin · on your website", ["Admissions and fees", "LMS and exams", "Gradebook", "Certificates", "Alumni"], "Live at a college in Machakos"),
         "beautysuite": ("Web app", ["Bookings", "Walk-ins", "Commissions"]),
         "ngo": ("Web portal", ["Sponsors", "Fees", "Impact"]),
         "simlab": ("Browser · free for students", ["Engineering", "Health", "ICT and media"]),
