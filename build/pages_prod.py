@@ -44,7 +44,7 @@ def mc_try():
 <p>No card, no devices, no commitment. Or <a href="{MEDICORE}/try" target="_blank" rel="noopener">start the demo on the MediCore site</a>.</p>
 </div>
 <div id="mcx-done" class="mcx-done" hidden><h3>Your MediCore is ready</h3><p>Save these details. You need them to sign in.</p>
-<div class="creds"><div><small>Web address</small><b>medicore.pentarchcommunications.com</b></div><div><small>Username</small><b id="mcx-u"></b></div><div><small>PIN</small><b id="mcx-p"></b></div><div><small>Free until</small><b id="mcx-e"></b></div></div>
+<div class="creds"><div><small>Web address</small><b>medicore.pentarchsystemssolutions.co.ke</b></div><div><small>Username</small><b id="mcx-u"></b></div><div><small>PIN</small><b id="mcx-p"></b></div><div><small>Free until</small><b id="mcx-e"></b></div></div>
 <a class="go" href="{MEDICORE}/" target="_blank" rel="noopener">Open my MediCore</a></div>
 </form>'''
 

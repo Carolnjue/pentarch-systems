@@ -9,7 +9,7 @@ import html, random
 
 SITE = "https://pentarchsystemssolutions.co.ke"
 POS = "https://pos.pentarchsystemssolutions.co.ke/pos/"
-MEDICORE = "https://medicore.pentarchcommunications.com"
+MEDICORE = "https://medicore.pentarchsystemssolutions.co.ke"
 SIMLAB = "https://simlab.pentarchcommunications.com"
 PHONE = "+254 729 455 912"
 TEL = "tel:+254729455912"
