@@ -456,7 +456,7 @@
       ev.preventDefault();
       var v = viewerEl(), fr = v.querySelector('iframe');
       var t = (a.getAttribute('aria-label') || a.textContent || '').replace(/\s+/g, ' ').trim();
-      if (!t || t.length > 60 || /^(visit|open|see|explore|try)/i.test(t)) t = u.hostname.replace(/^www\./, '');
+      if (!t || t.length > 60 || /^(visit|open|see|explore|try|play|enter|load)/i.test(t)) { var box = a.closest('article, li, .case, section'); var hh = box && box.querySelector('h2, h3'); t = hh ? hh.textContent.replace(/\s+/g, ' ').trim() : u.hostname.replace(/^www\./, ''); }
       v.querySelector('.vw-t').textContent = t;
       v.querySelector('.vw-u').textContent = u.hostname.replace(/^www\./, '') + (u.pathname.length > 1 ? u.pathname : '');
       v.querySelector('.vw-open').href = u.href;

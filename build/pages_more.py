@@ -277,7 +277,7 @@ def websites():
 <div class="btns">{btn("#sites", "See the websites", "p", "arrow")}{btn("/live-edit/", "How Live Edit works", "g")}</div></div><div class="bw-stack">{stack}</div></div></section>'''
     cards = "".join(f'''<article class="site"><a class="site-vis" href="{u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{browser(d, site_shot(d, n))}</a>
 <p class="site-k mono">{k}</p><h3><a href="{u}" target="_blank" rel="noopener">{n}{ic("ne")}</a></h3><p>{t}</p>{tags(["Live Edit"] + tg)}</article>''' for i, (n, d, u, k, t, tg) in enumerate(SITES))
-    grid = section(head("The websites", "Visit any of them. Most include a tool or system of their own.") + f'<div class="sites" id="sites">{cards}</div>', tone="white")
+    grid = section(head("The websites", "Open any of them here. Most include a tool or system of their own.") + f'<div class="sites" id="sites">{cards}</div>', tone="white")
     opts = "".join(f'<option value="{u}">{n}</option>' for n, d, u, *_ in SITES)
     pv = section(f'''<div class="split">{head("Preview one here", "Choose a site and load it in the frame. Some sites do not allow being shown inside another page; open those in a new tab.")}
 <div class="sitepv" data-sitepv><label class="sp-l"><span>Website</span><select data-sp-sel>{opts}</select></label>
@@ -290,7 +290,7 @@ def websites():
         ("server", "Hosting and email", "Hosted on our server, with domain and email set up for you."),
         ("handshake", "Support after launch", "Changes, new pages and help by phone and WhatsApp.")])}</ul>''')
     cta = lead_section("website", "Talk about my website", "Want a website like these?", "Tell us about your organisation and what the site must do.", ["A design of its own", "Live Edit inside", "A written quote after the call"])
-    return page("websites", hero + grid + pv + what + cta)
+    return page("websites", hero + grid + what + cta)
 
 
 # ============================================================== WORK
