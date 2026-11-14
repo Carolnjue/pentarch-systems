@@ -84,10 +84,11 @@ def solutions_old():
 
 # ============================================================== LABS
 def labs():
-    hero = f'''<section class="hero hero-labs t-ink">{waves()}<div class="wrap">
-{crumb(("Our Work", "/work/"), "Interactive and 3D websites")}<h1>Websites people stay on.</h1>
+    hero = f'''<section class="hero hero-labs t-ink">{waves()}<div class="wrap hero-2"><div>
+{crumb(("Services", "/services/"), "Interactive and 3D")}<h1>Websites people stay on.</h1>
 <p class="hero-p">A walk-through 3D showroom, animated engine cutaways, a race simulator, calculators and planners, built into client websites. All of them run in an ordinary browser.</p>
-<ul class="lab-jump">{"".join(f'<li><a href="#{a}">{ic(i)}{t}</a></li>' for a, i, t in [("showroom", "monitor", "3D showroom"), ("engine", "cog", "Engine cutaways"), ("play", "play", "Games"), ("parts", "search", "Parts finder"), ("tools", "spark", "Nature-finance tools"), ("planners", "layers", "Planners")])}</ul></div></section>'''
+<ul class="lab-jump">{"".join(f'<li><a href="#{a}">{ic(i)}{t}</a></li>' for a, i, t in [("showroom", "monitor", "3D showroom"), ("engine", "cog", "Engine cutaways"), ("play", "play", "Games"), ("parts", "search", "Parts finder"), ("tools", "spark", "Nature-finance tools"), ("planners", "layers", "Planners")])}</ul></div>
+{duo("site-laqim", "Laqim Autoworld home page", "sim-wind-tunnel", "Pentarch SimLab wind tunnel simulation")}</div></section>'''
 
     simlab = section(f'''<div class="split">{head("Pentarch SimLab", "More than 50 interactive labs across ten departments, from engineering to health, free for every student and run entirely in the browser.")}
 <div>{sim_mock()}<div class="btns">{btn("/simlab/", "Explore all simulations", "p", "arrow")}{btn(SIMLAB + "/", "Open SimLab", "g", "ne", True)}</div></div></div>''', sid="simlab", tone="paper")
@@ -205,14 +206,14 @@ def data_maps():
                ("624490cfe6624659808cd615e8eb7258", "Field visits reports", "Field visits in Gaza, Maputo and Sofala provinces.", "September 2024", "Mozambique"),
                ("55e1e6378de442a9b2f6e9f165e0c6d2", "Sofala Province field visit and market research", "Data quality assessment in Gorongosa and market research for programme design.", "June 2024", "Mozambique"),
                ("25f6a0cf24f24086b161c6565f8a7f72", "KHETA field review", "Verification visits in the Limpopo–Kruger area.", "August 2023", "Mozambique")]
-    hero = f'''<section class="hero hero-data t-ink">{topo(3)}<div class="wrap">
-{crumb("Data & maps")}<h1>From field data to a story people can follow.</h1>
+    hero = f'''<section class="hero hero-data t-ink">{topo(3)}<div class="wrap hero-2"><div>
+{crumb(("Services", "/services/"), "Dashboards and StoryMaps")}<h1>From field data to a story people can follow.</h1>
 <p class="hero-p">ArcGIS StoryMaps, interactive dashboards and campaign analytics. We turn survey points, programme results and scans into pages decision-makers actually read.</p>
-<ul class="coord mono" aria-hidden="true"><li>1.2921° S, 36.8219° E</li><li>19.8333° S, 34.8500° E</li><li>155 ground-truth points</li></ul>
-<div class="btns">{btn("#dashboards", "See the AGILE dashboard", "p", "arrow")}{btn("#storymaps", "See the StoryMaps", "g")}</div></div></section>'''
+<div class="btns">{btn("#dashboards", "See the AGILE dashboard", "p", "arrow")}{btn("#storymaps", "See the StoryMaps", "g")}</div></div>
+{solo("sm-map", "Kenya Rangeland Validation Project StoryMap: field sites from Kajiado to Kilifi")}</div></section>'''
     first = stories[0]
     feat = section(f'''{head("StoryMaps, built with Zingira Pesa", "Field campaigns and programme reviews in Kenya and Mozambique, published as ArcGIS StoryMaps.")}
-<div class="sm-feat">{embed(SM + first[0], first[1] + " StoryMap", "Opens the StoryMap inside this page.", "16/10", f'<div class="emb-art">{topo(8, 800, 500, 8)}</div>', label="Open the StoryMap here")}
+<div class="sm-feat">{embed(SM + first[0], first[1] + " StoryMap", "Opens the StoryMap inside this page.", "16/10", f'<div class="emb-art emb-shot">{img("sm-cover", "Kenya Rangeland Validation Project StoryMap cover")}</div>', label="Open the StoryMap here")}
 <div class="sm-txt"><p class="mono">{first[3]} · {first[4]}</p><h3>{first[1]}</h3><p>{first[2]} Co-authored by the field team; 155 ground-truth points and 360 paired observations.</p></div></div>
 <ul class="sm-list">''' + "".join(f'<li><a href="{SM}{i}" target="_blank" rel="noopener">{ic("map")}<span><b>{t}</b><small>{d}</small></span><em class="mono">{dt} · {pl}</em></a></li>' for i, t, d, dt, pl in stories[1:]) +
         f'''</ul><p class="small">Zingira Pesa's founder was interviewed for an Esri ArcGIS blog feature on StoryMaps and USAID partnerships (August 2024). <a href="https://www.esri.com/arcgis-blog/products/story-maps/sharing-collaboration/a-growing-success-story-usaid-partnerships-deliver-results-for-people-and-the-planet" target="_blank" rel="noopener">Read the Esri article</a>.</p>''',
@@ -270,7 +271,7 @@ def site_shot(d, n):
 
 def websites():
     stack = "".join(f'<div class="bwst" style="--i:{i}">{browser(d, site_shot(d, n))}</div>' for i, (n, d, *_r) in enumerate(SITES[:4]))
-    hero = f'''<section class="hero hero-web t-paper"><div class="wrap hero-2"><div>{crumb("Websites")}
+    hero = f'''<section class="hero hero-web t-paper"><div class="wrap hero-2"><div>{crumb(("Services", "/services/"), "Websites")}
 <h1>Thirteen websites, each one edited by its owner.</h1>
 <p class="hero-p">Colleges, consultancies, charities, a car showcase and an internet provider. Every one is coded by hand, hosted on our server and editable by its owner.</p>
 <div class="btns">{btn("#sites", "See the websites", "p", "arrow")}{btn("/live-edit/", "How Live Edit works", "g")}</div></div><div class="bw-stack">{stack}</div></div></section>'''
