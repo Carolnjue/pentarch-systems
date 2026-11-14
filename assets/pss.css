@@ -1320,3 +1320,6 @@ a.fam-c:hover{border-color:var(--teal-d)}
 @media(max-width:959px){.hero-car{min-height:0}}
 .hero-contact .ct-ways span{min-width:0}
 .hero-contact .ct-ways b+*,.hero-contact .ct-ways span span{overflow-wrap:anywhere}
+/* Real screenshots inside browser frames */
+.bw-body>img{display:block;width:100%;height:auto}
+.dash-c .bw-body:has(>img){min-height:0;background:#fff}

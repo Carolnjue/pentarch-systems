@@ -219,9 +219,9 @@ def data_maps():
         sid="storymaps", tone="ink")
     agile = agile_section("dashboards", "ink2")
     dash = section(head("More dashboards and microsites", "Interactive single-page builds hosted on our server.") + f'''<div class="dash2">
-<article class="dash-c">{browser("pentarchcommunications.com", site_art(5))}
-<h3>8th ADFC 2026 Conference</h3><p>A single-page conference microsite.</p><a href="https://pentarchcommunications.com/8th_ADFC_2026_Conference/" target="_blank" rel="noopener">Open the microsite{ic("ne")}</a></article>
-<article class="dash-c">{browser("zingirapesa.com/qr", qr_dash())}<h3>QR Analytics</h3><p>Scans of printed campaigns by date, device and country, with client reports.</p><a href="/qr-analytics/">See QR Analytics{ic("arrow")}</a></article></div>''', sid="more-dash", tone="white")
+<article class="dash-c">{browser("pentarchcommunications.com/8th_ADFC_2026_Conference", img("adfc", "8th ADFC 2026 programme dashboard"))}
+<h3>8th ADFC 2026 Conference</h3><p>Programme dashboard for the University of Nairobi conference: speakers, papers, itinerary and fees on one page.</p><a href="https://pentarchcommunications.com/8th_ADFC_2026_Conference/" target="_blank" rel="noopener">Open the microsite{ic("ne")}</a></article>
+<article class="dash-c">{browser("zingirapesa.com/qr", img("qr-dashboard", "Pentarch QR Analytics dashboard"))}<h3>QR Analytics</h3><p>Scans of printed campaigns by date, device and country, with client reports.</p><a href="/qr-analytics/">See QR Analytics{ic("arrow")}</a></article></div>''', sid="more-dash", tone="white")
     deliver = section(head("From the field form to the board meeting", "We connect the way you collect data to the way people read it, then automate the reporting so it arrives on time every month.", "what we deliver") + '<ul class="caps caps-3">' + "".join(f"<li>{ic(i)}<h3>{t}</h3><p>{d}</p></li>" for i, t, d in [
         ("chart", "Programme and M&amp;E dashboards", "Indicators against targets, by site, month and partner, for managers and funders."),
         ("phone", "KoboToolbox and ODK pipelines", "Field forms flowing straight into clean tables and dashboards, with checks along the way."),
@@ -257,20 +257,24 @@ SITES = [
 ]
 
 
-def site_art(n):
-    import random
-    r = random.Random(n * 13)
-    blocks = "".join(f'<i style="--w:{r.randint(30, 90)}%"></i>' for _ in range(3))
-    return f'<div class="sa sa{n % 4}" aria-hidden="true"><span class="sa-hero"></span><span class="sa-txt">{blocks}</span><span class="sa-cards"><i></i><i></i><i></i></span></div>'
+SITE_SHOT = {"glamourvinecollege.com": "glamourvine", "laqimautoworld.com": "laqim", "pentarchtraininginstitute.co.ke": "pti", "zingirapesa.com": "zingira",
+             "pentarchcommunications.com": "comms", "lfesolutions.co.ke": "lfe", "rarcconsulting.com": "rarc", "samelimu.pentarchcommunications.com": "samelimu",
+             "johms.pentarchcommunications.com": "johms", "cnb.pentarchcommunications.com": "cnb", "sasamedia.pentarchcommunications.com": "sasamedia",
+             "net.pentarchcommunications.com": "net", "nsnew.pentarchcommunications.com": "ns"}
+
+
+def site_shot(d, n):
+    """Real home-page screenshot of a client website."""
+    return img("site-" + SITE_SHOT[d], n + " home page")
 
 
 def websites():
-    stack = "".join(f'<div class="bwst" style="--i:{i}">{browser(d, site_art(i))}</div>' for i, (n, d, *_r) in enumerate(SITES[:4]))
+    stack = "".join(f'<div class="bwst" style="--i:{i}">{browser(d, site_shot(d, n))}</div>' for i, (n, d, *_r) in enumerate(SITES[:4]))
     hero = f'''<section class="hero hero-web t-paper"><div class="wrap hero-2"><div>{crumb("Websites")}
 <h1>Thirteen websites, each one edited by its owner.</h1>
 <p class="hero-p">Colleges, consultancies, charities, a car showcase and an internet provider. Every one is coded by hand, hosted on our server and editable by its owner.</p>
 <div class="btns">{btn("#sites", "See the websites", "p", "arrow")}{btn("/live-edit/", "How Live Edit works", "g")}</div></div><div class="bw-stack">{stack}</div></div></section>'''
-    cards = "".join(f'''<article class="site"><a class="site-vis" href="{u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{browser(d, site_art(i))}</a>
+    cards = "".join(f'''<article class="site"><a class="site-vis" href="{u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{browser(d, site_shot(d, n))}</a>
 <p class="site-k mono">{k}</p><h3><a href="{u}" target="_blank" rel="noopener">{n}{ic("ne")}</a></h3><p>{t}</p>{tags(["Live Edit"] + tg)}</article>''' for i, (n, d, u, k, t, tg) in enumerate(SITES))
     grid = section(head("The websites", "Visit any of them. Most include a tool or system of their own.") + f'<div class="sites" id="sites">{cards}</div>', tone="white")
     opts = "".join(f'<option value="{u}">{n}</option>' for n, d, u, *_ in SITES)
