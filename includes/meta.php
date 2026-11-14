@@ -100,3 +100,30 @@ add_filter(
 		return $r;
 	}
 );
+
+/* Who we are, for search engines: organisation details on the home page. */
+add_action(
+	'wp_head',
+	function () {
+		if ( ! is_front_page() ) {
+			return;
+		}
+		$org = array(
+			'@context'     => 'https://schema.org',
+			'@type'        => 'Organization',
+			'name'         => 'Pentarch Systems Solutions',
+			'url'          => home_url( '/' ),
+			'logo'         => (string) wp_get_attachment_url( (int) get_theme_mod( 'custom_logo' ) ),
+			'email'        => 'info@pentarchsystemssolutions.co.ke',
+			'telephone'    => '+254729455912',
+			'address'      => array(
+				'@type'           => 'PostalAddress',
+				'addressLocality' => 'Nairobi',
+				'addressCountry'  => 'KE',
+			),
+			'description'  => 'Software for Kenyan organisations: MediCore for health facilities, Pentarch POS for shops, ComplyScope Kenya for compliance, the Pentarch Portal for colleges, and custom systems and websites.',
+		);
+		echo '<script type="application/ld+json">' . wp_json_encode( $org, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+	},
+	3
+);
