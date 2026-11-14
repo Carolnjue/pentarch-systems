@@ -368,7 +368,7 @@ WORK = [
     ("lab", "Pentarch SimLab", "50+ simulations for college students", "/simlab/"),
     ("monitor", "Laqim Autoworld", "3D showroom, engine cutaways and games", "/work/#laqim"),
     ("map", "Zingira Pesa", "StoryMaps, nature-finance tools and QR tracking", "/work/#zingira"),
-    ("chart", "AGILE dashboard", "Digital media and advocacy dashboard", "/data-maps/#dashboards"),
+    ("chart", "AGILE dashboard", "Media and advocacy dashboard for ALMANA SS", "/data-maps/#dashboards"),
 ]
 ABOUT = [("/about/", "About us"), ("/about/#team", "Our team"), ("/about/#clients", "Our clients")]
 ABOUT_M = [

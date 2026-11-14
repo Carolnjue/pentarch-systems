@@ -191,7 +191,7 @@ def agile_section(sid, tone="ink", compact=False):
     poster = (f'<div class="emb-art ag-art"><div class="ag-k"><i></i><i></i><i></i><i></i></div><div class="qd-chart">{bars}</div>'
               f'<div class="ag-ring"><svg viewBox="0 0 42 42" aria-hidden="true" focusable="false"><circle cx="21" cy="21" r="15.9" class="r0"/><circle cx="21" cy="21" r="15.9" class="r1"/><circle cx="21" cy="21" r="15.9" class="r2"/></svg></div></div>')
     txt = (f'<p class="hs-k">{ic("chart")}Flagship dashboard</p><h2>AGILE Digital Media &amp; Advocacy Dashboard</h2>'
-           f'<p class="lead">A data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
+           f'<p class="lead">Built for ALMANA SS in South Sudan: a data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
            + ticks(["Interactive single-page dashboard, open in any browser", "Backed by its own database, not a static spreadsheet", "Build and configuration kept separate from the data", "Hosted and maintained by Pentarch"])
            + f'<div class="btns">{btn(AGILE, "Open the dashboard", "p", "ne", True)}{"" if compact else btn("/contact/?product=data", "Talk about a dashboard", "g")}</div>')
     poster = f'<div class="emb-art emb-shot">{img("agile", "AGILE Digital Media and Advocacy Dashboard")}</div>'
@@ -311,7 +311,7 @@ def work():
         ("zingira", "Zingira Pesa", "Nairobi and Maputo", "A natural capital and nature-finance advisory registered in Kenya and Mozambique.",
          ["Website with free nature-finance calculators", "QR Analytics for printed and event material", "WiIRA, an internal opportunities and task planner with Gmail integration", "ArcGIS StoryMaps of field campaigns"],
          [("Data & maps", "/data-maps/"), ("Visit the site", "https://zingirapesa.com/")], None),
-        ("agile", "AGILE dashboard", "Pentarch Communications", "A digital media and advocacy dashboard that brings a programme's online results into one place.",
+        ("agile", "AGILE dashboard", "South Sudan", "A digital media and advocacy dashboard for ALMANA SS, a South Sudanese company, that brings its programme's online results into one place.",
          ["Campaign and media results in one view", "Filters by channel, period and theme", "Built on a private database", "Shared with partners by link"],
          [("Open the dashboard", AGILE), ("Dashboards and maps", "/data-maps/#dashboards")], "agile"),
         ("medicore", "MediCore pilots", "Kenya", "A community pharmacy with its own lab, and a maternity-focused clinic.",
@@ -369,11 +369,12 @@ def about():
         ("handshake", "SAM Elimu Charity", "Website and Pentarch EduSponsor", "/work/#samelimu"),
         ("monitor", "Laqim Autoworld", "3D showroom and website", "/work/#laqim"),
         ("map", "Zingira Pesa", "Website, StoryMaps, tools and QR Analytics", "/work/#zingira"),
+        ("chart", "ALMANA SS, South Sudan", "AGILE media and advocacy dashboard", "/work/#agile"),
         ("book", "Pentarch Training Institute", "Website and course registration", "/work/#pti"),
         ("shield", "Charles and Barker", "Website and compliance checklist", "/work/#cnb"),
-        ("web", "LFE Global Resource", "Website", "/websites/"),
+        ("web", "LFE Solutions", "Website", "/websites/"),
         ("web", "RARC Consulting", "Website", "/websites/"),
-        ("layers", "Johms", "Website and storage planner", "/websites/"),
+        ("layers", "Johms Interiors", "Website and storage planner", "/websites/"),
     ]) + "</ul>", sid="clients", tone="paper")
 
     nums = section('<div class="readout">' + "".join(f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"), ("2", "MediCore pilot facilities")]) + "</div>", tone="ink2", cls="sec-ro")
