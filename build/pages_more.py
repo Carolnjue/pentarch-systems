@@ -191,7 +191,7 @@ def agile_section(sid, tone="ink", compact=False):
               f'<div class="ag-ring"><svg viewBox="0 0 42 42" aria-hidden="true" focusable="false"><circle cx="21" cy="21" r="15.9" class="r0"/><circle cx="21" cy="21" r="15.9" class="r1"/><circle cx="21" cy="21" r="15.9" class="r2"/></svg></div></div>')
     txt = (f'<p class="hs-k">{ic("chart")}Flagship dashboard</p><h2>AGILE Digital Media &amp; Advocacy Dashboard</h2>'
            f'<p class="lead">A data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
-           + ticks(["Interactive single-page dashboard, open in any browser", "Backed by its own database, not a static spreadsheet", "Build and configuration kept separate from the data", "Hosted on our server at pentarchcommunications.com"])
+           + ticks(["Interactive single-page dashboard, open in any browser", "Backed by its own database, not a static spreadsheet", "Build and configuration kept separate from the data", "Hosted and maintained by Pentarch"])
            + f'<div class="btns">{btn(AGILE, "Open the dashboard", "p", "ne", True)}{"" if compact else btn("/contact/?product=data", "Talk about a dashboard", "g")}</div>')
     poster = f'<div class="emb-art emb-shot">{img("agile", "AGILE Digital Media and Advocacy Dashboard")}</div>'
     return section(f'<div class="agile"><div class="ag-txt">{txt}</div><div class="ag-vis">{embed(AGILE, "AGILE Digital Media and Advocacy Dashboard", "Loads the live dashboard inside this page.", "16/10", poster, "emb-ag", "Load the live dashboard")}{pipe}</div></div>',

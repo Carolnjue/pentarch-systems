@@ -14,10 +14,10 @@ SIMLAB = "https://simlab.pentarchcommunications.com"
 PHONE = "+254 729 455 912"
 TEL = "tel:+254729455912"
 WA = "https://wa.me/254729455912"
-MAIL = "info@pentarchcommunications.com"
+MAIL = "info@pentarchsystemssolutions.co.ke"
 LOGO = "https://pentarchcommunications.com/wp-content/uploads/2026/01/cropped-LOGO-LOGO-TRANSPARENT-200x66.png"
 LOGO_W = "{{media:pss-logo-white.png}}"
-MARK = "https://pentarchcommunications.com/wp-content/uploads/2026/01/LOGO-SYMBOL-TRANSPARENT.png"
+MARK = "{{media:pss-mark.png}}"
 
 ICONS = set("arrow ne chev menu x up check call mail pin wa health school scissor cart pen book web map chart wifi offline phone shield lock users server cloud cash box scan print monitor battery lab bed pill cal star layers code search globe cog spark handshake clock play".split())
 

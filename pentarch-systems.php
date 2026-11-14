@@ -6,7 +6,7 @@
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            Pentarch Systems Solutions
- * Author URI:        https://pentarchcommunications.com
+ * Author URI:        https://pentarchsystemssolutions.co.ke
  * Text Domain:       pentarch-systems
  */
 

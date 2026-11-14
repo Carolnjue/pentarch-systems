@@ -94,7 +94,7 @@ function pss_handle_lead() {
 			update_post_meta( $id, '_pss_' . $k, $v );
 		}
 	}
-	$to   = get_option( 'pss_notify', 'info@pentarchcommunications.com' );
+	$to   = get_option( 'pss_notify', 'info@pentarchsystemssolutions.co.ke' );
 	$body = "New request from the Pentarch Systems Solutions website\n\n"
 		. "Interested in: $label\nOrganisation: {$d['org']}\nName: {$d['name']}\nPhone: {$d['phone']}\nEmail: {$d['email']}\nTown: {$d['town']}\nPreferred time: {$d['when']}\n\nMessage:\n{$d['message']}\n\n"
 		. 'All requests: ' . admin_url( 'edit.php?post_type=pss_lead' );
