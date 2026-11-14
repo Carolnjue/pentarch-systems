@@ -69,3 +69,35 @@ add_action(
 		}
 	}
 );
+
+/* Pages kept only to forward old addresses stay out of search. */
+function pss_moved_page_ids() {
+	$ids = array();
+	foreach ( array( 'solutions', 'dashboards' ) as $s ) {
+		$p = get_page_by_path( $s );
+		if ( $p ) {
+			$ids[] = (int) $p->ID;
+		}
+	}
+	return $ids;
+}
+add_filter(
+	'wp_sitemaps_posts_query_args',
+	function ( $args, $type ) {
+		if ( 'page' === $type ) {
+			$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array(), pss_moved_page_ids() );
+		}
+		return $args;
+	},
+	10,
+	2
+);
+add_filter(
+	'wp_robots',
+	function ( $r ) {
+		if ( is_page() && in_array( (int) get_queried_object_id(), pss_moved_page_ids(), true ) ) {
+			$r['noindex'] = true;
+		}
+		return $r;
+	}
+);
