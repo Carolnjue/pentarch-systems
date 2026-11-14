@@ -19,6 +19,7 @@ function pss_pages() {
 		'ngo-portal' => 'Pentarch EduSponsor',
 		'qr-analytics' => 'QR Analytics',
 		'live-edit' => 'Pentarch Live Edit',
+		'services' => 'Services',
 		'solutions' => 'Solutions',
 		'labs' => 'Interactive and 3D Websites',
 		'simlab' => 'Pentarch SimLab',
@@ -26,7 +27,7 @@ function pss_pages() {
 		'websites' => 'Websites',
 		'work' => 'Our Work',
 		'about' => 'About',
-		'contact' => 'Book a Demo',
+		'contact' => 'Contact Us',
 		'dashboards' => 'Dashboards and StoryMaps',
 	);
 }

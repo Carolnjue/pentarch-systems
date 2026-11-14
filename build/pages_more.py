@@ -45,7 +45,7 @@ HALL = '<div class="emb-art hall-art"><div class="hall"></div><i class="pav p1">
 
 
 # ============================================================== SOLUTIONS
-def solutions():
+def solutions_old():
     S = [("health", "health", "Health", "Pharmacies, clinics and hospitals that cannot stop when the internet does.",
           ["Counter and dispensing with batches and expiry", "Queue, triage, lab and referrals", "Wards, beds and maternity", "Billing by cash, M-Pesa, insurance and SHA"],
           [("Pentarch MediCore", "/medicore/"), ("Pentarch POS, chemist type", "/pos/")]),
@@ -93,7 +93,7 @@ def labs():
 <div>{sim_mock()}<div class="btns">{btn("/simlab/", "Explore all simulations", "p", "arrow")}{btn(SIMLAB + "/", "Open SimLab", "g", "ne", True)}</div></div></div>''', sid="simlab", tone="paper")
 
     showroom = section(f'''{head("Laqim Autoworld: the 3D showroom", "A private viewing hall for a Nairobi car showcase. Visitors walk between brand pavilions with life-size cars and open any car for its full story.")}
-<div class="lab-row"><div class="lab-vis">{embed(LQ + "/showroom/", "Laqim Autoworld 3D showroom", "3D needs a modern browser. On a phone, open it full screen.", "16/10", HALL, label="Enter the showroom")}</div>
+<div class="lab-row"><div class="lab-vis">{embed(LQ + "/showroom/", "Laqim Autoworld 3D showroom", "3D needs a modern browser. On a phone, open it full screen.", "16/10", f'<div class="emb-art emb-shot">{img("laqim-showroom", "Laqim Autoworld 3D showroom")}</div>', label="Enter the showroom")}</div>
 <ul class="ctl"><li><kbd>Drag</kbd><span>Look around</span></li><li><kbd>W A S D</kbd><span>Walk, or use the arrow keys or the on-screen pad</span></li><li><kbd>Click</kbd><span>Open a car's card</span></li><li><kbd>Scroll</kbd><span>Zoom</span></li><li><kbd>Tour</kbd><span>Start a guided tour</span></li><li><kbd>Heart</kbd><span>Save a car to My Garage, or add it to a Spec Duel</span></li></ul></div>''', sid="showroom", tone="ink")
 
     eng = [("Engine room", "Inline-4, V6, flat-6, V8 and V12 cutaways with real crankshaft geometry and firing order, slow-motion X-ray and exploded view."),
@@ -138,7 +138,7 @@ def simlab():
     allk = [(s, k) for s, ks in SIMS.items() for k in ks]
     fan = "".join(f'<div class="fan-i fan-{n}">{shot(k, "", "shot-n")}</div>' for n, k in enumerate(["sim-tv-studio", "sim-heart", "sim-robot-arm"], 1))
     hero = f'''<section class="hero hero-sim t-ink"><div class="sim-orbits" aria-hidden="true"><i></i><i></i><i></i><b></b></div><div class="wrap hero-2">
-<div>{crumb(("Systems", "/products/"), "SimLab")}<p class="hs-k">{ic("lab")}Pentarch SimLab · interactive learning</p><h1>See the maths move.</h1>
+<div>{crumb(("Our Work", "/work/"), "SimLab")}<p class="hs-k">{ic("lab")}Pentarch SimLab · interactive learning</p><h1>See the maths move.</h1>
 <p class="hero-p">A library of {len(allk)} interactive simulations for college and university students, from engineering and physics to anatomy, pharmacology and broadcast media. Every lab runs in the browser with nothing to install, and it is free for every student.</p>
 <div class="btns">{btn("#sims", "Browse the simulations", "p", "arrow")}{btn(SIMLAB + "/", "Open SimLab", "g", "ne", True)}</div>
 <ul class="hero-facts"><li>{ic("lab")}{len(allk)} interactive labs</li><li>{ic("users")}Free for every student</li><li>{ic("phone")}Laptops, tablets and phones</li></ul></div>
@@ -193,6 +193,7 @@ def agile_section(sid, tone="ink", compact=False):
            f'<p class="lead">A data-backed dashboard system for digital media and advocacy results. The page reads from its own database, and a build and configuration layer sets what it shows, so the dashboard grows as the data does.</p>'
            + ticks(["Interactive single-page dashboard, open in any browser", "Backed by its own database, not a static spreadsheet", "Build and configuration kept separate from the data", "Hosted on our server at pentarchcommunications.com"])
            + f'<div class="btns">{btn(AGILE, "Open the dashboard", "p", "ne", True)}{"" if compact else btn("/contact/?product=data", "Talk about a dashboard", "g")}</div>')
+    poster = f'<div class="emb-art emb-shot">{img("agile", "AGILE Digital Media and Advocacy Dashboard")}</div>'
     return section(f'<div class="agile"><div class="ag-txt">{txt}</div><div class="ag-vis">{embed(AGILE, "AGILE Digital Media and Advocacy Dashboard", "Loads the live dashboard inside this page.", "16/10", poster, "emb-ag", "Load the live dashboard")}{pipe}</div></div>',
                    sid=sid, tone=tone, cls="sec-agile")
 
@@ -295,7 +296,7 @@ def work():
          [("Portal", "/portal/"), ("BeautySuite", "/beautysuite/"), ("Visit the site", "https://glamourvinecollege.com/")], "portal-verify"),
         ("laqim", "Laqim Autoworld", "Nairobi", "A car showcase where visitors explore, learn how cars work and play.",
          ["3D virtual showroom with brand pavilions and a guided tour", "Under the Hood lab with engine cutaways and an engine builder", "Race simulator, hot lap, launch control and more games", "Rare parts finder"],
-         [("Interactive websites", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], None),
+         [("Interactive websites", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], "laqim-showroom"),
         ("samelimu", "SAM Elimu Charity", "Kenya and Philadelphia", "A charity that has supported children in rural Kenya through school since 2002.",
          ["New charity website", "Portal for students, schools, sponsors, donations, fees, letters and alumni", "Online donations by card, PayPal or M-Pesa", "Sponsor progress tracking"],
          [("Pentarch EduSponsor", "/ngo-portal/"), ("Visit the site", "https://samelimu.pentarchcommunications.com/")], "se-sponsor"),
@@ -305,6 +306,9 @@ def work():
         ("zingira", "Zingira Pesa", "Nairobi and Maputo", "A natural capital and nature-finance advisory registered in Kenya and Mozambique.",
          ["Website with free nature-finance calculators", "QR Analytics for printed and event material", "WiIRA, an internal opportunities and task planner with Gmail integration", "ArcGIS StoryMaps of field campaigns"],
          [("Data & maps", "/data-maps/"), ("Visit the site", "https://zingirapesa.com/")], None),
+        ("agile", "AGILE dashboard", "Pentarch Communications", "A digital media and advocacy dashboard that brings a programme's online results into one place.",
+         ["Campaign and media results in one view", "Filters by channel, period and theme", "Built on a private database", "Shared with partners by link"],
+         [("Open the dashboard", AGILE), ("Dashboards and maps", "/data-maps/#dashboards")], "agile"),
         ("medicore", "MediCore pilots", "Kenya", "A community pharmacy with its own lab, and a maternity-focused clinic.",
          ["Counter, lab and referrals for the pharmacy", "Inpatient beds and maternity for the clinic", "Runs on the local network", "Sample data removed before real use"],
          [("MediCore", "/medicore/")], "mc-queue"),
@@ -352,10 +356,23 @@ def about():
 </div>''', tone="white")
     team = section(f'''<div class="split">{head("The team behind the systems", "A Nairobi team of developers, designers and trainers.")}
 <div class="people"><div class="person"><span class="pp-av" aria-hidden="true">CN</span><div><h3>Caroline Mukami Njue</h3><p class="mono">Director</p><p>Communications Director of Pentarch Communications. Leads client relationships, product direction and the training that comes with every system.</p><a href="mailto:{MAIL}">{ic("mail")}{MAIL}</a></div></div>
-<div class="person"><span class="pp-av" aria-hidden="true">SM</span><div><h3>Stevedenzel Mungai Mukami</h3><p class="mono">Systems and web development</p><p>Builds Pentarch's websites, portals and plugins, including the Pentarch Portal, BeautySuite, Live Edit and the courses system.</p></div></div></div></div>''', tone="ink")
+<div class="person"><span class="pp-av" aria-hidden="true">SM</span><div><h3>Stevedenzel Mungai Mukami</h3><p class="mono">Systems and web development</p><p>Builds Pentarch's websites, portals and plugins, including the Pentarch Portal, BeautySuite, Live Edit and the courses system.</p></div></div></div></div>''', tone="ink", sid="team")
+    clients = section(head("Our clients", "Organisations running Pentarch systems and websites today.", "clients") + '<ul class="cl-list">' + "".join(f'<li><a href="{h}">{ic(ii)}<span><b>{n}</b><small>{w}</small></span></a></li>' for ii, n, w, h in [
+        ("school", "Glamourvine Hair & Beauty College", "Website and Pentarch Portal", "/work/#glamourvine"),
+        ("scissor", "Glamour by Beth", "Pentarch BeautySuite", "/beautysuite/"),
+        ("handshake", "SAM Elimu Charity", "Website and Pentarch EduSponsor", "/work/#samelimu"),
+        ("monitor", "Laqim Autoworld", "3D showroom and website", "/work/#laqim"),
+        ("map", "Zingira Pesa", "Website, StoryMaps, tools and QR Analytics", "/work/#zingira"),
+        ("book", "Pentarch Training Institute", "Website and course registration", "/work/#pti"),
+        ("shield", "Charles and Barker", "Website and compliance checklist", "/work/#cnb"),
+        ("web", "LFE Global Resource", "Website", "/websites/"),
+        ("web", "RARC Consulting", "Website", "/websites/"),
+        ("layers", "Johms", "Website and storage planner", "/websites/"),
+    ]) + "</ul>", sid="clients", tone="paper")
+
     nums = section('<div class="readout">' + "".join(f'<div class="ro"><b>{v}</b><span>{l}</span></div>' for v, l in [("10", "systems built and in use"), ("13", "websites running Live Edit"), ("50+", "interactive simulations"), ("2", "MediCore pilot facilities")]) + "</div>", tone="ink2", cls="sec-ro")
     cta = lead_section("other", "Get in touch", "Talk to us", "Tell us about your organisation and what you need to run.", ["Nairobi-based team", "Phone and WhatsApp support", "Written quote after the demo"])
-    return page("about", hero + who + pr + fam + team + nums + cta)
+    return page("about", hero + who + pr + fam + team + clients + nums + cta)
 
 
 # ============================================================== CONTACT
@@ -386,3 +403,45 @@ def dashboards():
 <p class="lead">Our dashboards, the AGILE dashboard and the StoryMaps built with Zingira Pesa are now on one page.</p>
 <div class="btns">{btn("/data-maps/", "Go to Data and maps", "p", "arrow")}{btn("/data-maps/#storymaps", "StoryMaps", "g")}</div></div>''', tone="ink", cls="sec-moved")
     return page("dashboards", body)
+
+
+# ============================================================== SERVICES
+def services():
+    hero = f'''<section class="hero hero-svc t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(17)}<div class="wrap hero-2"><div>{crumb("Services")}
+<p class="hs-k">{ic("layers")}Built to order</p><h1>When a ready-made product does not fit, we build it.</h1>
+<p class="hero-p">Websites, portals, dashboards and interactive experiences designed around how your organisation works. Every Pentarch product started this way, for one client, and is still in use.</p>
+<div class="btns">{btn("/contact/", "Tell us what you need", "p", "arrow")}{btn("/work/", "See what we have built", "g")}</div></div>
+<div class="svc-shots">{shot("portal-dashboard", "A college portal built for Glamourvine Hair & Beauty College", "shot-a")}{shot("se-dashboard", "A sponsorship portal built for SAM Elimu Charity", "shot-b")}</div></div></section>'''
+    S = [("websites", "web", "Websites", "Designed and coded by hand for each client, then handed over with Pentarch Live Edit so your team changes any word, picture or link by clicking on it.",
+          ["Custom design, no templates", "Fast on phones and slow connections", "Live Edit included on every site", "Hosting, domains and email set up for you"],
+          [("See the websites we built", "/websites/"), ("How Live Edit works", "/live-edit/")], "live-edit"),
+         ("systems", "layers", "Custom systems and portals", "Management systems built around your own process: who does what, who approves, and what each person sees. We start from a working demo and grow it with you.",
+          ["Student, member and client portals", "Fees, payments and M-Pesa", "Approvals with a full audit trail", "Reports your board and funders ask for"],
+          [("Glamourvine college portal", "/work/#glamourvine"), ("SAM Elimu sponsorship portal", "/work/#samelimu")], "portal-students"),
+         ("interactive", "monitor", "Interactive and 3D", "Experiences people stay on: 3D showrooms, simulations, games, planners and calculators that run in an ordinary browser.",
+          ["3D showrooms and product tours", "Simulations for teaching", "Games built from real data", "Planners and calculators that bring enquiries"],
+          [("Interactive and 3D work", "/labs/"), ("Pentarch SimLab", "/simlab/")], "sim-home"),
+         ("data", "map", "Dashboards and StoryMaps", "Programme and campaign data turned into dashboards, maps and reports that people can explore and act on.",
+          ["ArcGIS StoryMaps of field work", "Media and advocacy dashboards", "QR tracking for printed material", "Training so your team keeps them up to date"],
+          [("Dashboards and maps we built", "/data-maps/"), ("Zingira Pesa StoryMaps", "/data-maps/#storymaps")], "se-impact")]
+    body = ""
+    for n, (k, i, t, d, pts, links, sh) in enumerate(S):
+        lk = "".join(btn(h, l, "d" if j == 0 else "g", "arrow") for j, (l, h) in enumerate(links))
+        body += section(f'<article class="wcase{" wcase-r" if n % 2 else ""}"><div class="wc-txt"><p class="case-p">{ic(i)}Service {n + 1:02d}</p><h2>{t}</h2><p class="lead">{d}</p>{ticks(pts)}<div class="btns">{lk}</div></div><div class="wc-vis">{shot(sh, t)}</div></article>',
+                        sid=k, tone="paper" if n % 2 == 0 else "white")
+    how = section(head("How a build runs", "You approve each stage, and your team is trained before we hand over.") + steps([
+        ("Listen", "We meet your team and see how the work is done today."),
+        ("Demo", "A working demo with your own names and sample data, usually within two weeks."),
+        ("Build", "We build in short rounds and you test each one."),
+        ("Train", "Hands-on training for every role, with a short guide."),
+        ("Support", "Phone and WhatsApp support from the people who built it.")]), tone="ink2")
+    cta = lead_section("other", "Send my request", "Tell us what you need built", "A short description is enough. We will call you back and arrange a meeting.", ["One call, no obligation", "A written quote after the demo", "Built and supported in Nairobi"])
+    return page("services", hero + body + how + cta)
+
+
+def solutions():
+    """Old address: sector content now lives on the product pages; send visitors to /products/."""
+    body = section(f'''<div class="moved" data-redirect="/products/"><meta http-equiv="refresh" content="0; url=/products/">
+<p class="hs-k">{ic("layers")}Products</p><h1>This page has moved to Products</h1>
+<div class="btns">{btn("/products/", "Go to Products", "p", "arrow")}</div></div>''', tone="ink", cls="sec-moved")
+    return page("solutions", body)

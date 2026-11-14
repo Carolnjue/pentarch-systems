@@ -42,13 +42,13 @@ def roles_grid(items):
 
 def portal():
     hero = f'''<section class="hero hero-portal t-ink"><div class="hero-grid" aria-hidden="true"></div><div class="wrap">
-<div class="hp-txt">{crumb(("Systems", "/products/"), "Portal")}<p class="hs-k">{ic("school")}Pentarch Portal · college management</p>
+<div class="hp-txt">{crumb(("Products", "/products/"), "Portal")}<p class="hs-k">{ic("school")}Pentarch Portal · college management</p>
 <h1>One record for each student, from the first application to the alumni list.</h1>
 <p class="hero-p">A complete management portal for schools, colleges and training centres, running inside your own website. Applicants become students the moment their admission fee is confirmed, and everyone gets a dashboard that fits their role.</p>
 <div class="btns">{btn("#demo", "Book a Portal demo", "p", "arrow")}{btn("#journey", "Follow a student through it", "g")}</div>
 <ul class="hero-facts"><li>{ic("pin")}Live at a college in Machakos</li><li>{ic("users")}A dashboard for every role</li><li>{ic("web")}Runs inside your WordPress website</li></ul></div>
 <div class="hp-path">{journey()}</div>
-<div class="hp-shots">{shot("portal-dashboard", "The Pentarch Portal admin dashboard at Glamourvine Hair & Beauty College", "shot-a", GVU + "/dashboard")}{portal_cert()}</div></div></section>'''
+<div class="hp-shots">{shot("portal-dashboard", "The Pentarch Portal admin dashboard at Glamourvine Hair & Beauty College", "shot-a", GVU + "/dashboard")}{shot("portal-cert-full", "A Pentarch Portal certificate with its verification code", "shot-b")}</div></div></section>'''
 
     T = [("adm", "Admissions and fees", "users", feat_panel("Applications that become students",
             "Applications come in from your website with documents attached. Admission numbers and sign-ins are issued once the admission fee is confirmed against M-Pesa.",
@@ -180,12 +180,12 @@ def bridal_mock():
 
 def beautysuite():
     hero = f'''<section class="hero hero-salon t-white"><div class="sal-art" aria-hidden="true">{circuit(31, 1200, 600, 14, 40, 0)}</div><div class="wrap hero-2">
-<div>{crumb(("Systems", "/products/"), "BeautySuite")}<p class="hs-k">{ic("scissor")}Pentarch BeautySuite · salons and spas</p>
+<div>{crumb(("Products", "/products/"), "BeautySuite")}<p class="hs-k">{ic("scissor")}Pentarch BeautySuite · salons and spas</p>
 <h1>The front desk, the bookings and fair commissions, on one screen.</h1>
 <p class="hero-p">Front desk, online booking, payments and staff commissions in one system for salons, spas and barbershops. Built with a busy bridal salon, so it handles real days like a four-stylist wedding package before breakfast.</p>
 <div class="btns">{btn("#demo", "Book a BeautySuite demo", "p", "arrow")}{btn("#journey", "Follow a client's visit", "g")}</div>
 <p class="small hero-note">Live for Glamour by Beth, the salon that owns Glamourvine Hair &amp; Beauty College.</p></div>
-<div class="sal-vis">{salon_cal()}</div></div></section>'''
+<div class="sal-vis">{duo("salon-desk", "BeautySuite front desk at Glamour by Beth", "salon-calendar", "BeautySuite bookings calendar")}</div></div></section>'''
 
     f = [("cal", "Bookings and walk-ins", "Online booking from your website and a front-desk diary for walk-ins, calls and WhatsApp."),
          ("star", "Services and packages", "Services, prices and packages, including bridal teams with several stylists on one booking."),
@@ -245,11 +245,11 @@ def learning():
 # ============================================================== NGO PORTAL
 def ngo():
     hero = f'''<section class="hero hero-ngo t-paper"><div class="wrap">
-<div class="ngo-txt">{crumb(("Systems", "/products/"), "Pentarch EduSponsor")}<p class="hs-k">{ic("handshake")}Pentarch EduSponsor</p>
+<div class="ngo-txt">{crumb(("Products", "/products/"), "Pentarch EduSponsor")}<p class="hs-k">{ic("handshake")}Pentarch EduSponsor</p>
 <h1>Every sponsor, every student, every shilling, traced.</h1>
 <p class="hero-p">For charities and education sponsorship programmes. Track students and schools, sponsors and donations, fees paid to schools, letters between sponsors and students, and the impact years later.</p>
 <div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("https://samelimu.pentarchcommunications.com/", "See it live for SAM Elimu", "g", "ne", True)}</div></div>
-{ngo_flow()}</div></section>'''
+{duo("se-dashboard", "Pentarch EduSponsor programme dashboard", "se-sponsor", "Pentarch EduSponsor sponsor view")}</div></section>'''
     mods = [("school", "Students and schools", "Each student's school, class, results and needs, with a tracker across the programme."),
             ("handshake", "Sponsors and donations", "Sponsor records, gifts and online donations by card, PayPal or M-Pesa."),
             ("cash", "Fees and disbursements", "Fees owed and paid to each school, requested, approved and paid with a reference."),
@@ -280,11 +280,11 @@ def ngo():
 # ============================================================== QR ANALYTICS
 def qr():
     hero = f'''<section class="hero hero-qr t-ink"><div class="qr-field" aria-hidden="true">{qr_art(9, 29)}</div><div class="wrap hero-2">
-<div>{crumb(("Systems", "/products/"), "QR Analytics")}<p class="hs-k">{ic("scan")}QR Analytics · campaign tracking</p>
+<div>{crumb(("Products", "/products/"), "QR Analytics")}<p class="hs-k">{ic("scan")}Pentarch QR Analytics · campaign tracking</p>
 <h1>Know which poster was scanned, where and when.</h1>
 <p class="hero-p">Create trackable QR codes for printed campaigns, events and publications. Every scan is counted by date, device and country, and clients get their own reports.</p>
 <div class="btns">{btn("#demo", "Book a demo", "p", "arrow")}{btn("#features", "See the features", "g")}</div></div>
-<div class="qr-vis">{qr_dash()}<div class="qr-chip">{qr_art(3, 21)}</div></div></div></section>'''
+<div class="qr-vis">{solo("qr-dashboard", "Pentarch QR Analytics dashboard for Zingira Pesa")}</div></div></section>'''
     f = [("chart", "Dashboard", "Scans across all your codes and campaigns in one view."),
          ("clock", "Analytics over time", "Scans by day and hour, so you see what a launch or an event did."),
          ("phone", "Devices", "Which kinds of phones and devices scanned each code."),

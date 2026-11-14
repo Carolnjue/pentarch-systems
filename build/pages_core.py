@@ -14,31 +14,21 @@ LE_SITES = [
 # ============================================================== HOME
 def home():
     slides = [
-        ("medicore", "health", "Pentarch MediCore",
-         "Run the whole facility, even when the internet is down.",
-         "Patients, queue, lab, wards, pharmacy and billing for pharmacies, clinics and hospitals. MediCore runs on your own computers over the local network.",
-         [btn(MEDICORE + "/try", "Try it free for 30 days", "p", "arrow", True), btn("/medicore/", "See MediCore", "g")],
-         f'<div class="hs-dev hs-dev-mc">{medicore_queue()}{ecg()}</div>'),
-        ("pos", "cart", "Pentarch POS",
-         "Sell, count stock and track credit from one till.",
-         "Set up for 18 kinds of Kenyan business, from a duka to a restaurant. M-Pesa, KRA tax codes and Kiswahili are built in, and it keeps selling offline.",
-         [btn("/pos/#live-demo", "Open the live demo", "p", "play"), btn("/pos/", "See Pentarch POS", "g")],
-         f'<div class="hs-dev hs-dev-pos"><div class="mon">{pos_till()}</div></div>'),
-        ("portal", "school", "Pentarch Portal",
-         "From application to a certificate anyone can verify.",
-         "Admissions, fees confirmed by M-Pesa, classes, online learning, gradebook, hostel, graduation and alumni for colleges. Live at Glamourvine Hair & Beauty College.",
-         [btn("/portal/", "See the Portal", "p", "arrow"), btn("https://glamourvinecollege.com/portal/verify", "Verify a certificate", "g", "ne", True)],
-         f'<div class="hs-dev hs-dev-cert">{portal_cert()}</div>'),
-        ("liveedit", "pen", "Pentarch Live Edit",
-         "We build it custom. You edit it yourself.",
-         "The engine inside every website we build. Click any text to type, click a picture to change it, and every save is kept so you can undo.",
-         [btn("/live-edit/", "See how Live Edit works", "p", "arrow"), btn("/websites/", "Sites built with it", "g")],
-         f'<div class="hs-dev hs-dev-le">{browser("johms.pentarchcommunications.com", liveedit_mock())}</div>'),
-        ("simlab", "lab", "Pentarch SimLab",
-         "Science you can touch, in any browser.",
-         "More than 50 interactive simulations for college and university students, from engines and circuits to the heart and pharmacology. Free to open, nothing to install.",
-         [btn("/simlab/", "Explore SimLab", "p", "arrow"), btn("https://simlab.pentarchcommunications.com/", "Open SimLab", "g", "ne", True)],
-         f'<div class="hs-dev hs-dev-sim">{sim_mock()}</div>'),
+        ("products", "layers", "Products",
+         "Systems Kenyan organisations run on, even when the internet is down.",
+         "Pharmacies, shops, salons, colleges and charities run on Pentarch systems every day, with M-Pesa and KRA tax codes built in and a demo before you commit.",
+         [btn("/products/", "See our products", "p", "arrow"), btn("/pos/#live-demo", "Try the POS now", "g", "play")],
+         duo("mc-dashboard", "Pentarch MediCore dashboard at a pharmacy", "pos-sell", "Pentarch POS sell screen")),
+        ("services", "web", "Services",
+         "Websites and portals built around you, that your team edits itself.",
+         "We design and build each website, portal and dashboard by hand, then hand it over with Pentarch Live Edit so you change any word or picture by clicking on it.",
+         [btn("/services/", "See our services", "p", "arrow"), btn("/live-edit/", "How Live Edit works", "g")],
+         duo("live-edit", "Pentarch Live Edit open on a client website", "portal-dashboard", "A college portal built for Glamourvine")),
+        ("work", "monitor", "Our Work",
+         "Experiences people stay on, built for real clients.",
+         "A walk-through 3D car showroom, more than 50 science simulations and a media and advocacy dashboard, all running in an ordinary browser.",
+         [btn("/work/", "See our work", "p", "arrow"), btn("https://laqimautoworld.com/showroom/", "Enter the 3D showroom", "g", "ne", True)],
+         duo("laqim-showroom", "Laqim Autoworld 3D showroom", "sim-heart", "Pentarch SimLab heart simulation")),
     ]
     sl, tb = "", ""
     for n, (k, i, name, h, p, b, vis) in enumerate(slides):
@@ -165,7 +155,9 @@ def home():
     cta = lead_section("other", "Book my demo", "See it working for your organisation",
                        "Tell us what you run and when suits you. We call to confirm, then show you the system at your premises or online.",
                        ["A demo set up for your type of organisation", "Honest advice on the right system and devices", "No obligation to buy"])
-    return page("home", hero + readout + products + why + engine + labs + agile_section("dashboard", "ink", True) + sectors_s + how + stack_s + cases_s + agents + faqs + cta)
+    sv = "".join(f'<li><a href="{h}">{ic(i)}<h3>{t}</h3><p>{d}</p><span class="sv-go">Learn more{ic("arrow")}</span></a></li>' for i, t, d, h in SERVICES)
+    services_s = section(head("Built to order", "When a ready-made product does not fit, we build what you need.", "services") + f'<ul class="caps caps-4 sv-cards">{sv}</ul>', tone="white")
+    return page("home", hero + readout + products + services_s + why + cases_s + how + agents + faqs + cta)
 
 
 # ============================================================== PRODUCTS
@@ -173,11 +165,11 @@ def products():
     lines = [("cmd", "$ pentarch ls systems/"), ("", "")]
     for k, t, i, d, h in PRODUCTS:
         lines.append(("row", f'<a href="{h}">{t.replace("Pentarch ", "").lower().replace(" & ", "-").replace(" ", "-")}/</a><span>{d}</span>'))
-    lines += [("", ""), ("ok", "8 products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
+    lines += [("", ""), ("ok", "7 products · all in use · demos available"), ("cmd", '$ <i class="cur"></i>')]
     hero = f'''<section class="hero hero-term t-ink"><div class="hero-grid" aria-hidden="true"></div>{circuit(9)}
-<div class="wrap hero-2"><div>{crumb("Systems")}<h1>Software we build, install and support</h1><p class="hero-p">Eight products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
+<div class="wrap hero-2"><div>{crumb("Products")}<h1>Software we build, install and support</h1><p class="hero-p">Seven products, each first built for a client who uses it every day. Choose one to see what it does, how it is deployed and how to try it.</p>
 <div class="btns">{btn("/contact/", "Book a demo", "p", "arrow")}{btn("#compare", "Compare products", "g")}</div></div>
-{terminal("pentarch@systems ~", lines, "term-xl")}</div></section>'''
+{duo("pos-home", "Pentarch POS home screen", "salon-desk", "Pentarch BeautySuite front desk")}</div></section>'''
 
     detail = {
         "medicore": ("For pharmacies, clinics and hospitals", "Counter with batches and expiry, patients, queue and triage, lab, wards and beds, maternity, billing, shifts and cash-up, stock, branches and MOH reports.", "Runs on the facility computer and local network; works offline", "30-day online demo", "mc-dashboard"),
@@ -199,9 +191,9 @@ def products():
                  f'<div class="btns">{btn(h, "Explore " + t.replace("Pentarch ", ""), "d", "arrow")}</div></div><div class="prow-vis">{vis}</div></article>')
     lineup = section(rows, cls="sec-prows")
 
-    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
-                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Your website", "Desk, tablet, phone", "Browser", "Browser", "Browser", "WordPress"]),
-                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live college site", "Demo on request", "Demo on request", "Free, open it now", "Demo on request", "This website"])]
+    cmp_rows = [("Works without internet", ["Yes, on the local network", "Yes, syncs later", "Needs internet", "Needs internet", "Needs internet", "Needs internet", "Needs internet"]),
+                ("Runs on", ["Facility computer + LAN", "Your PC or our till", "Your website", "Desk, tablet, phone", "Browser", "Browser", "WordPress"]),
+                ("Way to try", ["30-day online demo", "Live demo, one month free", "Live college site", "Demo on request", "Demo on request", "Demo on request", "This website"])]
     th = "".join(f'<th scope="col">{t.replace("Pentarch ", "")}</th>' for k, t, *_ in PRODUCTS)
     tb = "".join(f'<tr><th scope="row">{r}</th>' + "".join(f"<td>{v}</td>" for v in vals) + "</tr>" for r, vals in cmp_rows)
     compare = section(head("Compare at a glance") + f'<div class="tbl-wrap" tabindex="0" role="region" aria-label="Product comparison"><table class="tbl"><thead><tr><td></td>{th}</tr></thead><tbody>{tb}</tbody></table></div>', sid="compare", tone="white")
@@ -220,10 +212,10 @@ def products():
 # ============================================================== LIVE EDIT
 def live_edit():
     hero = f'''<section class="hero hero-le t-paper"><div class="le-dots" aria-hidden="true"></div><div class="wrap">
-<div class="le-hero-txt">{crumb(("Systems", "/products/"), "Live Edit")}<p class="hs-k">{ic("pen")}Pentarch Live Edit · WordPress plugin</p>
+<div class="le-hero-txt">{crumb(("Products", "/products/"), "Live Edit")}<p class="hs-k">{ic("pen")}Pentarch Live Edit · WordPress plugin</p>
 <h1>We build it custom. You edit it yourself.</h1><p class="hero-p">Live Edit is the engine inside every website Pentarch builds. Your site is designed and coded by hand, and you still change any word, picture or link by clicking on it.</p>
 <div class="btns">{btn("#try", "Try it on this page", "p", "pen")}{btn("/websites/", "Sites running Live Edit", "g")}</div></div>
-<div class="le-stage">{browser("your-site.co.ke", liveedit_mock(), "bw-xl bw-glow")}<span class="le-tip t1">{ic("pen")}Click text to type</span><span class="le-tip t2">{ic("layers")}Duplicate or delete</span><span class="le-tip t3">{ic("clock")}Every save kept</span></div>
+<div class="le-stage">{solo("live-edit", "Pentarch Live Edit open on a client website")}<span class="le-tip t1">{ic("pen")}Click text to type</span><span class="le-tip t2">{ic("layers")}Duplicate or delete</span><span class="le-tip t3">{ic("clock")}Every save kept</span></div>
 </div></section>'''
 
     caps = [("pen", "Click any text to type", "Headings, paragraphs, lists and buttons. What you see is what visitors get, with the site's own fonts and spacing."),
