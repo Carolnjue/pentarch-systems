@@ -103,7 +103,7 @@ def labs():
            ("Stopping distance", "Pick a car, speed, surface and driver state, then see whether it stops before the crossing."),
            ("Performance map", "Plot any two metrics for every car, with bubble size for weight and colour for body style.")]
     e = "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in eng)
-    engine = section(f'''<div class="split">{head("Under the Hood lab", "How cars work, shown with animated 3D models you can orbit, slow down and take apart.")}<div>{engine_mock()}{btn(LQ + "/lab/", "Open the lab", "d", "ne", True)}</div></div><ul class="cards6">{e}</ul>''', sid="engine", tone="white")
+    engine = section(f'''<div class="split">{head("Under the Hood: engine cutaways", "How cars work, shown with animated 3D models you can orbit, slow down and take apart.")}<div>{engine_mock()}{btn(LQ + "/lab/", "Open the lab", "d", "ne", True)}</div></div><ul class="cards6">{e}</ul>''', sid="engine", tone="white")
 
     games = [("Race simulator", "Any two cars, any conditions. Power, weight, grip, gearbox, drag and the thin air at Nairobi's altitude decide the result, over 0–100 km/h, a quarter mile, 1 km or an 80–120 overtake."),
              ("Hot lap", "Drive any showcase car round the Laqim circuit in 3D and beat your best lap."),
@@ -242,7 +242,7 @@ def data_maps():
 # ============================================================== WEBSITES
 SITES = [
     ("Glamourvine Hair & Beauty College", "glamourvinecollege.com", "https://glamourvinecollege.com/", "College", "Course planner, online application, student Portal and certificate verification.", ["Portal", "BeautySuite"]),
-    ("Laqim Autoworld", "laqimautoworld.com", "https://laqimautoworld.com/", "Car showcase", "3D showroom, Under the Hood lab, games and a rare-parts finder.", ["Three.js", "Custom plugin"]),
+    ("Laqim Autoworld", "laqimautoworld.com", "https://laqimautoworld.com/", "Car showcase", "3D showroom, Under the Hood engine cutaways, games and a rare-parts finder.", ["Three.js", "Custom plugin"]),
     ("Pentarch Training Institute", "pentarchtraininginstitute.co.ke", "https://pentarchtraininginstitute.co.ke/", "Training", "33 courses in five schools, intakes with seats left and online registration.", ["Courses plugin", "M-Pesa"]),
     ("Zingira Pesa", "zingirapesa.com", "https://zingirapesa.com/", "Advisory", "Nature-finance advisory site with free calculators, insights, a glossary and an interactive network globe.", ["Tools", "QR Analytics"]),
     ("Pentarch Communications", "pentarchcommunications.com", "https://pentarchcommunications.com/", "Studio", "Communication, design and digital studio with hover mega menus and a portfolio of work.", ["Mega menu"]),
@@ -295,7 +295,7 @@ def work():
          ["College website with a course planner and online application", "Pentarch Portal: admissions, fees, LMS, gradebook, hostel, graduation and certificates", "Certificate verification by QR code", "BeautySuite for Glamour by Beth, the owner salon"],
          [("Portal", "/portal/"), ("BeautySuite", "/beautysuite/"), ("Visit the site", "https://glamourvinecollege.com/")], "portal-verify"),
         ("laqim", "Laqim Autoworld", "Nairobi", "A car showcase where visitors explore, learn how cars work and play.",
-         ["3D virtual showroom with brand pavilions and a guided tour", "Under the Hood lab with engine cutaways and an engine builder", "Race simulator, hot lap, launch control and more games", "Rare parts finder"],
+         ["3D virtual showroom with brand pavilions and a guided tour", "Under the Hood: engine cutaways and an engine builder", "Race simulator, hot lap, launch control and more games", "Rare parts finder"],
          [("Interactive websites", "/labs/#showroom"), ("Visit the site", "https://laqimautoworld.com/")], "laqim-showroom"),
         ("samelimu", "SAM Elimu Charity", "Kenya and Philadelphia", "A charity that has supported children in rural Kenya through school since 2002.",
          ["New charity website", "Portal for students, schools, sponsors, donations, fees, letters and alumni", "Online donations by card, PayPal or M-Pesa", "Sponsor progress tracking"],

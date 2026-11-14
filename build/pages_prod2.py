@@ -141,7 +141,7 @@ def portal():
         ("Can we use our own certificate design?", "Yes. The certificate is designed for your college, with the verification QR code added."),
     ])}</div>''', tone="white")
     cta = lead_section("portal", "Book a Portal demo", "See the Portal with your courses", "Tell us about your college. We will show you the Portal with your own courses and fees.", ["Set up for your courses and intakes", "Works on your college website", "No obligation"])
-    return page("portal", hero + feats + jr + cert + student + trainer + office + roles + story + how + faqs + cta)
+    return page("portal", hero + jr + cert + roles + office + story + how + faqs + cta)
 
 
 # ============================================================== BEAUTYSUITE
@@ -215,7 +215,7 @@ def beautysuite():
         ("Can we take deposits for bridal bookings?", "Yes. The quote and deposit fill in from your price list when the booking is made, and the balance is settled at checkout."),
     ])}</div>''')
     cta = lead_section("beautysuite", "Book a BeautySuite demo", "See BeautySuite on your salon floor", "Tell us how many stylists you have and how you take bookings today.", ["Set up with your services", "Your commission rules", "No obligation"])
-    return page("beautysuite", hero + feats + jr + comm + live + pair + faqs + cta)
+    return page("beautysuite", hero + jr + comm + live + pair + faqs + cta)
 
 
 # ============================================================== LEARNING
