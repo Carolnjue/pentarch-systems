@@ -8,17 +8,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function pss_products() {
 	return array(
-		'medicore'    => 'Pentarch MediCore (pharmacy, clinic or hospital)',
-		'pos'         => 'Pentarch POS (shops and businesses)',
-		'portal'      => 'Pentarch Portal (school or college)',
+		'medicore' => 'Pentarch MediCore (pharmacy, clinic or hospital)',
+		'pos' => 'Pentarch POS (shops and businesses)',
+		'portal' => 'Pentarch Portal (school or college)',
 		'beautysuite' => 'Pentarch BeautySuite (salon or spa)',
-		'learning'    => 'Courses and learning system',
-		'simlab'      => 'Pentarch SimLab for my students',
-		'website'     => 'A new website or a website revamp',
-		'data'        => 'Dashboards and StoryMaps',
-		'custom'      => 'A custom system',
-		'agent'       => 'I want to become a sales agent',
-		'other'       => 'Something else',
+		'learning' => 'Courses and learning system',
+		'simlab' => 'Pentarch SimLab for my students',
+		'ngo' => 'NGO and Sponsorship Portal',
+		'qr' => 'QR Analytics for a campaign',
+		'website' => 'A new website or a website revamp',
+		'data' => 'Dashboards and StoryMaps',
+		'custom' => 'A custom system',
+		'agent' => 'I want to become a sales agent',
+		'other' => 'Something else',
 	);
 }
 

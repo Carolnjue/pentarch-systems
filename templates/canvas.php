@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<main id="pss-main">
+<main id="pss-content">
 <?php
 while ( have_posts() ) {
 	the_post();
