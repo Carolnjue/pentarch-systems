@@ -430,7 +430,7 @@
   }
 
   /* ---------- viewer: open client sites and tools inside this site */
-  var VIEW_HOSTS = /(^|\.)(laqimautoworld\.com|glamourvinecollege\.com|pentarchtraininginstitute\.co\.ke|zingirapesa\.com|lfesolutions\.co\.ke|rarcconsulting\.com|pentarchcommunications\.com|storymaps\.arcgis\.com)$|^(pos|medicore|complyscope)\.pentarchsystemssolutions\.co\.ke$/i;
+  var VIEW_HOSTS = /(^|\.)(laqimautoworld\.com|glamourvinecollege\.com|pentarchtraininginstitute\.co\.ke|zingirapesa\.com|lfesolutions\.co\.ke|rarcconsulting\.com|pentarchcommunications\.com|storymaps\.arcgis\.com)$|^(pos|medicore|complyscope)\.(pss\.africa|pentarchsystemssolutions\.co\.ke)$/i;
   var VIEW_SKIP = /\/(signup|login|account|portal\/?$|agents|try|wp-admin|wp-login)/i;
   var vw = null;
   function viewerEl() {
