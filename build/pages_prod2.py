@@ -275,7 +275,7 @@ def qr():
 
 
 # ============================================================== COMPLYSCOPE
-CS = "https://complyscope.pentarchsystemssolutions.co.ke"
+CS = "https://complyscope.pss.africa"
 
 
 def complyscope():
@@ -310,7 +310,7 @@ def complyscope():
     guard_s = section(f'''<div class="split">{head("It tracks and reminds. You decide and file.", "ComplyScope is advisory tracking, not legal or tax advice. Rules and dates come from official sources and are being reviewed by a professional during the pilot.")}
 <ul class="roles">{gd}</ul></div>''', tone="ink")
     counties = section(f'''<div class="split">{head("Permits in all 47 counties", "Add each branch with its county and ComplyScope tracks its permit and renewal. The county guide shows the permit name, where to apply and pay, and how long it lasts.")}
-<div>{shot("cs-counties", "ComplyScope county permit guide", "shot-n", "complyscope.pentarchsystemssolutions.co.ke/counties")}<div class="btns">{btn(CS + "/counties", "Open the county guide", "d", "ne", True)}</div></div></div>''', tone="white")
+<div>{shot("cs-counties", "ComplyScope county permit guide", "shot-n", "complyscope.pss.africa/counties")}<div class="btns">{btn(CS + "/counties", "Open the county guide", "d", "ne", True)}</div></div></div>''', tone="white")
     how = section(head("From sign-up to audit-ready") + steps([("Profile the business", "Legal form, branches and counties, staff, turnover, sector and data use."),
                                                               ("Get the gap report", "Every obligation scored, with its status, due date and next step."),
                                                               ("Stay ahead of dates", "Mark filings with references, add dates to your calendar and invite your accountant."),

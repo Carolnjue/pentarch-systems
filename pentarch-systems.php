@@ -2,11 +2,11 @@
 /**
  * Plugin Name:       Pentarch Systems Solutions Site
  * Description:       The Pentarch Systems Solutions website: page designs, header and footer (edited with Pentarch Live Edit), demo requests and the site set-up.
- * Version:           2.0.16
+ * Version:           2.1.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            Pentarch Systems Solutions
- * Author URI:        https://pentarchsystemssolutions.co.ke
+ * Author URI:        https://pss.africa
  * Text Domain:       pentarch-systems
  */
 
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PSS_VER', '2.0.16' );
+define( 'PSS_VER', '2.1.0' );
 define( 'PSS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PSS_URL', plugin_dir_url( __FILE__ ) );
 

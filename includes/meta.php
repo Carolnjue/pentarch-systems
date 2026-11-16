@@ -114,7 +114,7 @@ add_action(
 			'name'         => 'Pentarch Systems Solutions',
 			'url'          => home_url( '/' ),
 			'logo'         => (string) wp_get_attachment_url( (int) get_theme_mod( 'custom_logo' ) ),
-			'email'        => 'info@pentarchsystemssolutions.co.ke',
+			'email'        => 'info@pss.africa',
 			'telephone'    => '+254729455912',
 			'address'      => array(
 				'@type'           => 'PostalAddress',

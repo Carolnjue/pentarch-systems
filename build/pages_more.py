@@ -343,7 +343,7 @@ def about():
     pr = section(head("What you can expect from us") + f'<ul class="caps caps-3">{p}</ul>', tone="paper")
     fam = section(f'''{head("Part of the Pentarch family")}<div class="fam">
 <a class="fam-c" href="https://pentarchcommunications.com/" target="_blank" rel="noopener"><img src="{LOGO}" alt="Pentarch Communications" width="168" height="56" loading="lazy"><p>Strategic communication, design and digital studio.</p><span>pentarchcommunications.com{ic("ne")}</span></a>
-<div class="fam-c fam-me"><span class="fam-ic">{ic("server")}</span><h3>Pentarch Systems Solutions</h3><p>Systems, plugins and websites.</p><span class="mono">pentarchsystemssolutions.co.ke</span></div>
+<div class="fam-c fam-me"><span class="fam-ic">{ic("server")}</span><h3>Pentarch Systems Solutions</h3><p>Systems, plugins and websites.</p><span class="mono">pss.africa</span></div>
 <a class="fam-c" href="https://pentarchtraininginstitute.co.ke/" target="_blank" rel="noopener"><span class="fam-ic">{ic("book")}</span><h3>Pentarch Training Institute</h3><p>Professional certificate courses, taught by practitioners.</p><span>pentarchtraininginstitute.co.ke{ic("ne")}</span></a>
 </div>''', tone="white", sid="family")
 

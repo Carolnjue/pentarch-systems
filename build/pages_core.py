@@ -7,7 +7,7 @@ LE_SITES = [
     ("Laqim Autoworld", "laqimautoworld.com", "https://laqimautoworld.com/"),
     ("Pentarch Training Institute", "pentarchtraininginstitute.co.ke", "https://pentarchtraininginstitute.co.ke/"),
     ("Johms Interiors", "johms.pentarchcommunications.com", "https://johms.pentarchcommunications.com/"),
-    ("Pentarch Systems Solutions", "pentarchsystemssolutions.co.ke", "/"),
+    ("Pentarch Systems Solutions", "pss.africa", "/"),
 ]
 
 

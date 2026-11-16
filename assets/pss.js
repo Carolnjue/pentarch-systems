@@ -199,7 +199,7 @@
   function mcTry() {
     var f = d.getElementById('mcx-try');
     if (!f || !once(f, 'mcx')) return;
-    var type = 'pharmacy', API = 'https://medicore.pentarchsystemssolutions.co.ke', err = d.getElementById('mcx-err');
+    var type = 'pharmacy', API = 'https://medicore.pss.africa', err = d.getElementById('mcx-err');
     $$('.seg button', f).forEach(function (b) {
       b.addEventListener('click', function () {
         type = b.getAttribute('data-t');

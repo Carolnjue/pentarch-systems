@@ -236,7 +236,7 @@ function pss_admin_page() {
 	}
 	echo '<form method="post">';
 	wp_nonce_field( 'pss_setup' );
-	echo '<table class="form-table"><tr><th>Send demo requests to</th><td><input type="email" class="regular-text" name="pss_notify" value="' . esc_attr( get_option( 'pss_notify', 'info@pentarchsystemssolutions.co.ke' ) ) . '"></td></tr>';
+	echo '<table class="form-table"><tr><th>Send demo requests to</th><td><input type="email" class="regular-text" name="pss_notify" value="' . esc_attr( get_option( 'pss_notify', 'info@pss.africa' ) ) . '"></td></tr>';
 	echo '<tr><th>Designs</th><td><label><input type="checkbox" name="pss_overwrite" value="1"> Restore the original page designs (edits made with Live Edit stay in each block\'s revisions)</label></td></tr></table>';
 	echo '<p><button class="button button-primary button-hero" name="pss_go" value="1">Set up the site</button></p></form>';
 	echo '<p>Demo requests from the website are listed under <a href="' . esc_url( admin_url( 'edit.php?post_type=pss_lead' ) ) . '">Demo requests</a>.</p></div>';

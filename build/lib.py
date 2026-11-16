@@ -7,14 +7,14 @@ plugin at import time.
 """
 import html, random
 
-SITE = "https://pentarchsystemssolutions.co.ke"
-POS = "https://pos.pentarchsystemssolutions.co.ke/pos/"
-MEDICORE = "https://medicore.pentarchsystemssolutions.co.ke"
+SITE = "https://pss.africa"
+POS = "https://pos.pss.africa/pos/"
+MEDICORE = "https://medicore.pss.africa"
 SIMLAB = "https://simlab.pentarchcommunications.com"
 PHONE = "+254 729 455 912"
 TEL = "tel:+254729455912"
 WA = "https://wa.me/254729455912"
-MAIL = "info@pentarchsystemssolutions.co.ke"
+MAIL = "info@pss.africa"
 LOGO = "{{media:https://pentarchcommunications.com/wp-content/uploads/2026/01/cropped-LOGO-LOGO-TRANSPARENT-200x66.png}}"
 LOGO_W = "{{media:pss-logo-white.png}}"
 MARK = "{{media:pss-mark.png}}"
@@ -35,8 +35,8 @@ def ic(name, cls=""):
 URLS = {  # address bar text for each real screenshot (from the screens themselves)
     "agile": "pentarchcommunications.com/AGILE-digital-media-and-advocacy-dashboard",
     "laqim-showroom": "laqimautoworld.com/showroom",
-    "pos-home": "pos.pentarchsystemssolutions.co.ke/pos · home",
-    "pos-sell": "pos.pentarchsystemssolutions.co.ke/pos · sell",
+    "pos-home": "pos.pss.africa/pos · home",
+    "pos-sell": "pos.pss.africa/pos · sell",
     "qr-dashboard": "zingirapesa.com/qr/dashboard",
     "glamour-salon": "glamourvinecollege.com/salon",
     "live-edit": "pentarchtraininginstitute.co.ke · Live Edit on",
